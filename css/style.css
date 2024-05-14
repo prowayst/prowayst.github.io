@@ -3073,7 +3073,7 @@ figure.effect-apollo:hover p {
 
 }
 
-@media(max-width:390px) {
+@media(max-width:390) {
     .col-md-2.agile-footer-grid iframe {
         width: 300px !important;
     }
