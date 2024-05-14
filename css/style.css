@@ -3139,6 +3139,11 @@ figure.effect-apollo:hover p {
         font-size: 1.5em;
     }
 
+    .w3layouts-logo h2 {
+        font-size: 1.2em;
+        max-width: 100%;
+    }
+
 }
 
 @media(max-width:320px) {
