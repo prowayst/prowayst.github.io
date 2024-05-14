@@ -2946,6 +2946,7 @@ figure.effect-apollo:hover p {
 
     .w3layouts-logo h2 {
         font-size: 1.3em;
+        max-width: 100%;
     }
 
     .agileinfo-social-grids {
@@ -3068,8 +3069,6 @@ figure.effect-apollo:hover p {
     .reply {
         margin-left: 1em;
     }
-
-
 }
 
 
