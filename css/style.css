@@ -2965,7 +2965,7 @@ figure.effect-apollo:hover p {
     }
 
     .banner {
-        background: url(../images/banner.jpg) no-repeat 7px 163px;
+        background: url(../images/banner.jpg) no-repeat 0px 163px;
         background-size: cover;
         padding: 11em 0 0em;
     }
