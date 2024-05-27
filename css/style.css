@@ -2949,7 +2949,7 @@ figure.effect-apollo:hover p {
 
     .w3layouts-logo h2 {
         font-size: 1.2em;
-        max-width: 100%;
+        max-width: 100%;        
     }
 
     .agileinfo-social-grids {
@@ -2965,11 +2965,10 @@ figure.effect-apollo:hover p {
     }
 
     .banner {
-        background: url(../images/banner.jpg) no-repeat 8px 163px;
+        background: url(../images/banner.jpg) no-repeat 10px 163px;
         background-size: cover;
-        padding: 10em 0 0em;
+        padding: 11em 0 0em;
     }
-
 
     .about-banner {
         padding: 0 !important;
@@ -3139,8 +3138,8 @@ figure.effect-apollo:hover p {
     }
 
     .agileinfo-social-grids {
-        float: left;
-        margin-left: 1em;
+        float: right;
+        margin-right: 4px;
     }
 
     .w3layouts-logo h2 {
