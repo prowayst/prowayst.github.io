@@ -57,7 +57,7 @@
 				var date = row["Date"];
 				var feedback = row["Data"].replace(/\n/g, "<br>");
 				var image = row["Image"];
-			
+
 				var htmlContent = '<div class="agileits_three_comment_grid">' +
 					'<div class="agileits_tom">' +
 					'<img src="' + image + '" alt="" class="img-responsive">' +
@@ -72,8 +72,8 @@
 					'</div>' +
 					'<div class="clearfix"> </div>' +
 					'<p class="right">更多好評 <a href="https://www.instagram.com/prowayspeechtherapy/">' +
-						'<img src="images/instagram.png"></a>/<a href="https://www.facebook.com/prowayspeechtherapy/">'+
-						'<img src="images/facebook.png"></a></p>'+
+					'<img src="images/instagram.png"></a>/<a href="https://www.facebook.com/prowayspeechtherapy/">' +
+					'<img src="images/facebook.png"></a></p>' +
 					'</div>';
 
 				$('.agileits_three_comments').append(htmlContent);
@@ -139,14 +139,15 @@
 											<ul class="dropdown-menu">
 												<li><a class="hvr-bounce-to-bottom"
 														href="about.html#therapist">言語治療師</a></li>
+												<li><a class="hvr-bounce-to-bottom" href="about.html#worker">註冊社工</a>
+												</li>
 												<li><a class="hvr-bounce-to-bottom"
 														href="about.html#psychologist">教育心理學家</a></li>
-												<li><a class="hvr-bounce-to-bottom" href="about.html#worker">社工</a></li>
 											</ul>
 										</li>
 										<li><a href="share.html">諾道分享</a></li>
 										<li><a class="active" href="good.html">諾道好評</a></li>
-										<li><a href="contact.html">聯絡我們</a></li>
+										<li><a href="contact.html">聯絡諾道</a></li>
 									</ul>
 									<div class="clearfix"> </div>
 								</div>
@@ -154,14 +155,14 @@
 						</div>
 						<div class="agileinfo-social-grids">
 							<ul>
-								<li><a href="https://wa.me/85265328821"><i class="fa fa-whatsapp"></i></a></li>
-								&nbsp&nbsp&nbsp
-								<li><a href="mailto:info@prowayst.com"><i class="fa fa-envelope"></i></a></li>
-								&nbsp&nbsp&nbsp
-								<li><a href="https://www.facebook.com/prowayspeechtherapy/"><i
-											class="fa fa-facebook"></i></a></li>&nbsp&nbsp&nbsp
-								<li><a href="https://www.instagram.com/prowayspeechtherapy/"><i
-											class="fa  fa-instagram"></i></a></li>
+								<li><a href="https://wa.me/85265328821"><img src="images/whatsapp2.png"></a></li>
+								&nbsp&nbsp
+								<li><a href="mailto:info@prowayst.com"><img src="images/mail.png"></i></a></li>
+								&nbsp&nbsp
+								<li><a href="https://www.facebook.com/prowayspeechtherapy/"><img
+											src="images/facebook.png"></a></li>&nbsp&nbsp
+								<li><a href="https://www.instagram.com/prowayspeechtherapy/"><img
+											src="images/instagram.png"></a></li>
 							</ul>
 						</div>
 						<div class="clearfix"> </div>
@@ -202,51 +203,62 @@
 
 
 
-		<!-- //single -->
-		<!-- footer -->
-		<div class="footer">
-			<div class="container">
-				<div class="agile-footer-grids">
-					<div class="col-md-12 agile-footer-grid">
-						<p>如有任何查詢或洽談合作，歡迎致電 / whatsapp 6532 8821 或電郵至info@prowayst.com跟我們聯絡。
-							<span>地址：沙田石門安耀街5號W LUXE 21樓N3室</span>
-							<span>Address: N3, 21/F, W LUXE, No.5 On Yiu Street, Shek Mun, Sha Tin</span>
-						</p>
-					</div>
-
-
-					<div class="clearfix"> </div>
+	<!-- //single -->
+	<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="agile-footer-grids">
+				<div class="col-md-4 agile-footer-grid">
+					<h4>諾道言語治療</h4>
+					<span>地址：沙田石門安耀街5號W LUXE 21樓N3室</span><br>
+					<span>電話：6532 8821</span><br>
+					<span>電郵：info@prowayst.com</span>
 				</div>
+
+				<div class="col-md-4 agile-footer-grid">
+					<span><b>星期二至日</b> 09:00 - 18:00</span>
+					<br><br>
+					<span><b>星期一</b> 休息</span>
+					<br><br>
+					<span><b>敬請預約</b></span>
+				</div>
+
+				<div class="videos col-md-2 agile-footer-grid">
+
+				</div>
+
+				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<!-- //footer -->
-		<!-- copyright -->
-		<div class="agileits-w3layouts-copyright">
-			<div class="container">
-				<p>Copyright &copy; 2024.PROWAY SPEECH THERAPY All rights reserved.</p>
-			</div>
+	</div>
+	<!-- //footer -->
+	<!-- copyright -->
+	<div class="agileits-w3layouts-copyright">
+		<div class="container">
+			<p>Copyright &copy; 2024.PROWAY SPEECH THERAPY All rights reserved.</p>
 		</div>
-		<!-- //copyright -->
-		<script src="js/SmoothScroll.min.js"></script>
-		<script type="text/javascript" src="js/move-top.js"></script>
-		<script type="text/javascript" src="js/easing.js"></script>
-		<!-- here stars scrolling icon -->
-		<script type="text/javascript">
-			$(document).ready(function () {
-				/*
-					var defaults = {
-					containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-					};
-				*/
+	</div>
+	<!-- //copyright -->
+	<script src="js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
 
-				$().UItoTop({ easingType: 'easeOutQuart' });
+			$().UItoTop({ easingType: 'easeOutQuart' });
 
-			});
-		</script>
-		<!-- //here ends scrolling icon -->
+		});
+	</script>
+	<!-- //here ends scrolling icon -->
 </body>
 
 </html>

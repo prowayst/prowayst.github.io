@@ -12,7 +12,7 @@ body a {
 html,
 body {
     font-size: 100%;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: sans-serif;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 
 /*-- banner --*/
 .banner {
-    background: url(../images/banner.jpg) no-repeat 0px 200px;
+    background: url(../images/banner.jpg) no-repeat 0px 220px;
     background-size: cover;
     padding: 9em 0 1em;
 }
@@ -51,8 +51,8 @@ body {
 }
 
 .speech-therapy img {
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     margin-right: 10px;
 }
 
@@ -88,7 +88,7 @@ body {
     font-size: 1em;
     text-decoration: none;
     font-weight: 900;
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
@@ -97,7 +97,7 @@ body {
     color: #82b62d;
     font-size: .5em;
     text-decoration: none;
-    font-family: 'Crimson Text', serif;
+    font-family: serif;
     font-style: italic;
     font-weight: 600;
     text-transform: uppercase;
@@ -182,12 +182,12 @@ ul.nav.navbar-nav {
 
 .top-nav ul li a {
     color: #2f2f2f !important;
-    font-size: 1em;
+    font-size: 1.1em;
     margin: 0;
     text-decoration: none;
     padding: 0;
     font-weight: 600;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: sans-serif;
     letter-spacing: 1px;
 }
 
@@ -361,6 +361,7 @@ ul.dropdown-menu {
 
 .agileits-banner-info {
     text-align: left;
+    margin-top: 60px;
 }
 
 .agileits-banner-info h6 {
@@ -376,16 +377,18 @@ ul.dropdown-menu {
     color: #FFFFFF;
     font-size: 2em;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     font-weight: 900;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 .agileits-banner-info h2 {
     color: #FFFFFF;
     font-size: 2em;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     font-weight: 900;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 .agileits-banner-info p {
@@ -640,7 +643,7 @@ ul.dropdown-menu {
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
 }
 
 .w3-welcome-grids,
@@ -862,7 +865,7 @@ i.fa.fa-thumbs-up {
     font-size: 2.5em;
     font-weight: 700;
     margin: 0;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
     text-decoration: none;
     line-height: 1.2em;
 }
@@ -1063,7 +1066,7 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter {
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
     margin-top: 180px;
 }
 
@@ -1434,7 +1437,7 @@ h3.icon-subheading {
     color: #212121 !important;
     margin: 30px 0 15px;
     text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
 }
 
 h3.agileits-icons-title {
@@ -1444,7 +1447,7 @@ h3.agileits-icons-title {
     letter-spacing: 1px;
     color: #212121 !important;
     text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
     font-weight: 700;
 }
 
@@ -1510,7 +1513,7 @@ h3.hdg {
     color: #212121 !important;
     margin: 30px 0 15px;
     text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
 
 }
 
@@ -2155,7 +2158,7 @@ figure.effect-apollo:hover p {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
 
 }
 
@@ -2409,7 +2412,7 @@ figure.effect-apollo:hover p {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
 }
 
 .hardy h4 {
@@ -2917,7 +2920,7 @@ figure.effect-apollo:hover p {
         color: #ffffff;
         font-size: 1.1em;
         margin: 12px 0 20px 0px;
-        font-family: 'Raleway', sans-serif;
+        font-family: sans-serif;
     }
 
     .agileits-banner-info p {
@@ -2940,7 +2943,7 @@ figure.effect-apollo:hover p {
         margin: 0;
         text-align: center;
         text-transform: uppercase;
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: sans-serif;
         margin-top: 68px;
     }
 
@@ -3093,7 +3096,7 @@ figure.effect-apollo:hover p {
         margin: 0;
         text-align: center;
         text-transform: uppercase;
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: sans-serif;
         margin-top: 100px;
     }
 
