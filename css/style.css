@@ -21,7 +21,7 @@ body {
 
 /*-- banner --*/
 .banner {
-    background: url(../images/banner.jpg) no-repeat 0px 220px;
+    background: url(../images/banner.jpg) no-repeat 0px 95px;
     background-size: cover;
     padding: 9em 0 1em;
 }
@@ -1052,6 +1052,8 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter {
 /*-- about --*/
 .about-banner {
     padding: 0 !important;
+    background: url(../images/banner.jpg) no-repeat 0px 35px !important;
+    background-size: cover !important;
 }
 
 .w3ls-heading {
@@ -1068,6 +1070,7 @@ ul.w3agile_footer_grid_list i.fa.fa-twitter {
     text-transform: uppercase;
     font-family: sans-serif;
     margin-top: 180px;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 /*-- about-top --*/
@@ -2533,6 +2536,10 @@ figure.effect-apollo:hover p {
     .icon-box {
         padding: 8px 5px;
     }
+
+    .banner {
+        background: url(../images/banner.jpg) no-repeat 0px 95px;
+    }
 }
 
 @media(max-width:991px) {
@@ -2919,9 +2926,13 @@ figure.effect-apollo:hover p {
     .agileits-banner-info h3 {
         color: #ffffff;
         font-size: 1.1em;
-        margin: 12px 0 20px 0px;
+        margin: 0;
+        position: absolute;
+        top: 95px;
+        left: 0;
+        width: 100%;
         font-family: sans-serif;
-    }
+      }
 
     .agileits-banner-info p {
         color: #ffffff;
@@ -2932,19 +2943,21 @@ figure.effect-apollo:hover p {
     }
 
     .w3ls-heading {
-        padding: 7em 0;
+        padding: 10em 0;
     }
 
     .w3ls-heading h2 {
         color: #FFFFFF;
-        font-size: 2.5em;
+        font-size: 2em;
         font-weight: 700;
         letter-spacing: 7px;
         margin: 0;
         text-align: center;
         text-transform: uppercase;
         font-family: sans-serif;
-        margin-top: 80px;
+        position: absolute;
+        top: 270px;
+        left: 10px;
     }
 
     .w3layouts-logo h2 {
@@ -2954,6 +2967,8 @@ figure.effect-apollo:hover p {
 
     .agileinfo-social-grids {
         float: right;
+        position: absolute;
+        right: 30px;
     }
 
     .agileits-banner-info h2 {
@@ -2972,7 +2987,7 @@ figure.effect-apollo:hover p {
 
     .about-banner {
         padding: 0 !important;
-        background: url(../images/banner.jpg) no-repeat 0px 0px !important;
+        background: url(../images/banner.jpg) no-repeat 0px 160px !important;
         background-size: cover !important;
     }
 
@@ -2993,10 +3008,6 @@ figure.effect-apollo:hover p {
 
     .icons .bs-glyphicons li {
         width: 31.33%;
-    }
-
-    .w3ls-heading h2 {
-        font-size: 2em;
     }
 
     .w3agile-map iframe {
