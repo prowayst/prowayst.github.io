@@ -3053,6 +3053,10 @@ figure.effect-apollo:hover p {
         margin-top: 150px;
     }
 
+    .agileits-w3layouts-copyright p {
+        font-size: 0.6em;
+    }
+
 }
 
 @media(max-width:384px) {
