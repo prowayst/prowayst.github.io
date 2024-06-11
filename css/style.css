@@ -2923,6 +2923,16 @@ figure.effect-apollo:hover p {
 }
 
 @media(max-width:414px) {
+    .card {
+        margin-bottom: 10px;
+    }
+
+    .card .image-container img {
+        width: 375px;
+        height: 225px;
+        object-fit: cover;
+        object-position: center;
+    }
     .agileits-banner-info h3 {
         color: #ffffff;
         font-size: 1.1em;
