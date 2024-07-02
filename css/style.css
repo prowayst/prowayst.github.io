@@ -1741,6 +1741,7 @@ h2.typoh2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 .card .image-container img {
@@ -1748,7 +1749,6 @@ h2.typoh2 {
     height: 210px;
     object-fit: fill;
     object-position: center;
-    margin-top: 10px;
 }
 
 .card-body {
