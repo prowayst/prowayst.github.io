@@ -1741,14 +1741,14 @@ h2.typoh2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
 }
 
 .card .image-container img {
     width: 360px;
     height: 210px;
-    object-fit: contain;
+    object-fit: fill;
     object-position: center;
+    margin-top: 10px;
 }
 
 .card-body {
