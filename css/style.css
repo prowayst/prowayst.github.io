@@ -1744,8 +1744,8 @@ h2.typoh2 {
 }
 
 .card .image-container img {
-    width: 380px;
-    height: 250px;
+    width: 360px;
+    height: 210px;
     object-fit: contain;
     object-position: center;
 }
