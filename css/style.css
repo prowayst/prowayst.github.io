@@ -1731,6 +1731,10 @@ h2.typoh2 {
     overflow: hidden;
     text-align: center;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px; 
 }
 
 .card-title {
@@ -1747,14 +1751,21 @@ h2.typoh2 {
 .card .image-container img {
     width: 370px;
     height: 235px;
-    object-fit: fill;
+    object-fit: fill; 
     object-position: center;
 }
 
 .card-body {
     padding: 20px;
     text-align: left;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+
+
 
 .icon-row {
     display: flex;
