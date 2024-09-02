@@ -289,10 +289,13 @@
 				</div>
 			</div>
 
-
 		</div>
 	</div>
 	<!-- //gallery -->
+	<div class="pagination">
+		<a href="#" class="prev">&laquo;</a>
+		<a href="#" class="next">&raquo;</a>
+	</div>
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">
@@ -344,6 +347,54 @@
 			$().UItoTop({ easingType: 'easeOutQuart' });
 
 		});
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var itemsPerPage = 9; 
+			var $cards = $('.card'); 
+			var totalItems = $cards.length; 
+			var totalPages = Math.ceil(totalItems / itemsPerPage); 
+
+			$cards.hide().slice(0, itemsPerPage).show();
+
+			for (var i = 1; i <= totalPages; i++) {
+				$('<a href="#" class="page-number">' + i + '</a>').insertBefore('.next');
+			}
+
+			$('.pagination a.page-number').first().addClass('active');
+
+			if (totalPages <= 1) {
+				$('.pagination').hide();
+			}
+
+			$('.pagination').on('click', 'a.page-number', function (e) {
+				e.preventDefault();
+				var pageIndex = $(this).index() - 1;
+
+				$('.page-number').removeClass('active');
+				$(this).addClass('active');
+
+				$cards.hide().slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage).show();
+			});
+
+			$('.pagination').on('click', 'a.prev', function (e) {
+				e.preventDefault();
+				var currentPage = $('.pagination a.active').index() - 1;
+				if (currentPage > 0) {
+					$('.pagination a.page-number').eq(currentPage - 1).trigger('click');
+				}
+			});
+
+			$('.pagination').on('click', 'a.next', function (e) {
+				e.preventDefault();
+				var currentPage = $('.pagination a.active').index() - 1;
+				if (currentPage < totalPages - 1) {
+					$('.pagination a.page-number').eq(currentPage + 1).trigger('click');
+				}
+			});
+		});
+
 	</script>
 	<!-- //here ends scrolling icon -->
 </body>
