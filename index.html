@@ -32,10 +32,18 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script type="text/javascript">
-		jQuery(document).ready(function ($) {
-			$(".scroll").click(function (event) {
-				event.preventDefault();
-				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('.scroll').forEach(function (element) {
+				element.addEventListener('click', function (event) {
+					event.preventDefault(); // Prevent the default anchor behavior
+					const target = document.querySelector(this.hash);
+					if (target) {
+						window.scrollTo({
+							top: target.offsetTop,
+							behavior: 'smooth'
+						});
+					}
+				}, { passive: false }); // Ensure the listener is non-passive
 			});
 		});
 	</script>
@@ -188,7 +196,11 @@
 							<!-- <iframe class="latestVideoEmbed custom-iframe" vnum='0' width="600" height="340"
 								frameborder="0" allowfullscreen></iframe>-->
 
-								<iframe width="600" height="340" src="https://www.youtube.com/embed/JFIR_7dgTKk?si=yrPixhv4QIZyuYGs" title="小朋友發音唔準確又成日流口水⋯" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+							<iframe width="600" height="340"
+								src="https://www.youtube.com/embed/JFIR_7dgTKk?si=yrPixhv4QIZyuYGs"
+								title="小朋友發音唔準確又成日流口水⋯" frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
@@ -242,7 +254,7 @@
 								<div class="line"></div>
 						</div>
 						<div class="card-body">
-							<h5 class="card-title">語言發展的重要基石 ─ 語言前技能(下)</h5> 
+							<h5 class="card-title">語言發展的重要基石 ─ 語言前技能(下)</h5>
 							</a>
 							<p class="card-text">撰⽂：諾道團隊</p>
 							<div class="icon-row">
