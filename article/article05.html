@@ -7,6 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
+	<meta property="og:title" content="語言發展的重要基石 - 語言前技能(上)" />
+	<meta property="og:description" content="孩⼦到了牙牙學語的階段，家長都會特別留意孩⼦的語言能⼒。對於語言能⼒較弱的孩⼦來說，很多時⼤家會問「到底何時他才懂得說話呢︖」" />
+	<meta property="og:image" content="../images/Article/article005.png" />
+	<meta property="og:url" content="article/article05.html" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- bootstrap-css -->
@@ -36,6 +40,41 @@
 				event.preventDefault();
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
 		});
 	</script>
 	<!--[if lt IE 9]>
@@ -136,7 +175,38 @@
 			<!-- article -->
 			<div class="article">
 				<div class="narrow-text">
-					<h2>語言發展的重要基石 - 語⾔前技能(上)</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>語言發展的重要基石 - 語言前技能(上)</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：01-08-2024</p>
 				</div>
@@ -145,15 +215,15 @@
 				</div>
 				<hr>
 				<div class="panel-body narrow-text">
-					孩⼦到了牙牙學語的階段，家長都會特別留意孩⼦的語⾔能⼒。對於語⾔能⼒較弱的孩⼦來說，很多時⼤家會問「到底何時他才懂得說話呢︖」<br><br>
+					孩⼦到了牙牙學語的階段，家長都會特別留意孩⼦的語言能⼒。對於語言能⼒較弱的孩⼦來說，很多時⼤家會問「到底何時他才懂得說話呢︖」<br><br>
 
-					要知道在提升孩⼦語⾔能⼒的時候，我們絕對不能忽略語⾔前技能。語⾔前技能是孩⼦在懂得說話前(⼤概1歲前)便開始發展和掌握的⼀些技巧，是語⾔理解和語⾔表達的重要基⽯。<br>
-					這些技巧的穩固程度，與⽇後的語⾔發展有着密切關係。<br><br>
+					要知道在提升孩⼦語言能⼒的時候，我們絕對不能忽略語言前技能。語言前技能是孩⼦在懂得說話前(⼤概1歲前)便開始發展和掌握的⼀些技巧，是語言理解和語言表達的重要基⽯。<br>
+					這些技巧的穩固程度，與⽇後的語言發展有着密切關係。<br><br>
 
-					今次先跟⼤家分享其中六項語⾔前技能。<br><br>
+					今次先跟⼤家分享其中六項語言前技能。<br><br>
 
 					<h4><b>眼神接觸(Eye Contact)</b></h4>
-					眼神接觸是⼀種重要的非語⾔溝通⽅式。與⼈對話時配以適當的眼神接觸、表情、⼿勢、身體姿勢等，就能傳達更豐富的資訊。<br><br>
+					眼神接觸是⼀種重要的非語言溝通⽅式。與⼈對話時配以適當的眼神接觸、表情、⼿勢、身體姿勢等，就能傳達更豐富的資訊。<br><br>
 
 					孩⼦⼀歲前就開始對⼈的臉部產⽣興趣，會留意及注視溝通對象的嘴巴，然後嘗試模仿。與⼈有眼神接觸時，孩⼦便能從別⼈的表情和眼神中認識和理解他⼈情感，是社交溝通發展重要的⼀環。<br><br>
 
@@ -169,7 +239,7 @@
 
 					未掌握單字⽤作溝通的幼兒通常透過展⽰或⼿勢引發共享專注，例如他看到閃著光的玩具會望向你，並展⽰給你看。<br><br>
 
-					共同專注的時刻就是孩⼦學習語⾔的最佳時機。試想像你想教孩⼦這是⼀⽀筆，指著這⽀筆說：「筆筆。」，唯有當孩⼦的⽬光跟你⼀樣放在這⽀筆上⾯，他才能把聽到的「筆」這個⾳跟眼前這個物件連上關係，從⽽學習⼀個又⼀個概念。<br><br>
+					共同專注的時刻就是孩⼦學習語言的最佳時機。試想像你想教孩⼦這是⼀⽀筆，指著這⽀筆說：「筆筆。」，唯有當孩⼦的⽬光跟你⼀樣放在這⽀筆上⾯，他才能把聽到的「筆」這個⾳跟眼前這個物件連上關係，從⽽學習⼀個又⼀個概念。<br><br>
 
 					<h4><b>物體恆存(Object Permanence)</b></h4>
 					物體恆存是指孩⼦意識到「即使東西不在眼前，但它仍然存在，⽽不是沒有了。」。<br><br>
@@ -178,11 +248,11 @@
 
 					六至七個⽉⼤開始，孩⼦逐漸發展物體恆存的能⼒，他們會在玩具消失於眼前後尋找它，因為已經建⽴了「玩具曾經存在」的認知。<br><br>
 
-					物體恆存和語⾔有直接關係，當孩⼦建⽴了對於物件的記憶及認知，就會推動他們以語⾔代表不在眼前的東西。<br><br>
+					物體恆存和語言有直接關係，當孩⼦建⽴了對於物件的記憶及認知，就會推動他們以語言代表不在眼前的東西。<br><br>
 
 					<h4><b>輪流作轉(Turn Taking)</b></h4>
-					這個語⾔前技能的重點就是「輪流」！<br><br>
-					⽣活中到處都是輪流作轉的例⼦。孩⼦⼀個⼀個輪著滑滑梯、捉棋時⼀個⼀個順序擲骰⼦⾏棋。孩⼦先從遊戲中學習輪流，知道何時輪到⾃⼰，何時到對⽅，將來懂得說話的時候就能將概念延伸至「你⼀⾔、我⼀語」。由此可⾒掌握輪流概念對孩⼦的語⾔及社交發展有很⼤影響。<br><br>
+					這個語言前技能的重點就是「輪流」！<br><br>
+					⽣活中到處都是輪流作轉的例⼦。孩⼦⼀個⼀個輪著滑滑梯、捉棋時⼀個⼀個順序擲骰⼦⾏棋。孩⼦先從遊戲中學習輪流，知道何時輪到⾃⼰，何時到對⽅，將來懂得說話的時候就能將概念延伸至「你⼀言、我⼀語」。由此可⾒掌握輪流概念對孩⼦的語言及社交發展有很⼤影響。<br><br>
 
 					<h4><b>因果概念(Causality)</b></h4>
 					「因果關係」是其中⼀個四至七個⽉⼤幼兒開始掌握的重要概念。<br><br>
@@ -192,7 +262,7 @@
 					孩⼦先從⽣活或玩玩具中掌握因果概念，懂得說話的時候就會了解到當他說「抱抱。」(因)，爸爸媽媽就會抱起他(果)。<br><br>
 
 					<h4><b>總結</b></h4>
-					孩⼦需要掌握⼀系列語⾔前技能，為⽇後的語⾔發展打下穩固基礎。下篇⽂章將為⼤家介紹另外六項語⾔前技能！<br><br>
+					孩⼦需要掌握⼀系列語言前技能，為⽇後的語言發展打下穩固基礎。下篇⽂章將為⼤家介紹另外六項語言前技能！<br><br>
 					把這篇⽂章分享給身邊跟你同樣關⼼孩⼦成長的朋友，讓我們⼀起和孩⼦健康快樂地成長。<br>
 					如有任何問題或需要幫忙，歡迎你跟諾道團隊聯絡，我們樂意為你提供協助！
 				</div>

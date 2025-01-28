@@ -7,6 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
+	<meta property="og:title" content="「愛之語」Love Language - 孩子感受到你的愛嗎?" />
+	<meta property="og:description" content="愛是⼈類最基本的需求，在每個⼈內⼼都有個「情緒的箱子」需要⽤愛來填滿。對於年幼的孩子，「情緒的箱子」能否被填滿與健康成長有著莫⼤關係。..." />
+	<meta property="og:image" content="../images/Article/article004.png" />
+	<meta property="og:url" content="article/article04.html" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- bootstrap-css -->
@@ -36,6 +40,41 @@
 				event.preventDefault();
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
 		});
 	</script>
 	<!--[if lt IE 9]>
@@ -136,7 +175,38 @@
 			<!-- article -->
 			<div class="article">
 				<div class="narrow-text">
-					<h2>「愛之語」Love Language - 孩⼦感受到你的愛嗎?</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>「愛之語」Love Language - 孩子感受到你的愛嗎?</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：02-07-2024</p>
 				</div>
@@ -145,49 +215,49 @@
 				</div>
 				<hr>
 				<div class="panel-body narrow-text">
-					愛是⼈類最基本的需求，在每個⼈內⼼都有個「情緒的箱⼦」需要⽤愛來填滿。<br><br>
-					
-					對於年幼的孩⼦，「情緒的箱⼦」能否被填滿與健康成長有著莫⼤關係。當孩⼦被愛的需求得到滿⾜時，其安全感、⾃我價值感及⾃尊感也會提升，讓他有勇氣探索世界、⾯對成長的挑戰，並願意以正⾯的⾏為來回應他⼈的愛。相反，⼀旦「情緒的箱⼦」經常是等著被填滿，由於希望但並未得到成⼈的關注，便容易出現我們眼中的「問題⾏為」︔長時間下來，孩⼦內⼼會產⽣對⾃我價值的懷疑，為成長帶來負⾯影響。
+					愛是⼈類最基本的需求，在每個⼈內⼼都有個「情緒的箱子」需要⽤愛來填滿。<br><br>
+
+					對於年幼的孩子，「情緒的箱子」能否被填滿與健康成長有著莫⼤關係。當孩子被愛的需求得到滿⾜時，其安全感、⾃我價值感及⾃尊感也會提升，讓他有勇氣探索世界、⾯對成長的挑戰，並願意以正⾯的⾏為來回應他⼈的愛。相反，⼀旦「情緒的箱子」經常是等著被填滿，由於希望但並未得到成⼈的關注，便容易出現我們眼中的「問題⾏為」︔長時間下來，孩子內⼼會產⽣對⾃我價值的懷疑，為成長帶來負⾯影響。
 					<br><br>
 
-					<h4><b>那到底該如何愛孩⼦?</b></h4>
-					真愛是無條件的，即是完全的愛︔代表⽗母接納並肯定孩⼦原來的樣⼦。無論孩⼦做什麼或不做什麼，⽗母仍然選擇愛他，即便不完全贊同他所有的⾏為。現實是，我們容易不為意地向孩⼦表達了有條件的愛，即讚賞是建基於孩⼦的⾏為︔例如他表現傑出時才會得到嘉許或獎勵，這樣孩⼦感受不到真正被愛，久⽽久之會令其⾃我價值降低，漸漸失去安全感。
+					<h4><b>那到底該如何愛孩子?</b></h4>
+					真愛是無條件的，即是完全的愛︔代表⽗母接納並肯定孩子原來的樣子。無論孩子做什麼或不做什麼，⽗母仍然選擇愛他，即便不完全贊同他所有的⾏為。現實是，我們容易不為意地向孩子表達了有條件的愛，即讚賞是建基於孩子的⾏為︔例如他表現傑出時才會得到嘉許或獎勵，這樣孩子感受不到真正被愛，久⽽久之會令其⾃我價值降低，漸漸失去安全感。
 					<br><br>
-					要讓孩⼦接收到來⾃你無條件的愛，就要說對孩⼦的「愛之語」，才能與他連結起來。每個孩⼦都有⾃⼰獨有傳達及感受愛的⽅式，若家長能⽤對孩⼦的「愛之語」，所付出的愛將有加倍效果。「愛之語」可分為五種：
+					要讓孩子接收到來⾃你無條件的愛，就要說對孩子的「愛之語」，才能與他連結起來。每個孩子都有⾃⼰獨有傳達及感受愛的⽅式，若家長能⽤對孩子的「愛之語」，所付出的愛將有加倍效果。「愛之語」可分為五種：
 					<br><br>
 					<h4><b>第⼀種：精⼼的時刻</b></h4>
 					⼀段完全專注於彼此的時間，⽤⼼陪伴<br>
-					例⼦：放下⼿機⼀起吃飯<br><br>
+					例子：放下⼿機⼀起吃飯<br><br>
 
 					<h4><b>第⼆種：肯定的⾔詞</b></h4>
 					⽤具體的⿎勵或讚美說話來肯定對⽅<br>
-					例⼦：「你幫忙做家務，真是⼀個細⼼又幫得⼿的孩⼦！」<br><br>
+					例子：「你幫忙做家務，真是⼀個細⼼又幫得⼿的孩子！」<br><br>
 
 					<h4><b>第三種：貼⼼的禮物</b></h4>
 					送贈符合對⽅需要的禮物，可以是有形或無形的<br>
-					例⼦：顏⾊筆⽤完了，媽媽為仔仔購買⼀盒新的<br><br>
+					例子：顏⾊筆⽤完了，媽媽為仔仔購買⼀盒新的<br><br>
 
-					<h4><b>第四種：服務的⾏動</b></h4>				
+					<h4><b>第四種：服務的⾏動</b></h4>
 					為對⽅做⼀件事，哪怕是微⼩的舉動<br>
-					例⼦：平⽇忙於⼯作的爸爸為孩⼦煮⼀頓飯<br><br>
+					例子：平⽇忙於⼯作的爸爸為孩子煮⼀頓飯<br><br>
 
 					<h4><b>第五種：身體的接觸</b></h4>
 					友善的肢體觸碰去傳達愛、安撫、安全感<br>
-					例⼦：每天睡前擁抱1分鐘<br><br>
+					例子：每天睡前擁抱1分鐘<br><br>
 
-					你可嘗試⽤以下兩種⽅式來找出你孩⼦的主要「愛之語」<br>
-					1. 多觀察孩⼦最常向⼈表達愛的⽅式<br>
-					2. 想想孩⼦最常向你提出什麼要求。他喜歡擁抱、拖⼿(身體的接觸)?希望你陪他玩(精⼼的時刻)?還是渴望聽到你的讚賞(肯定的⾔詞)?
+					你可嘗試⽤以下兩種⽅式來找出你孩子的主要「愛之語」<br>
+					1. 多觀察孩子最常向⼈表達愛的⽅式<br>
+					2. 想想孩子最常向你提出什麼要求。他喜歡擁抱、拖⼿(身體的接觸)?希望你陪他玩(精⼼的時刻)?還是渴望聽到你的讚賞(肯定的⾔詞)?
 					<br><br>
 
-					當找到孩⼦主要的「愛之語」後，不防持續透過這些⽅式表達愛。當然，其他的「愛之語」都可運⽤在孩⼦身上，這樣既可讓孩⼦學習更多愛的⽅式，也可建⽴更親密的親⼦關係。
+					當找到孩子主要的「愛之語」後，不防持續透過這些⽅式表達愛。當然，其他的「愛之語」都可運⽤在孩子身上，這樣既可讓孩子學習更多愛的⽅式，也可建⽴更親密的親子關係。
 					<br><br>
-					當「情緒的箱⼦」被填得滿滿時，孩⼦對於接受家長的教導會有更⾼的認同感。管教是出於愛，所以管教其實是愛的⾏動。孩⼦愈覺得被愛，管教孩⼦也愈容易。下⼀次，在⾯對孩⼦的「問題⾏為」時，先問問⾃⼰：「孩⼦⾏為背後的需要是什麼?」、「他的情緒箱⼦是否快空了?」當了解到孩⼦的需要，就先花時間與孩⼦相處，向他表達「愛之語」，再來做管教的⼯作吧！
+					當「情緒的箱子」被填得滿滿時，孩子對於接受家長的教導會有更⾼的認同感。管教是出於愛，所以管教其實是愛的⾏動。孩子愈覺得被愛，管教孩子也愈容易。下⼀次，在⾯對孩子的「問題⾏為」時，先問問⾃⼰：「孩子⾏為背後的需要是什麼?」、「他的情緒箱子是否快空了?」當了解到孩子的需要，就先花時間與孩子相處，向他表達「愛之語」，再來做管教的⼯作吧！
 
 					<br><br>
-					參考資料：蓋瑞‧巧⾨與羅斯．⽢伯（2000）。《兒童愛之語—打開親⼦愛的頻道》。中國主⽇學協會出版部
+					參考資料：蓋瑞‧巧⾨與羅斯．⽢伯（2000）。《兒童愛之語—打開親子愛的頻道》。中國主⽇學協會出版部
 					<br><br>
-					把這篇⽂章分享給身邊跟你同樣關⼼孩⼦成長的朋友，讓我們⼀起和孩⼦健康快樂地成長。
+					把這篇⽂章分享給身邊跟你同樣關⼼孩子成長的朋友，讓我們⼀起和孩子健康快樂地成長。
 					<br>
 					如有任何問題或需要幫忙，歡迎你跟諾道團隊聯絡，我們樂意為你提供協助！
 				</div>

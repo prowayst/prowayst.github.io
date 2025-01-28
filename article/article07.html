@@ -7,6 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
+	<meta property="og:title" content="自閉症孩子常有的「鸚鵡式說話」到底是怎麼一回事?" />
+	<meta property="og:description"
+		content="甚麼是鸚鵡式說話? 鸚鵡式說話，英⽂稱為Echolalia，簡單來說就是重複別⼈的說話，包括詞語、句子，甚至整個段落。鸚鵡式說話在具有語⾔能⼒的自閉症患者中很普遍，並可能會持續成為其語⾔⾏為的一部分。" />
+	<meta property="og:image" content="../images/Article/article007.png" />
+	<meta property="og:url" content="article/article07.html" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- bootstrap-css -->
@@ -36,6 +41,41 @@
 				event.preventDefault();
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
 		});
 	</script>
 	<!--[if lt IE 9]>
@@ -136,7 +176,38 @@
 			<!-- article -->
 			<div class="article">
 				<div class="narrow-text">
-					<h2>⾃閉症孩⼦常有的「鸚鵡式說話」到底是怎麼⼀回事?</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>自閉症孩子常有的「鸚鵡式說話」到底是怎麼一回事?</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：01-09-2024</p>
 				</div>
@@ -146,55 +217,59 @@
 				<hr>
 				<div class="panel-body narrow-text">
 					<h4><b>甚麼是鸚鵡式說話?</b></h4>
-					
-					鸚鵡式說話，英⽂稱為Echolalia，簡單來說就是重複別⼈的說話，包括詞語、句⼦，甚至整個段落。鸚鵡式說話在具有語⾔能⼒的⾃閉症患者中很普遍，並可能會持續成為其語⾔⾏為的⼀部分。<br><br>
-					
-					以往⼤部分⼈認為鸚鵡式說話是毫無意義且沒有⽬的，但研究顯⽰，鸚鵡式說話很多時是帶有意義及⽬的，只是即使是最熟悉孩⼦的⼈也不容易猜得透。<br><br>
+
+					鸚鵡式說話，英⽂稱為Echolalia，簡單來說就是重複別⼈的說話，包括詞語、句子，甚至整個段落。鸚鵡式說話在具有語⾔能⼒的自閉症患者中很普遍，並可能會持續成為其語⾔⾏為的一部分。<br><br>
+
+					以往⼤部分⼈認為鸚鵡式說話是毫無意義且沒有⽬的，但研究顯⽰，鸚鵡式說話很多時是帶有意義及⽬的，只是即使是最熟悉孩子的⼈也不容易猜得透。<br><br>
 
 					鸚鵡式說話有兩種類型：<br>
-					⼀. 即時的鸚鵡式說話 (Immediate Echolalia)：即時重複剛聽到的說話<br>
-					例⼦1：⽼師向Hayden說：「Hello Hayden !」，Hayden：「Hello Hayden !」<br>
-					例⼦2：媽媽：「講 Bye Bye 啦！」，Hayden：「 講 Bye Bye 啦！」<br><br>
+					一. 即時的鸚鵡式說話 (Immediate Echolalia)：即時重複剛聽到的說話<br>
+					例子1：⽼師向Hayden說：「Hello Hayden !」，Hayden：「Hello Hayden !」<br>
+					例子2：媽媽：「講 Bye Bye 啦！」，Hayden：「 講 Bye Bye 啦！」<br><br>
 
-					⼆. 延遲的鸚鵡式說話 (Delayed Echolalia)：隔⼀段時間才重複早前聽到的說話<br>
-					
-					「延遲的鸚鵡式說話」很多時候顯得比「即時的鸚鵡式說話」更怪異，因為那些重複的話語通常都不適合當下情境。較常⾒的例⼦如重複背出地鐵廣播、卡通⽚或廣告的對⽩/語句。<br><br>
+					⼆. 延遲的鸚鵡式說話 (Delayed Echolalia)：隔一段時間才重複早前聽到的說話<br>
 
-					例⼦：⼀位男孩⼦來上⾔語治療，進房間前突然⼤喊：「我哋⽽家準備去另⼀場冒險喇！」<br>
-					事源他早前看完多啦A夢電影，就把當中⼀句對⽩以「延遲的鸚鵡式說話」的⽅式表達。<br><br>
+					「延遲的鸚鵡式說話」很多時候顯得比「即時的鸚鵡式說話」更怪異，因為那些重複的話語通常都不適合當下情境。較常⾒的例子如重複背出地鐵廣播、卡通⽚或廣告的對⽩/語句。<br><br>
 
-					<h4><b>孩⼦如何學習和發展語⾔?</b></h4>
+					例子：一位男孩子來上⾔語治療，進房間前突然⼤喊：「我哋⽽家準備去另一場冒險喇！」<br>
+					事源他早前看完多啦A夢電影，就把當中一句對⽩以「延遲的鸚鵡式說話」的⽅式表達。<br><br>
 
-					要了解「鸚鵡式說話」，就先要知道孩⼦是如何學習和發展語⾔。<br><br>
+					<h4><b>孩子如何學習和發展語⾔?</b></h4>
 
-					第⼀種學習語⾔的⽅式是分析式語⾔處理 (Analytic Language Processing)。這是⼀種順序的學習⽅式，孩⼦先掌握單字，再組合詞語，繼⽽運⽤短語，再組織句⼦。⼤部分孩⼦都是透過這種⽅式學習語⾔。<br><br>
-					
-					另⼀種⽅式稱為整體語⾔處理 (Gestalt Language Processing)。透過這種⽅式學習語⾔的⼩朋友透過「⼤塊語⾔說話 」(Speaking in “chunks” of language)，⽽且通常從「鸚鵡式說話」開始。<br><br>
+					要了解「鸚鵡式說話」，就先要知道孩子是如何學習和發展語⾔。<br><br>
+
+					第一種學習語⾔的⽅式是分析式語⾔處理 (Analytic Language
+					Processing)。這是一種順序的學習⽅式，孩子先掌握單字，再組合詞語，繼⽽運⽤短語，再組織句子。⼤部分孩子都是透過這種⽅式學習語⾔。<br><br>
+
+					另一種⽅式稱為整體語⾔處理 (Gestalt Language Processing)。透過這種⽅式學習語⾔的⼩朋友透過「⼤塊語⾔說話 」(Speaking in “chunks” of
+					language)，⽽且通常從「鸚鵡式說話」開始。<br><br>
 
 					<h4><b>誰是整體語⾔處理者(Gestalt Language Processors)?</b></h4>
 
-					⼤多數⾃閉症孩⼦都是。<br><br>
+					⼤多數自閉症孩子都是。<br><br>
 
-					⼤多數⾃閉症孩⼦並不是「⼀步⼀步」學習語⾔！他們很可能⼀開始就⼀整句句⼦說出來。<br>
-					
-					雖然所有孩⼦在學習語⾔的過程中都會模仿別⼈的話語，但非⾃閉症孩⼦通常很快就開始靈活運⽤各字詞︔但對⾃閉症孩⼦來說，這種模仿現象卻⼀直持續，⽽他們通常並不完全理解句⼦中各字詞的含義。這些被背誦出來的句⼦，相比起孩⼦真正掌握的語句更複雜，因此往往令⽗母和⽼師難以判斷，甚或傾向⾼估了孩⼦真正的語⾔能⼒。<br><br>
+					⼤多數自閉症孩子並不是「一步一步」學習語⾔！他們很可能一開始就一整句句子說出來。<br>
 
-					以下讓⼤家透過兩個⽇常⽣活的例⼦了解⾃閉症兒童的「鸚鵡式說話」。<br><br>
+					雖然所有孩子在學習語⾔的過程中都會模仿別⼈的話語，但非自閉症孩子通常很快就開始靈活運⽤各字詞︔但對自閉症孩子來說，這種模仿現象卻一直持續，⽽他們通常並不完全理解句子中各字詞的含義。這些被背誦出來的句子，相比起孩子真正掌握的語句更複雜，因此往往令⽗母和⽼師難以判斷，甚或傾向⾼估了孩子真正的語⾔能⼒。<br><br>
 
-					例⼦⼀：<br>
-					5歲男孩⼦每次上完⾔語治療的時候就會說：「媽媽接你！」，不論來接他的是⼯⼈姐姐、爸爸還是媽媽。<br><br>
+					以下讓⼤家透過兩個⽇常⽣活的例子了解自閉症兒童的「鸚鵡式說話」。<br><br>
 
-					他說這句話的意思其實是「上完堂喇，有⼈嚟接我」。雖然他能理解「媽媽」這個詞彙的意思，亦知道誰是他的媽媽，但由於他是整體語⾔處理者，他將媽媽曾經對他說的話以「延遲的鸚鵡式說話」這種⽅式表達。這種「照板煮碗」的⽅式顯⽰他並不是將「媽媽」、「接」、「你」三個字詞分開處理，⽽是把「媽媽接你」當成⼀整件事去處理，亦即是⽂章早段提到的「⼤塊語⾔」。<br><br>
+					例子一：<br>
+					5歲男孩子每次上完⾔語治療的時候就會說：「媽媽接你！」，不論來接他的是⼯⼈姐姐、爸爸還是媽媽。<br><br>
 
-					例⼦⼆：<br>
-					3歲男孩⼦坐下時不⼩⼼跌在地上，然後轉個頭看著我唱了⼀句 “One fell off and bumped his head!” (這句話出⾃歌曲 “Five Little Monkeys”)。<br><br>
+					他說這句話的意思其實是「上完堂喇，有⼈嚟接我」。雖然他能理解「媽媽」這個詞彙的意思，亦知道誰是他的媽媽，但由於他是整體語⾔處理者，他將媽媽曾經對他說的話以「延遲的鸚鵡式說話」這種⽅式表達。這種「照板煮碗」的⽅式顯⽰他並不是將「媽媽」、「接」、「你」三個字詞分開處理，⽽是把「媽媽接你」當成一整件事去處理，亦即是⽂章早段提到的「⼤塊語⾔」。<br><br>
 
-					他存取這⾸歌的⼀部分並在他跌倒時運⽤出來，正因為他是⽤整體語⾔處理的⽅式學習語⾔，所以他以「延遲的鸚鵡式說話」表達他「跌倒了」這個情況。他所說出的歌詞前部分意思恰當，但後部分“bumped his head“則不恰當，⽽他亦沒有將「One」轉換成「I」，這些都顯⽰出他是以⼀整句去處理語⾔，⽽不是逐個字詞去理解。他腦海中這⼀整句就等於「跌倒了」，⼀跌倒就會整句唱出來。<br><br>
+					例子⼆：<br>
+					3歲男孩子坐下時不⼩⼼跌在地上，然後轉個頭看著我唱了一句 “One fell off and bumped his head!” (這句話出自歌曲 “Five Little
+					Monkeys”)。<br><br>
+
+					他存取這⾸歌的一部分並在他跌倒時運⽤出來，正因為他是⽤整體語⾔處理的⽅式學習語⾔，所以他以「延遲的鸚鵡式說話」表達他「跌倒了」這個情況。他所說出的歌詞前部分意思恰當，但後部分“bumped his
+					head“則不恰當，⽽他亦沒有將「One」轉換成「I」，這些都顯⽰出他是以一整句去處理語⾔，⽽不是逐個字詞去理解。他腦海中這一整句就等於「跌倒了」，一跌倒就會整句唱出來。<br><br>
 
 					<h4><b>總結</b></h4>
-					「鸚鵡式說話」是⾃閉症孩⼦常有的語⾔⾏為特徵，隨著語⾔能⼒有所提升，孩⼦會更有能⼒正確地靈活運⽤不同的字、詞及句⼦，「鸚鵡式說話」就會逐漸減少。<br><br>
+					「鸚鵡式說話」是自閉症孩子常有的語⾔⾏為特徵，隨著語⾔能⼒有所提升，孩子會更有能⼒正確地靈活運⽤不同的字、詞及句子，「鸚鵡式說話」就會逐漸減少。<br><br>
 
-					把這篇⽂章分享給身邊跟你同樣關⼼孩⼦成長的朋友，讓我們⼀起和孩⼦健康快樂地成長。<br>
+					把這篇⽂章分享給身邊跟你同樣關⼼孩子成長的朋友，讓我們一起和孩子健康快樂地成長。<br>
 					如有任何問題或需要幫忙，歡迎你跟諾道團隊聯絡，我們樂意為你提供協助！
 				</div>
 			</div>

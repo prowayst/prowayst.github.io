@@ -7,6 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
+	<meta property="og:title" content="如何有效與孩子設限" />
+	<meta property="og:description"
+		content="為人父母都會理解，當子女有足夠睡眠休息、吃了喜歡的零食、喝到甜甜的果汁，心情好、情緒穩定、乖乖聽話時，真像天使般可愛；但當疲累來襲、想擁有的玩具爸爸說不買了..." />
+	<meta property="og:image" content="../images/Article/article010.png" />
+	<meta property="og:url" content="article/article010.html" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- bootstrap-css -->
@@ -36,6 +41,41 @@
 				event.preventDefault();
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
 		});
 	</script>
 	<!--[if lt IE 9]>
@@ -136,7 +176,38 @@
 			<!-- article -->
 			<div class="article">
 				<div class="narrow-text">
-					<h2>如何有效與孩子設限</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>如何有效與孩子設限</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：01-11-2024</p>
 				</div>
@@ -146,30 +217,32 @@
 				<hr>
 				<div class="panel-body narrow-text">
 					為人父母都會理解，當子女有足夠睡眠休息、吃了喜歡的零食、喝到甜甜的果汁，心情好、情緒穩定、乖乖聽話時，真像天使般可愛；但當疲累來襲、想擁有的玩具爸爸說不買了、想吃薯⽚但媽媽說要先吃午飯、想繼續看YOUTUBE但當天的電視時間夠了...得不到想要的東西引致的失落、失望、不開心、沮喪，一下子令情緒爆發，打人、踢腳、大叫，⼩可愛就變成⼩魔怪了！<br><br>
-					
+
 					這些時候通常照顧者的情緒會被牽動、底線會被觸及，引致的結果大多有兩個。第一：照顧者妥協，因為⼩朋友的大嗌大喊令父母怕怕，故此選擇快快滿足當下的欲望，令其停止哭鬧；第二：父母以同樣的憤怒忟憎情緒回應子女，令他不敢再要求想要的東西、不敢再發脾氣。<br><br>
 
 					不能否認以上兩種方法處理子女的脾氣所帶來的好處，就是事情快快被處理。可是，下一次再遇到同樣情況，這些畫⾯只會重覆出現。那麼該如何有效與孩子設限？家長可參考兒童為本遊戲輔導當中一個技巧：ACT<br><br>
-					
+
 					<h4><b>第一步：承認孩子當下的情緒 <u style="font-size: x-large;">A</u>CKNOWLEDGE THE FEELINGS</b></h4>
 					意即容許他有失落、失望、不開心、沮喪等感受，同時傳達「有這些感覺是正常的」訊息。<br><br>
 					建議說話：「媽媽見到你而家好嬲、唔開心係可以㗎」<br>
 					、「好想食朱古力但係我唔俾，所以你唔鍾意、手手好想打一啲嘢」。<br><br>
 
 					<h4><b>第二步： 設限 <u style="font-size: x-large;">C</u>OMMUNICATE THE LIMIT</b></h4>
-					 
+
 					簡潔地讓孩子知道甚麼行為是不被接受的，這裡要留意，不被接受的是孩子的特定一個行為，你仍然是愛他接納他整個人的。<br><br>
 					建議說話：「不過爸爸唔係俾你打㗎」、「但係玩具唔係用嚟掉㗎」、「腳腳唔係用嚟踢人㗎」、「口唔係用嚟大嗌」。<br><br>
 
-					<h4><b>第三步：給予選擇替代行為  <u style="font-size: x-large;">T</u>ARGET ALTERNATIVE BEHAVIOUR</b></h4>
-					
+					<h4><b>第三步：給予選擇替代行為 <u style="font-size: x-large;">T</u>ARGET ALTERNATIVE BEHAVIOUR</b></h4>
+
 					只是停止不理想的行為例如打人、踢人並不足夠，重要的是ACT中最後一步，讓孩子以另一種可接受的方式作為情緒出口。<br><br>
 
 					建議說話：「如果手手想打一啲嘢，可以打個枕頭，或者媽媽同你大力拍拍」、「你可以用口口嚟叫媽媽幫手，或者拎枝泡泡吹，吹啲嬲嬲出嚟」、「想掉嘢可以掉呢個⾖袋去圈入⾯，或者掉個波去桶度」。<br><br>
 
-					<h4><b>總結</b></h4>					
+					<h4><b>總結</b></h4>
 
-					ACT理論簡單，實踐下來最困難的是不會你一說完以上三個步驟的說話，孩子就像變魔法般⽴即跟從你的教導、做出社交合宜的行為。要有效使用ACT，秘訣在於耐性，意即父母要有心理準備，當你進行第一步時，孩子就可能會因為被明白而更放心舒發情緒，更放聲大哭；而且孩子也是第一次聽到你用這個方式與他對話，難免需時適應及思考；再者，第三步涉及做選擇 ，將選擇權交到孩子手上 (RETURN OF RESPONSIBILITY)，讓他為⾃⼰做決定，同時承擔相應責任，這部分都需要慢慢學習，不會做一次ACT就成功。爸爸媽媽以同樣堅定、溫柔的語氣重覆三個步驟即可。<br><br>
+					ACT理論簡單，實踐下來最困難的是不會你一說完以上三個步驟的說話，孩子就像變魔法般⽴即跟從你的教導、做出社交合宜的行為。要有效使用ACT，秘訣在於耐性，意即父母要有心理準備，當你進行第一步時，孩子就可能會因為被明白而更放心舒發情緒，更放聲大哭；而且孩子也是第一次聽到你用這個方式與他對話，難免需時適應及思考；再者，第三步涉及做選擇
+					，將選擇權交到孩子手上 (RETURN OF
+					RESPONSIBILITY)，讓他為⾃⼰做決定，同時承擔相應責任，這部分都需要慢慢學習，不會做一次ACT就成功。爸爸媽媽以同樣堅定、溫柔的語氣重覆三個步驟即可。<br><br>
 
 					驟眼看來，ACT並不如⽂中初段提到的方法能快速處理孩子當下的問題行為，但我們相信，以一種接納、關愛、諒解、容許的態度回應，會為孩子在成長路上的情緒學習灌以正⾯的成長養分，引導孩子以恰當的方法表達需要及想法。<br><br>
 

@@ -7,6 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
+	<meta property="og:title" content="如何回應孩子憤怒情緒" />
+	<meta property="og:description" content="每個人與生俱來都有情緒感受，是用作回應世界的一種方式。情緒沒有好壞之分，每種情緒也帶有其功能及意義，驅使我們作出相應的行動..." />
+	<meta property="og:image" content="../images/Article/article008.png" />
+	<meta property="og:url" content="article/article08.html" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- bootstrap-css -->
@@ -36,6 +40,41 @@
 				event.preventDefault();
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
 		});
 	</script>
 	<!--[if lt IE 9]>
@@ -136,7 +175,38 @@
 			<!-- article -->
 			<div class="article">
 				<div class="narrow-text">
-					<h2>如何回應孩子憤怒情緒</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>如何回應孩子憤怒情緒</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：01-10-2024</p>
 				</div>
@@ -147,7 +217,8 @@
 				<div class="panel-body narrow-text">
 					每個人與生俱來都有情緒感受，是用作回應世界的一種方式。情緒沒有好壞之分，每種情緒也帶有其功能及意義，驅使我們作出相應的行動；當中「憤怒」是我們常經驗的情緒，若控制得宜，憤怒能帶來勇氣與動力表達內心想法，保護自己、維護重視的東西；但若被憤怒淹蓋，會令人失去冷靜的頭腦，甚或為自己及身邊人帶來語言或身體上的傷害。<br>
 					<br>
-					年幼的孩子在成長路上必然會面對開心、興奮、害怕、失望、惱怒、忟憎、擔心等不同感受；縱然面對情緒變化，唯說話並非孩子最能表達自己所思所想的方法；再者，孩子的腦部仍在發展階段，未完全掌握控制衝動的能力，當遇到情緒來襲尤其是「憤怒」時，他們會以最直接最快的表達方式 — 肢體動作來釋放感受，在大人眼中就變成「問題行為」了。<br>
+					年幼的孩子在成長路上必然會面對開心、興奮、害怕、失望、惱怒、忟憎、擔心等不同感受；縱然面對情緒變化，唯說話並非孩子最能表達自己所思所想的方法；再者，孩子的腦部仍在發展階段，未完全掌握控制衝動的能力，當遇到情緒來襲尤其是「憤怒」時，他們會以最直接最快的表達方式
+					— 肢體動作來釋放感受，在大人眼中就變成「問題行為」了。<br>
 					<br>
 					無論是否有特殊需要的小朋友，都需要學習以恰當方法展現及釋放情緒；而有語言發展遲緩的小朋友由於未能以說話清晰表達自己，會較易以「問題行為」即常⾒的「打人、尖叫、瞓地、喊」讓身邊人知道自己的需要。學習情緒管理不是一朝一夕的事情，孩子需要家長一直的陪伴與教導；以下是如何回應孩子憤怒情緒的建議步驟：<br>
 					<br>
@@ -166,11 +237,11 @@
 					<br>
 					<h4><b>步驟三：教孩子如何安全地表達情緒</b></h4>
 					情緒爆發時不是一個說道理的好時機，當孩子經歷憤怒情緒時，需要的是來自父母的那份理解及容許。年幼的孩子可多用抱緊、掃背等身體接觸方式讓他們感受更實在的陪伴。冷靜下來後或⽇常平靜的時刻，父母可與孩子共讀情緒繪本、玩假裝遊戲及利用情緒面譜等⼯具去認識情緒及學習合宜的表達方式。每位孩子釋放及排解情緒的方法都不一樣，家長可與孩子一同探討屬於自己的表達方法，例如打波波、捏泥膠、深呼吸、喝一杯水等，為下一次情緒風暴作準備。<br><br>
-					
+
 					<h4><b>總結</b></h4>
 					憤怒是眾多情緒之一，與「開心」、「唔開心」、「興奮」、「失望」等同樣有其價值及功用。家長要先容許自身有不同情緒出現，再將這份「接納」延伸至孩子，協助孩子在面對任何一種情緒時，都能有相應的方法，並知道你那雙⼿會永遠作為他強大的安全基地。<br>
 					<br>
-					
+
 					把這篇⽂章分享給身邊跟你同樣關心孩子成長的朋友，讓我們一起和孩子健康快樂地成長。<br>
 					如有任何問題或需要幫忙，歡迎你跟諾道團隊聯絡，我們樂意為你提供協助！
 				</div>

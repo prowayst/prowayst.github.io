@@ -7,6 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
+	<meta property="og:title" content="孩子到底是哪一種專注力弱？- 認識5大專注力" />
+	<meta property="og:description" content="專注力大致分為五種 — 集中性專注力、 持續性專注力、選擇性專注力、轉換性專注力以及分散性專注力。我們經常描述的「能專心完成任務」..." />
+	<meta property="og:image" content="../images/Article/article015.png" />
+	<meta property="og:url" content="article/article015.html" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- bootstrap-css -->
@@ -36,6 +40,41 @@
 				event.preventDefault();
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
 		});
 	</script>
 	<!--[if lt IE 9]>
@@ -136,7 +175,38 @@
 			<!-- article -->
 			<div class="article">
 				<div class="narrow-text">
-					<h2>孩子到底是哪一種專注力弱？- 認識5大專注力</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>孩子到底是哪一種專注力弱？- 認識5大專注力</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：01-02-2025</p>
 				</div>
@@ -173,7 +243,7 @@
 					<div style="border: 1px solid gray;">
 						<h4><b>挑戰：你能從Cody在學校的一天中找出五種專注力嗎？</b></h4>
 						現時就讀小二的Cody今天第一堂課是中文堂，對他來說很難集中又持續地聽李老師講完一篇課文；第二堂是Cody最喜歡的數學堂，但當走廊有人走過，或聽到窗外的⾞聲，他一下子就被吸引過去，他很難「忽略」這些與目前活動無關的刺激，一下子就「分心」，忘記自己本來正在進行的活動。<br><br>
-						
+
 						三節課後就是小息，Cody和同學一起到操場跑跑跳跳，15分鐘轉眼就過，鐘聲響起後大家回到班房繼續上堂，但Cody整個心思還停留在操場，過了一整堂都未能將注意力重新放回到學習。中文課時，張老師請同學一邊聽書，一邊將重點記在筆記本上，但Cody未能同時處理兩項任務，否則他既未能聽到老師講解，又未能寫下任何重點。
 					</div>
 

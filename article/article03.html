@@ -7,6 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="" />
+	<meta property="og:title" content="自閉症的警號" />
+	<meta property="og:description"
+		content="自閉症譜系障礙 (Autism Spectrum Disorder) 的部分徵兆早在嬰幼兒時期出現，認識這些自閉症的警號有助家長為孩⼦把握⿈⾦期，讓⼦女盡早得到適切幫助，減少往後成長路上⾯對的困難和挑戰。" />
+	<meta property="og:image" content="../images/Article/article003.png" />
+	<meta property="og:url" content="article/article03.html" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- bootstrap-css -->
@@ -36,6 +41,41 @@
 				event.preventDefault();
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
 		});
 	</script>
 	<!--[if lt IE 9]>
@@ -82,9 +122,12 @@
 												data-toggle="dropdown" role="button" aria-haspopup="true"
 												aria-expanded="false">諾道服務<span class="caret"></span></a>
 											<ul class="dropdown-menu">
-												<li><a class="hvr-bounce-to-bottom" href="../our-services/prevention.html">預防</a></li>
-												<li><a class="hvr-bounce-to-bottom" href="../our-services/intervention.html">治療</a></li>
-												<li><a class="hvr-bounce-to-bottom" href="../our-services/enhancement.html">提升</a></li>
+												<li><a class="hvr-bounce-to-bottom"
+														href="../our-services/prevention.html">預防</a></li>
+												<li><a class="hvr-bounce-to-bottom"
+														href="../our-services/intervention.html">治療</a></li>
+												<li><a class="hvr-bounce-to-bottom"
+														href="../our-services/enhancement.html">提升</a></li>
 											</ul>
 										</li>
 										<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
@@ -133,7 +176,38 @@
 			<!-- article -->
 			<div class="article">
 				<div class="narrow-text">
-					<h2>⾃閉症的警號</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>自閉症的警號</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：12-06-2024</p>
 				</div>
@@ -142,21 +216,22 @@
 				</div>
 				<hr>
 				<div class="panel-body narrow-text">
-					⾃閉症譜系障礙 (Autism Spectrum Disorder) 的部分徵兆早在嬰幼兒時期出現，認識這些⾃閉症的警號有助家長為孩⼦把握⿈⾦期，讓⼦女盡早得到適切幫助，減少往後成長路上⾯對的困難和挑戰。<br><br>
-					1. 1歲還未穩定地對⾃⼰的名字作出回應<br>
-					2. 過了1歲還未懂「⼿指指」去指出身邊及遠處的事物，藉此與⼈分享⾃⼰的興趣或正注視的事物，例如向媽媽指著⾺路上⾏⾛的巴⼠<br>
+					自閉症譜系障礙 (Autism Spectrum Disorder)
+					的部分徵兆早在嬰幼兒時期出現，認識這些自閉症的警號有助家長為孩⼦把握⿈⾦期，讓⼦女盡早得到適切幫助，減少往後成長路上⾯對的困難和挑戰。<br><br>
+					1. 1歲還未穩定地對自⼰的名字作出回應<br>
+					2. 過了1歲還未懂「⼿指指」去指出身邊及遠處的事物，藉此與⼈分享自⼰的興趣或正注視的事物，例如向媽媽指著⾺路上⾏⾛的巴⼠<br>
 					3. 1歲仍甚少留意及回應別⼈指著的⼈事物<br>
 					4. 1歲半仍甚少表現出簡單的假想遊戲⾏為，例如：⽤杯扮飲⽔、⽤匙羹扮食飯<br>
 					5. 語⾔發展遲緩，例如⼀歲半仍然未有或只有少量單字<br>
 					6. 像鸚鵡般重複別⼈的說話<br>
 					7. 傾向選擇獨處，對與⼈交流的興趣或意慾較低<br>
 					8. 極度沉迷於某⼀兩樣興趣，例如：數字、英⽂字母、地鐵站名、巴⼠路線<br>
-					9. 有⾃轉、揈(fing)⼿/頭的⾏為<br>
+					9. 有自轉、揈(fing)⼿/頭的⾏為<br>
 					10. 較固執和堅持某些⾏事⽅式，容易因⼩改變⽽情緒爆發，例如：只⾏某⼀條路線回家、玩具堅持某⼀種玩法<br>
 					11. 重複及刻板⾏為，例如排列玩具⾞或積⽊<br>
 					12. 難以與⼈維持恰當的眼神接觸<br>
 					13. 對味道、聲⾳、氣味等感官有過⼤/過少的反應，例如：抗拒某些質感的食物、對痛楚的反應過低<br><br>
-					
+
 					如果你的孩⼦經常且持續地出現以上某些特徵，建議你盡快找專業⼈⼠為孩⼦作詳細評估。<br>
 					如有任何問題或需要幫忙，歡迎你跟諾道團隊聯絡，我們樂意為你提供協助。<br>
 				</div>
