@@ -9,8 +9,8 @@
 	<meta name="keywords" content="" />
 	<meta property="og:title" content="提升親子關係：親子「特別遊戲時間」" />
 	<meta property="og:description" content="透過親子特別遊戲時間，孩子可以表達自己並釋放情緒。了解如何促進良好的親子互動。" />
-	<meta property="og:image" content="../images/Article/article016.png" />
-	<meta property="og:url" content="article/article016_test.html" />
+	<meta property="og:image" content="https://您的網站域名/images/Article/article016.png" />
+	<meta property="og:url" content="https://您的網站域名/article/article016_test.html" />
 
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -65,11 +65,8 @@
 		// Sharing to Facebook
 		function shareToFacebook() {
 			const url = encodeURIComponent(window.location.href); // The current page URL
-			const text = encodeURIComponent('看看這篇文章！'); // The text you want to share
-			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
 		}
-
-
 
 
 		// Close the menu when clicking outside it
@@ -182,20 +179,33 @@
 				<div class="narrow-text">
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 						<h2>提升親子關係：親子「特別遊戲時間」</h2>
-						<button class="btn btn-success" style="display: flex; align-items: center;"
-							onclick="toggleShareMenu()">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-								class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
-								<path
-									d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
-							</svg>
-							Share
-						</button>
-						<div id="share-menu" style="display: none;">
-							<button class="btn btn-primary" onclick="shareToWhatsApp()">WhatsApp</button>
-							<button class="btn btn-primary" onclick="shareToFacebook()">Facebook</button>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle;"> WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 24px; height: 24px; vertical-align: middle;"> Facebook
+								</button>
+							</div>
 						</div>
-
 					</div>
 					<p>撰文：諾道團隊</p>
 					<p>已更新：01-02-2025</p>
