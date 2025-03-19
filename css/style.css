@@ -1965,6 +1965,10 @@ h2.typoh2 {
 }
 
 @media (max-width:480px) {
+    .videos {
+        max-width: 100%;
+        max-height: 200px;
+    }
     .table h1 {
         font-size: 26px;
     }
@@ -2575,6 +2579,10 @@ figure.effect-apollo:hover p {
     .icon-box {
         padding: 8px 5px;
     }
+    .videos {
+        max-width: 100%;
+        max-height: 200px;
+    }
 
     .banner {
         background: url(../images/banner.jpg) no-repeat 0px 95px;
@@ -2582,6 +2590,10 @@ figure.effect-apollo:hover p {
 }
 
 @media(max-width:991px) {
+    .videos {
+        max-width: 100%;
+        max-height: 300px;
+    }
     .header-left {
         width: 60%;
     }
@@ -2641,6 +2653,11 @@ figure.effect-apollo:hover p {
 }
 
 @media(max-width:736px) {
+    .videos {
+        max-width: 100%;
+        max-height: 300px;
+    }
+
     .header-left {
         width: 34%;
     }
@@ -2766,6 +2783,10 @@ figure.effect-apollo:hover p {
 }
 
 @media(max-width:480px) {
+    .videos {
+        max-width: 100%;
+        height: 120px;
+    }
     .header-left {
         width: 100%;
         float: none;
@@ -2871,6 +2892,10 @@ figure.effect-apollo:hover p {
 }
 
 @media(max-width:430px) {
+    .videos {
+        max-width: 80%;
+        height: 120px;
+    }
     .col-md-2.agile-footer-grid iframe {
         width: 100% !important;
     }
@@ -2962,6 +2987,10 @@ figure.effect-apollo:hover p {
 }
 
 @media(max-width:414px) {
+    .videos {
+        max-width: 100%;
+        height: 100px;
+    }
     .card {
         margin-bottom: 10px;
     }
@@ -3109,6 +3138,10 @@ figure.effect-apollo:hover p {
 }
 
 @media(max-width:384px) {
+    .videos {
+        max-width: 100%;
+        height: 150px;
+    }
     .callbacks_nav {
         bottom: 6px;
     }
@@ -3152,6 +3185,11 @@ figure.effect-apollo:hover p {
 @media(max-width:375px) {
     .col-md-2.agile-footer-grid iframe {
         width: 300px !important;
+    }
+
+    .videos {
+        max-width: 100%;
+        max-height: 200px;
     }
 
     .agileits-banner-info h3 {
@@ -3317,3 +3355,32 @@ figure.effect-apollo:hover p {
 }
 
 /*-- //responsive --*/
+
+.videos {
+    width: 100%;
+    top: 20px;
+    max-width: 560px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 26.25%; /* 16:9 比例 */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.videos iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .videos {
+        max-width: 100%;
+        height: 400px;
+    }
+}
