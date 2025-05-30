@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>PROWAY SPEECH THERAPY - 諾道好評</title>
+	<title>PROWAY SPEECH THERAPY - 聯絡我們</title>
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
@@ -30,8 +30,6 @@
 	<!-- //font -->
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-
 	<script type="text/javascript">
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -39,49 +37,6 @@
 				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
 			});
 		});
-
-		$(document).ready(function () {
-			// Load CSV data
-			Papa.parse("feedback.csv", {
-				download: true,
-				header: true,
-				complete: function (results) {
-					processData(results.data);
-				}
-			});
-		});
-
-		// Process CSV data
-		function processData(data) {
-			for (var i = 0; i < data.length; i++) {
-				var row = data[i];
-				var name = row["Name"];
-				var date = row["Date"];
-				var feedback = row["Data"].replace(/\n/g, "<br>");
-				var image = row["Image"];
-
-				var htmlContent = '<div class="agileits_three_comment_grid">' +
-					'<div class="agileits_tom">' +
-					'<img src="' + image + '" alt="" class="img-responsive">' +
-					'</div>' +
-					'<div class="agileits_tom_right">' +
-					'<div class="hardy">' +
-					'<h4>' + name + '</h4>' +
-					'<p><span class="fa fa-calendar-o"> ' + date + '</span></p>' +
-					'</div>' +
-					'<div class="clearfix"> </div>' +
-					'<p class="lorem">' + feedback + '</p>' +
-					'</div>' +
-					'<div class="clearfix"> </div>' +
-					'<p class="right">更多好評 <a href="https://www.instagram.com/prowayspeechtherapy/">' +
-					'<img src="images/instagram.png"></a>/<a href="https://www.facebook.com/prowayspeechtherapy/">' +
-					'<img src="images/facebook.png"></a></p>' +
-					'</div>';
-
-				$('.agileits_three_comments').append(htmlContent);
-			}
-		}
-
 	</script>
 	<!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -148,8 +103,8 @@
 											</ul>
 										</li>
 										<li><a href="share.html">諾道分享</a></li>
-										<li><a class="active" href="good.html">諾道好評</a></li>
-										<li><a href="contact.html">聯絡諾道</a></li>
+										<li><a href="good.html">諾道好評</a></li>
+										<li><a class="" href="contact.html">聯絡諾道</a></li>
 									</ul>
 									<div class="clearfix"> </div>
 								</div>
@@ -174,38 +129,42 @@
 			</div>
 		</div>
 		<div class="w3ls-heading">
-			<h2>諾道好評</h2>
+			<h2>諾道實習⽣計劃</h2>
 		</div>
 	</div>
 	<!-- //banner -->
-	<!-- single -->
-	<div class="single">
+	<!-- contact -->
+	<div class="contact">
 		<div class="container">
-			<div class="agileits-single-img">
-				<img src="images/p2.jpg" alt="" />
-				<!-- comments -->
-				<div class="agileits_three_comments">
-					<h3>諾道好評</h3>
-				</div>
-
-				<!---<p class="right">
-					更多好評
-					<a href="https://www.instagram.com/prowayspeechtherapy/">
-						<img src="images/instagram.png">
-					</a>
-					/
-					<a href="https://www.facebook.com/prowayspeechtherapy/">
-						<img src="images/facebook.png">
-					</a>
-				</p>-->
+			<div class="agile-contact-form">
+				
+				<div class="clearfix"> </div>
 			</div>
-			<!-- //comments -->
+			<div class="interndetail-container">
+				<h4>計劃介紹</h4>
+				諾道重視傳承，致力培育更多專業人才陪伴小朋友成長。實習生將獲安排跟隨深言語治療師及社工學習知識和發展專業技能，為畢業後的事業發展做好準備。
+				<br><br>
+				實習時間：每年7-8月，8星期或以上
+				<br><br>
+
+				<h4>計劃要求</h4>
+				歡迎具備以下條件的非應屆畢業大學生參與計劃：<br>
+				<ul class="dash-list">
+					<li>2026 年畢業，專修言語及語言病理學/社會工作學的本科生或研究生</li>
+					<li>實習期為 2025 年 7至 8 月，實習8星期或以上，每周3至4天工作</li>
+					<li>具責任感、誠信操守、重視團隊精神</li>
+					<li>樂於與家長緊密溝通合作</li>
+					<li>對兒童工作有熱誠</li>
+				</ul>
+				<br>
+				<h4>申請計劃</h4>
+				第一屆諾道實習生計劃現已開始接受申請，有興趣的同學請於2025年6月10日前將履歷經電郵傳送到 <a href="mailto:info@prowayst.com">info@prowayst.com</a><br>
+				<br>
+				如有任何查詢，請致電 6532 8821 或電郵至<a href="mailto:info@prowayst.com">info@prowayst.com</a>
+			</div>
 		</div>
 	</div>
-
-
-
-	<!-- //single -->
+	<!-- //contact -->
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">
@@ -218,15 +177,19 @@
 				</div>
 
 				<div class="col-md-4 agile-footer-grid">
-					<span><b>星期二至日</b> 09:00 - 18:00</span><br>
-					<span><b>星期一</b> 休息</span><br>
+					<span><b>星期二至日</b> 09:00 - 18:00</span>
+					<br>
+					<span><b>星期一</b> 休息</span>
+					<br>
 					<span><b>敬請預約</b></span>
 				</div>
 
 
-				<div class="clearfix"> </div>
 			</div>
+
+			<div class="clearfix"> </div>
 		</div>
+	</div>
 	</div>
 	<!-- //footer -->
 	<!-- copyright -->
