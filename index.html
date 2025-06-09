@@ -42,51 +42,51 @@
 	<!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
-<style>
-/* Modal Box Styles */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-}
+	<style>
+		/* Modal Box Styles */
+		.modal-overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			z-index: 1000;
+		}
 
-.modal-box {
-    display: none;
-    position: fixed;
-    top:60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 28px;
-    border-radius: 8px;
-    z-index: 1001;
-    max-width: 70%;
-    max-height: 90vh;
-}
+		.modal-box {
+			display: none;
+			position: fixed;
+			top: 60%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: white;
+			padding: 28px;
+			border-radius: 8px;
+			z-index: 1001;
+			max-width: 70%;
+			max-height: 90vh;
+		}
 
-.modal-close {
-    position: absolute;
-    top: 2px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-}
+		.modal-close {
+			position: absolute;
+			top: 2px;
+			right: 10px;
+			font-size: 24px;
+			cursor: pointer;
+			color: #333;
+		}
 
-.modal-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    max-height: 60vh;
-    width: auto;
-    margin: 0 auto;
-}
-</style>
+		.modal-content img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+			max-height: 60vh;
+			width: auto;
+			margin: 0 auto;
+		}
+	</style>
 </head>
 
 <body>
@@ -316,7 +316,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 
 				<!-- Repeat this block for each card -->
 				<!--<div class="col-md-4">
@@ -546,29 +546,35 @@
 	</div>
 
 	<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const modal = document.getElementById('welcomeModal');
-		const modalBox = modal.querySelector('.modal-box');
-		const closeBtn = modal.querySelector('.modal-close');
+		document.addEventListener('DOMContentLoaded', function () {
+			const modal = document.getElementById('welcomeModal');
+			const modalBox = modal.querySelector('.modal-box');
+			const closeBtn = modal.querySelector('.modal-close');
 
-		// Show modal when page loads
-		modal.style.display = 'block';
-		modalBox.style.display = 'block';
+			const deadline = new Date('2025-06-11T00:00:00+08:00');
+			const now = new Date();
 
-		// Close modal when clicking the close button
-		closeBtn.onclick = function() {
-			modal.style.display = 'none';
-			modalBox.style.display = 'none';
-		}
+			if (now < deadline) {
+				modal.style.display = 'block';
+				modalBox.style.display = 'block';
 
-		// Close modal when clicking outside the modal
-		window.onclick = function(event) {
-			if (event.target == modal) {
+				// close
+				closeBtn.onclick = function () {
+					modal.style.display = 'none';
+					modalBox.style.display = 'none';
+				}
+
+				// click close
+				window.onclick = function (event) {
+					if (event.target === modal) {
+						modal.style.display = 'none';
+						modalBox.style.display = 'none';
+					}
+				}
+			} else {
 				modal.style.display = 'none';
-				modalBox.style.display = 'none';
 			}
-		}
-	});
+		});
 	</script>
 </body>
 
