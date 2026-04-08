@@ -262,28 +262,6 @@
 				<div class="col-md-4">
 					<div class="card">
 						<div class="image-container">
-							<a href="article/article025.html">
-								<img src="images/Article/article025.png" alt="Card image">
-								<div class="line"></div>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">SEN孩⼦的性教育</h5>
-							</a>
-							<p class="card-text">撰⽂：諾道團隊</p>
-							<div class="icon-row">
-								<i class="fa fa-clock-o left"> 3分鐘 </i>
-								<div class="right">
-									<i class="fa fa-eye"> 301 </i>
-									<i class="fa fa-heart-o"> 106 </i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Repeat this block for each card -->
-				<div class="col-md-4">
-					<div class="card">
-						<div class="image-container">
 							<a href="article/article024.html">
 								<img src="images/Article/article024.png" alt="Card image">
 								<div class="line"></div>
@@ -319,6 +297,28 @@
 								<div class="right">
 									<i class="fa fa-eye"> 189 </i>
 									<i class="fa fa-heart-o"> 100 </i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Repeat this block for each card -->
+				<div class="col-md-4">
+					<div class="card">
+						<div class="image-container">
+							<a href="article/article022.html">
+								<img src="images/Article/article022.png" alt="Card image">
+								<div class="line"></div>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">如何提升孩⼦的內在動機</h5>
+							</a>
+							<p class="card-text">撰⽂：諾道團隊</p>
+							<div class="icon-row">
+								<i class="fa fa-clock-o left"> 3分鐘 </i>
+								<div class="right">
+									<i class="fa fa-eye"> 211 </i>
+									<i class="fa fa-heart-o"> 87 </i>
 								</div>
 							</div>
 						</div>
@@ -491,6 +491,7 @@
 	<!-- //copyright -->
 	<script src="js/responsiveslides.min.js"></script>
 	<script src="js/SmoothScroll.min.js"></script>
+	<script src="js/qr-modal.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<!-- here stars scrolling icon -->
@@ -609,19 +610,9 @@
 				});
 			}
 
-			// Gate welcomeModal by intern campaign end date:
-			// - Before 2026-06-10: show internModal (if eligible), never show welcomeModal.
-			// - On/after 2026-06-10: show welcomeModal (if eligible).
-			const internDeadlineIso = '2026-06-10T00:00:00+08:00';
-			const welcomeDeadlineIso = '2999-06-11T00:00:00+08:00';
-			const now = new Date();
-			const internDeadline = new Date(internDeadlineIso);
-
-			if (now < internDeadline) {
-				showModalUntilClosed('internModal', internDeadlineIso);
-			} else {
-				showModalUntilClosed('welcomeModal', welcomeDeadlineIso);
-			}
+			// Show intern modal first; welcome modal shows only after intern modal ends.
+			showModalUntilClosed('internModal', '2026-06-10T00:00:00+08:00')
+				.then(() => showModalUntilClosed('welcomeModal', '2999-06-11T00:00:00+08:00'));
 		});
 	</script>
 	<!-- internModal Box -->
@@ -635,7 +626,6 @@
 	</div>
 
 	<!-- internModal behavior is initialized in the script above -->
-	<script src="js/qr-modal.js"></script>
 </body>
 
 </html>

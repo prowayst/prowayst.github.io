@@ -151,7 +151,7 @@ body {
 
 .top-nav ul li {
     display: inline-block;
-    margin: 0 2em;
+    margin: 0 1.09em;
     float: left;
 }
 
@@ -197,6 +197,11 @@ ul.nav.navbar-nav {
 
 .top-nav ul li a.active {
     color: #82b62d !important;
+}
+
+/* Add a non-breaking space after the cooperate menu label */
+.top-nav a[href$="cooperate.html"]::after {
+    content: "\00a0";
 }
 
 ul.dropdown-menu {
@@ -305,6 +310,83 @@ ul.dropdown-menu {
 .agileinfo-social-grids ul li a {
     color: #333;
     text-align: center;
+}
+
+/* QR links (WeChat / RedBook) in header social area */
+.agileinfo-social-grids ul li a.qr-link img {
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    vertical-align: middle;
+}
+
+.agileinfo-social-grids ul li a.qr-link:hover img {
+    border-color: #82b62d;
+}
+
+/* QR modal */
+.qr-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    padding: 24px;
+}
+
+.qr-modal-box {
+    position: relative;
+    background: #fff;
+    max-width: 520px;
+    margin: 25vh auto 0;
+    border-radius: 10px;
+    padding: 18px 18px 22px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.qr-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+}
+
+.qr-modal-header {
+    padding-right: 34px;
+    margin-bottom: 10px;
+}
+
+.qr-modal-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2f2f2f;
+    word-break: break-word;
+}
+
+.qr-modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-modal-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 70vh;
+    width: min(420px, 100%);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+body.qr-modal-open {
+    overflow: hidden;
 }
 
 .agileinfo-social-grids ul li a i.fa.fa-facebook {

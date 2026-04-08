@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>PROWAY SPEECH THERAPY - 諾道分享</title>
+	<title>PROWAY SPEECH THERAPY - 諾�??�享</title>
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
@@ -55,7 +55,7 @@
 							<a href="index.html" class="speech-therapy">
 								<img src="images/icon.png">
 								<div class="speech-therapy-text">
-									<div>諾道言語治療</div>
+									<div>諾�?言語治??/div>
 									<div>PROWAY SPEECH THERAPY</div>
 								</div>
 							</a>
@@ -78,34 +78,35 @@
 								<!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav">
-										<li><a href="index.html">主頁</a></li>
+										<li><a href="index.html">主�?</a></li>
 										<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
 												data-toggle="dropdown" role="button" aria-haspopup="true"
-												aria-expanded="false">諾道服務<span class="caret"></span></a>
+												aria-expanded="false">諾�??��?<span class="caret"></span></a>
 											<ul class="dropdown-menu">
 												<li><a class="hvr-bounce-to-bottom"
-														href="our-services/prevention.html">預防</a></li>
+														href="our-services/prevention.html">?�防</a></li>
 												<li><a class="hvr-bounce-to-bottom"
-														href="our-services/intervention.html">治療</a></li>
+														href="our-services/intervention.html">治�?</a></li>
 												<li><a class="hvr-bounce-to-bottom"
-														href="our-services/enhancement.html">提升</a></li>
+														href="our-services/enhancement.html">?��?</a></li>
 											</ul>
 										</li>
 										<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
 												data-toggle="dropdown" role="button" aria-haspopup="true"
-												aria-expanded="false">諾道團隊<span class="caret"></span></a>
+												aria-expanded="false">諾�??��?<span class="caret"></span></a>
 											<ul class="dropdown-menu">
 												<li><a class="hvr-bounce-to-bottom"
-														href="about.html#therapist">言語治療師</a></li>
-												<li><a class="hvr-bounce-to-bottom" href="about.html#worker">註冊社工</a>
+														href="about.html#therapist">言語治?�師</a></li>
+												<li><a class="hvr-bounce-to-bottom" href="about.html#worker">註�?社工</a>
 												</li>
 												<li><a class="hvr-bounce-to-bottom"
-														href="about.html#psychologist">教育心理學家</a></li>
+														href="about.html#psychologist">?�育心�?學家</a></li>
 											</ul>
 										</li>
-										<li><a class="active" href="share.html">諾道分享</a></li>
-										<li><a href="good.html">諾道好評</a></li>
-										<li><a href="contact.html">聯絡諾道</a></li>
+										<li><a class="active" href="share.html">諾�??�享</a></li>
+										<li><a href="good.html">諾�?好�?</a></li>
+										<li><a href="cooperate.html">?��?機�?/學校</a></li>
+										<li><a href="contact.html">?�絡諾�?</a></li>
 									</ul>
 									<div class="clearfix"> </div>
 								</div>
@@ -121,6 +122,13 @@
 											src="images/facebook.png"></a></li>&nbsp&nbsp
 								<li><a href="https://www.instagram.com/prowayspeechtherapy/"><img
 											src="images/instagram.png"></a></li>
+								&nbsp&nbsp
+								<li><a class="qr-link" href="images/wechat_QR.jpg" target="_blank"
+										title="微信 WeChat ID: wxid_78kzm66q2px412"><img src="images/wechat_QR.jpg"
+											alt="WeChat QR"></a></li>&nbsp&nbsp
+								<li><a class="qr-link" href="images/redbook_QR.jpg" target="_blank"
+										title="小�??��?�?5848162943"><img src="images/redbook_QR.jpg" alt="小�???QR"></a>
+								</li>
 							</ul>
 						</div>
 						<div class="clearfix"> </div>
@@ -130,7 +138,7 @@
 			</div>
 		</div>
 		<div class="w3ls-heading">
-			<h2>諾道分享</h2>
+			<h2>諾�??�享</h2>
 		</div>
 	</div>
 	<!-- //banner -->
@@ -146,11 +154,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">孩子咬字發音不準確 =「黐脷筋」？</h5>
+						<h5 class="card-title">孩�??��??�音不�?�?=?��??��??��?</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 4分鐘 </i>
+							<i class="fa fa-clock-o left"> 4?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 200 </i>
 								<i class="fa fa-heart-o"> 102 </i>
@@ -168,11 +176,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">與其要求孩⼦分享，不如教會他等待輪候</h5>
+						<h5 class="card-title">?�其要�?孩⼦?�享，�?如�??��?等�?輪�?/h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 3分鐘 </i>
+							<i class="fa fa-clock-o left"> 3?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 111 </i>
 								<i class="fa fa-heart-o"> 87 </i>
@@ -190,11 +198,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">你的ASD孩子有視覺⾃我刺激⾏為嗎?</h5>
+						<h5 class="card-title">你�?ASD孩�??��?覺�??�刺激⾏為??</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 5分鐘 </i>
+							<i class="fa fa-clock-o left"> 5?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 108 </i>
 								<i class="fa fa-heart-o"> 96 </i>
@@ -212,11 +220,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">提升親子關係：親子「特別遊戲時間」</h5>
+						<h5 class="card-title">?��?親�??��?：親子「特?��??��??��?/h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 3分鐘 </i>
+							<i class="fa fa-clock-o left"> 3?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 187 </i>
 								<i class="fa fa-heart-o"> 113 </i>
@@ -234,11 +242,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">孩子到底是哪一種專注力弱？- 認識5大專注力</h5>
+						<h5 class="card-title">孩�??��??�哪一種�?注�?弱�?- 認�?5大�?注�?</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 4分鐘 </i>
+							<i class="fa fa-clock-o left"> 4?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 200 </i>
 								<i class="fa fa-heart-o"> 77 </i>
@@ -256,11 +264,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">自閉症譜系障礙5大特徵</h5>
+						<h5 class="card-title">?��??��?系�?�?大特�?/h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 8分鐘 </i>
+							<i class="fa fa-clock-o left"> 8?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 163 </i>
 								<i class="fa fa-heart-o"> 89 </i>
@@ -278,11 +286,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">沉默是金？— 認識選擇性緘默症</h5>
+						<h5 class="card-title">沉�??��?？�?認�??��??��?默�?</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 3分鐘 </i>
+							<i class="fa fa-clock-o left"> 3?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 112 </i>
 								<i class="fa fa-heart-o"> 75 </i>
@@ -300,11 +308,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">語言發展的重要基石 ─ 語言前技能(下)</h5>
+						<h5 class="card-title">語�??��??��?要基???� 語�??��???�?</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 5分鐘 </i>
+							<i class="fa fa-clock-o left"> 5?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 199 </i>
 								<i class="fa fa-heart-o"> 92 </i>
@@ -322,11 +330,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">執行功能是甚麼?</h5>
+						<h5 class="card-title">?��??�能?��?�?</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 5分鐘 </i>
+							<i class="fa fa-clock-o left"> 5?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 210 </i>
 								<i class="fa fa-heart-o"> 135 </i>
@@ -344,11 +352,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">如何有效與孩子設限</h5>
+						<h5 class="card-title">如�??��??�孩子設??/h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 3分鐘 </i>
+							<i class="fa fa-clock-o left"> 3?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 117</i>
 								<i class="fa fa-heart-o"> 68 </i>
@@ -366,11 +374,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">自閉症譜系障礙與聲量控制</h5>
+						<h5 class="card-title">?��??��?系�?礙�??��??�制</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 4分鐘 </i>
+							<i class="fa fa-clock-o left"> 4?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 98 </i>
 								<i class="fa fa-heart-o"> 65 </i>
@@ -388,11 +396,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">如何回應孩⼦憤怒情緒</h5>
+						<h5 class="card-title">如�??��?孩⼦?�怒�?�?/h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 3分鐘 </i>
+							<i class="fa fa-clock-o left"> 3?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 113 </i>
 								<i class="fa fa-heart-o"> 80 </i>
@@ -410,11 +418,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">自閉症孩子常有的「鸚鵡式說話」到底是怎麼一回事？</h5>
+						<h5 class="card-title">?��??�孩子常?��??��?鵡�?說話?�到底是?�麼一?��?�?/h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 8分鐘 </i>
+							<i class="fa fa-clock-o left"> 8?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 103 </i>
 								<i class="fa fa-heart-o"> 57 </i>
@@ -432,11 +440,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">孩子幾歲要懂多少個詞彙？</h5><br>
+						<h5 class="card-title">孩�?幾歲要�?多�??��?彙�?</h5><br>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 2分鐘 </i>
+							<i class="fa fa-clock-o left"> 2?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 99 </i>
 								<i class="fa fa-heart-o"> 63 </i>
@@ -454,11 +462,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">語⾔發展的重要基⽯ - 語⾔前技能(上)</h5>
+						<h5 class="card-title">語�??��??��?要基�?- 語�??��???�?</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 8分鐘 </i>
+							<i class="fa fa-clock-o left"> 8?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 72 </i>
 								<i class="fa fa-heart-o"> 48 </i>
@@ -476,11 +484,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">「愛之語」Love Language - 孩⼦感受到你的愛嗎?</h5>
+						<h5 class="card-title">?��?之�??�Love Language - 孩⼦?��??��??��???</h5>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 5分鐘 </i>
+							<i class="fa fa-clock-o left"> 5?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 89 </i>
 								<i class="fa fa-heart-o"> 33 </i>
@@ -498,11 +506,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">⾃閉症的警號</h5> <br>
+						<h5 class="card-title">⾃�??��?警�?</h5> <br>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 3分鐘 </i>
+							<i class="fa fa-clock-o left"> 3?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 102 </i>
 								<i class="fa fa-heart-o"> 28 </i>
@@ -520,11 +528,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">從安全圈養育概念看孩子的需要</h5><br>
+						<h5 class="card-title">從�??��?養育概念?�孩子�??��?/h5><br>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 4分鐘 </i>
+							<i class="fa fa-clock-o left"> 4?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 58 </i>
 								<i class="fa fa-heart-o"> 36 </i>
@@ -541,11 +549,11 @@
 							<div class="line"></div>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">⾔語治療是甚麼? 我的孩⼦需要嗎?</h5><br>
+						<h5 class="card-title">⾔�?治�??��?�? ?��?孩⼦?�要�??</h5><br>
 						</a>
-						<p class="card-text">撰⽂：諾道團隊</p>
+						<p class="card-text">?��?：諾?��???/p>
 						<div class="icon-row">
-							<i class="fa fa-clock-o left"> 7分鐘 </i>
+							<i class="fa fa-clock-o left"> 7?��? </i>
 							<div class="right">
 								<i class="fa fa-eye"> 32 </i>
 								<i class="fa fa-heart-o"> 11 </i>
@@ -567,16 +575,16 @@
 		<div class="container">
 			<div class="agile-footer-grids">
 				<div class="col-md-4 agile-footer-grid">
-					<h4>諾道言語治療</h4>
-					<span>地址：沙田石門安耀街5號W LUXE 21樓N3及23樓S15</span><br>
-					<span>電話：6532 8821</span><br>
-					<span>電郵：info@prowayst.com</span>
+					<h4>諾�?言語治??/h4>
+					<span>?��?：�??�石?�安耀�??�W LUXE 21樓N3??3樓S15</span><br>
+					<span>?�話�?532 8821</span><br>
+					<span>?�郵：info@prowayst.com</span>
 				</div>
 
 				<div class="col-md-4 agile-footer-grid">
-					<span><b>星期二至日</b> 09:00 - 18:00</span><br>
-					<span><b>星期一</b> 休息</span><br>
-					<span><b>敬請預約</b></span>
+					<span><b>?��?二至??/b> 09:00 - 18:00</span><br>
+					<span><b>?��?一</b> 休息</span><br>
+					<span><b>?��??��?</b></span>
 				</div>
 
 				
@@ -591,11 +599,12 @@
 	<!-- copyright -->
 	<div class="agileits-w3layouts-copyright">
 		<div class="container">
-			<p>Copyright &copy; 2024.PROWAY SPEECH THERAPY All rights reserved.</p>
+			<p>Copyright &copy; 2026.PROWAY SPEECH THERAPY All rights reserved.</p>
 		</div>
 	</div>
 	<!-- //copyright -->
 	<script src="js/SmoothScroll.min.js"></script>
+	<script src="js/qr-modal.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<!-- here stars scrolling icon -->

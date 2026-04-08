@@ -55,7 +55,7 @@
 							<a href="index.html" class="speech-therapy">
 								<img src="images/icon.png">
 								<div class="speech-therapy-text">
-									<div>諾道言語治療</div>
+									<div>諾�?言語治??/div>
 									<div>PROWAY SPEECH THERAPY</div>
 								</div>
 							</a>
@@ -78,35 +78,36 @@
 								<!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav">
-										<li><a class="active" href="index.html">主頁</a></li>
+										<li><a class="active" href="index.html">主�?</a></li>
 										<li class=""><a href="ourservices.html"
 												class="dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown"
-												role="button" aria-haspopup="true" aria-expanded="false">諾道服務<span
+												role="button" aria-haspopup="true" aria-expanded="false">諾�??��?<span
 													class="caret"></span></a>
 											<ul class="dropdown-menu">
 												<li><a class="hvr-bounce-to-bottom"
-														href="our-services/prevention.html">預防</a></li>
+														href="our-services/prevention.html">?�防</a></li>
 												<li><a class="hvr-bounce-to-bottom"
-														href="our-services/intervention.html">治療</a></li>
+														href="our-services/intervention.html">治�?</a></li>
 												<li><a class="hvr-bounce-to-bottom"
-														href="our-services/enhancement.html">提升</a></li>
+														href="our-services/enhancement.html">?��?</a></li>
 											</ul>
 										</li>
 										<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
 												data-toggle="dropdown" role="button" aria-haspopup="true"
-												aria-expanded="false">諾道團隊<span class="caret"></span></a>
+												aria-expanded="false">諾�??��?<span class="caret"></span></a>
 											<ul class="dropdown-menu">
 												<li><a class="hvr-bounce-to-bottom"
-														href="about.html#therapist">言語治療師</a></li>
-												<li><a class="hvr-bounce-to-bottom" href="about.html#worker">註冊社工</a>
+														href="about.html#therapist">言語治?�師</a></li>
+												<li><a class="hvr-bounce-to-bottom" href="about.html#worker">註�?社工</a>
 												</li>
 												<li><a class="hvr-bounce-to-bottom"
-														href="about.html#psychologist">教育心理學家</a></li>
+														href="about.html#psychologist">?�育心�?學家</a></li>
 											</ul>
 										</li>
-										<li><a href="share.html">諾道分享</a></li>
-										<li><a href="good.html">諾道好評</a></li>
-										<li><a href="contact.html">聯絡諾道</a></li>
+										<li><a href="share.html">諾�??�享</a></li>
+										<li><a href="good.html">諾�?好�?</a></li>
+										<li><a href="cooperate.html">?��?機�?/學校</a></li>
+										<li><a href="contact.html">?�絡諾�?</a></li>
 									</ul>
 									<div class="clearfix"> </div>
 								</div>
@@ -122,6 +123,13 @@
 											src="images/facebook.png"></a></li>&nbsp&nbsp
 								<li><a href="https://www.instagram.com/prowayspeechtherapy/"><img
 											src="images/instagram.png"></a></li>
+								&nbsp&nbsp
+								<li><a class="qr-link" href="images/wechat_QR.jpg" target="_blank"
+										title="微信 WeChat ID: wxid_78kzm66q2px412"><img src="images/wechat_QR.jpg"
+											alt="WeChat QR"></a></li>&nbsp&nbsp
+								<li><a class="qr-link" href="images/redbook_QR.jpg" target="_blank"
+										title="小�??��?�?5848162943"><img src="images/redbook_QR.jpg" alt="小�???QR"></a>
+								</li>
 							</ul>
 						</div>
 						<div class="clearfix"> </div>
@@ -135,7 +143,7 @@
 				<div class="slider">
 					<div class="callbacks_container">
 						<div class="agileits-banner-info">
-							<h3>諾不輕許<br>一起走出屬於我們的道路</h3>
+							<h3>諾�?輕許<br>一起走?�屬?��??��??�路</h3>
 						</div>
 						<br>
 						<div class="agileits-banner-info">
@@ -154,7 +162,7 @@
 	<div class="welcome">
 		<div class="container">
 			<div class="w3l-heading">
-				<h2>諾道的服務</h2>
+				<h2>諾�??��???/h2>
 			</div>
 			<div class="w3-welcome-grids">
 				<div class="col-md-7 w3-welcome-left"
@@ -179,10 +187,10 @@
 	<div class="services">
 		<div class="container">
 			<div class="w3l-heading">
-				<h3>諾道YOUTUBE頻道</h3>
+				<h3>諾�?YOUTUBE?��?</h3>
 			</div>
 			<div class="videos">
-				<iframe src="https://www.youtube.com/embed/JFIR_7dgTKk?si=yrPixhv4QIZyuYGs" title="小朋友發音唔準確又成日流口水⋯"
+				<iframe src="https://www.youtube.com/embed/JFIR_7dgTKk?si=yrPixhv4QIZyuYGs" title="小�??�發?��?準確?��??��???��??
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -191,7 +199,7 @@
 
 		<div class="container" style="margin-top: 20px;">
 			<div class="col-md-12 text-center read-more-container w3-button">
-				<a href="https://www.youtube.com/@prowayspeechtherapy">查看更多</a>
+				<a href="https://www.youtube.com/@prowayspeechtherapy">?��??��?</a>
 			</div>
 		</div>
 	</div>
@@ -200,7 +208,7 @@
 	<div class="news">
 		<div class="container">
 			<div class="w3l-heading">
-				<h3>最新分享</h3>
+				<h3>?�?��?�?/h3>
 				<br>
 			</div>
 			<!-- for section -->
@@ -214,11 +222,11 @@
 								<div class="line"></div>
 						</div>
 						<div class="card-body">
-							<h5 class="card-title">孩子咬字發音不準確 =「黐脷筋」？</h5>
+							<h5 class="card-title">孩�??��??�音不�?�?=?��??��??��?</h5>
 							</a>
-							<p class="card-text">撰⽂：諾道團隊</p>
+							<p class="card-text">?��?：諾?��???/p>
 							<div class="icon-row">
-								<i class="fa fa-clock-o left"> 4分鐘 </i>
+								<i class="fa fa-clock-o left"> 4?��? </i>
 								<div class="right">
 									<i class="fa fa-eye"> 200 </i>
 									<i class="fa fa-heart-o"> 102 </i>
@@ -236,11 +244,11 @@
 								<div class="line"></div>
 						</div>
 						<div class="card-body">
-							<h5 class="card-title">與其要求孩⼦分享，不如教會他等待輪候</h5>
+							<h5 class="card-title">?�其要�?孩⼦?�享，�?如�??��?等�?輪�?/h5>
 							</a>
-							<p class="card-text">撰⽂：諾道團隊</p>
+							<p class="card-text">?��?：諾?��???/p>
 							<div class="icon-row">
-								<i class="fa fa-clock-o left"> 3分鐘 </i>
+								<i class="fa fa-clock-o left"> 3?��? </i>
 								<div class="right">
 									<i class="fa fa-eye"> 111 </i>
 									<i class="fa fa-heart-o"> 87 </i>
@@ -258,11 +266,11 @@
 								<div class="line"></div>
 						</div>
 						<div class="card-body">
-							<h5 class="card-title">你的ASD孩子有視覺⾃我刺激⾏為嗎?</h5>
+							<h5 class="card-title">你�?ASD孩�??��?覺�??�刺激⾏為??</h5>
 							</a>
-							<p class="card-text">撰⽂：諾道團隊</p>
+							<p class="card-text">?��?：諾?��???/p>
 							<div class="icon-row">
-								<i class="fa fa-clock-o left"> 5分鐘 </i>
+								<i class="fa fa-clock-o left"> 5?��? </i>
 								<div class="right">
 									<i class="fa fa-eye"> 108 </i>
 									<i class="fa fa-heart-o"> 96 </i>
@@ -370,7 +378,7 @@
 											target="_blank">prowayspeechtherapy</a> (@<a
 											href="https://www.instagram.com/prowayspeechtherapy/?utm_source=ig_embed&amp;utm_campaign=loading"
 											style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;"
-											target="_blank">prowayspeechtherapy</a>) • Instagram photos and videos
+											target="_blank">prowayspeechtherapy</a>) ??Instagram photos and videos
 									</p>
 								</div>
 							</blockquote>
@@ -384,7 +392,7 @@
 
 			<div class="row">
 				<div class="col-md-12 text-center read-more-container w3-button">
-					<a href="share.html">查看更多</a>
+					<a href="share.html">?��??��?</a>
 				</div>
 			</div>
 			<!-- end for section -->
@@ -398,16 +406,16 @@
 		<div class="container">
 			<div class="agile-footer-grids">
 				<div class="col-md-4 agile-footer-grid">
-					<h4>諾道言語治療</h4>
-					<span>地址：沙田石門安耀街5號W LUXE 21樓N3及23樓S15</span><br>
-					<span>電話：6532 8821</span><br>
-					<span>電郵：info@prowayst.com</span>
+					<h4>諾�?言語治??/h4>
+					<span>?��?：�??�石?�安耀�??�W LUXE 21樓N3??3樓S15</span><br>
+					<span>?�話�?532 8821</span><br>
+					<span>?�郵：info@prowayst.com</span>
 				</div>
 
 				<div class="col-md-4 agile-footer-grid">
-					<span><b>星期二至日</b> 09:00 - 18:00</span><br>
-					<span><b>星期一</b> 休息</span><br>
-					<span><b>敬請預約</b></span>
+					<span><b>?��?二至??/b> 09:00 - 18:00</span><br>
+					<span><b>?��?一</b> 休息</span><br>
+					<span><b>?��??��?</b></span>
 				</div>
 
 				<!-- -->
@@ -432,12 +440,13 @@
 	<!-- copyright -->
 	<div class="agileits-w3layouts-copyright">
 		<div class="container">
-			<p>Copyright &copy; 2024.PROWAY SPEECH THERAPY All rights reserved.</p>
+			<p>Copyright &copy; 2026.PROWAY SPEECH THERAPY All rights reserved.</p>
 		</div>
 	</div>
 	<!-- //copyright -->
 	<script src="js/responsiveslides.min.js"></script>
 	<script src="js/SmoothScroll.min.js"></script>
+	<script src="js/qr-modal.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<!-- here stars scrolling icon -->
