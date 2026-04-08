@@ -2809,6 +2809,12 @@ figure.effect-apollo:hover p {
         color: #ffffff !important;
     }
 
+    /* Make mobile menu easier to tap */
+    .top-nav ul li a {
+        padding: 10px 12px;
+        display: block;
+    }
+
     .callbacks_nav.next {
         right: 0;
     }
@@ -2910,6 +2916,38 @@ figure.effect-apollo:hover p {
     .top-nav {
         width: 60%;
         margin: 0;
+    }
+
+    /* Social icons: keep them readable and wrap nicely */
+    .agileinfo-social-grids {
+        float: none;
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .agileinfo-social-grids ul li {
+        margin: 0 6px;
+    }
+
+    /* QR modal: better fit on small screens */
+    .qr-modal-overlay {
+        padding: 14px;
+    }
+
+    .qr-modal-box {
+        margin: 14vh auto 0;
+        max-width: 94vw;
+        padding: 14px 14px 16px;
+    }
+
+    .qr-modal-title {
+        font-size: 13px;
+    }
+
+    .qr-modal-image {
+        width: min(320px, 100%);
+        max-height: 62vh;
     }
 
     .w3-header-top {
