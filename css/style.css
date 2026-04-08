@@ -326,72 +326,6 @@ ul.dropdown-menu {
     border-color: #82b62d;
 }
 
-/* index.html: intern/welcome modal */
-#welcomeModal.modal-overlay,
-#internModal.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-}
-
-#welcomeModal .modal-box,
-#internModal .modal-box {
-    display: none;
-    position: fixed;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 28px;
-    border-radius: 8px;
-    z-index: 1001;
-    width: min(520px, 92vw);
-    max-width: 92vw;
-    max-height: 90vh;
-}
-
-#welcomeModal .modal-close,
-#internModal .modal-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-    padding: 8px 12px;
-    line-height: 1;
-    z-index: 999;
-}
-
-#welcomeModal .modal-content img,
-#internModal .modal-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    max-height: 70vh;
-    width: 100%;
-    margin: 0 auto;
-}
-
-@media (max-width: 430px) {
-    #welcomeModal .modal-box,
-    #internModal .modal-box {
-        padding: 16px;
-        border-radius: 10px;
-        max-height: 86vh;
-    }
-
-    #welcomeModal .modal-content img,
-    #internModal .modal-content img {
-        max-height: 66vh;
-    }
-}
-
 /* QR modal */
 .qr-modal-overlay {
     display: none;
@@ -403,7 +337,6 @@ ul.dropdown-menu {
 }
 
 .qr-modal-box {
-    top: 13%;
     position: relative;
     background: #fff;
     max-width: 520px;
@@ -3101,6 +3034,22 @@ figure.effect-apollo:hover p {
     .videos {
         max-width: 80%;
         height: 120px;
+    }
+
+    /* QR modal: tune for iPhone 12 Pro and similar */
+    .qr-modal-overlay {
+        padding: 12px;
+    }
+
+    .qr-modal-box {
+        top:14.5%;
+        margin: 12vh auto 0;
+        max-width: 96vw;
+    }
+
+    .qr-modal-image {
+        width: min(340px, 100%);
+        max-height: 60vh;
     }
     .col-md-2.agile-footer-grid iframe {
         width: 100% !important;
