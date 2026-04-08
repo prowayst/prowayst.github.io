@@ -314,8 +314,8 @@ ul.dropdown-menu {
 
 /* QR links (WeChat / RedBook) in header social area */
 .agileinfo-social-grids ul li a.qr-link img {
-    width: 22px;
-    height: 22px;
+    width: 20px !important;
+    height: 20px !important;
     object-fit: cover;
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.15);
