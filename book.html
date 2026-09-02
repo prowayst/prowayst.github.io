@@ -457,13 +457,13 @@
 					<div class="flip-toolbar">
 						<h3 id="flipTitle">繪本</h3>
 						<div class="flip-actions">
-							<!-- <a id="flipDownload" href="#" target="_blank" rel="noopener">開啟 PDF</a> -->
+							<!-- temporarily hidden: <a id="flipDownload" href="#" target="_blank" rel="noopener">開啟 PDF</a> -->
 							<button type="button" id="flipClose">關閉</button>
 						</div>
 					</div>
 					<div class="flip-stage">
 						<div class="flip-loading" id="flipLoading">正在準備揭頁…</div>
-						<div class="flip-error is-hidden" id="flipError">未能載入繪本，請改為開啟 PDF。</div>
+						<div class="flip-error is-hidden" id="flipError">未能載入繪本，請稍後再試。</div>
 						<div id="flipbook"></div>
 					</div>
 					<div class="flip-nav">
@@ -722,8 +722,10 @@ function closeReader() {
 				var meta = pageMeta[pageIndex] || books[0];
 				if (!meta) return;
 				titleEl.textContent = meta.label + '　' + meta.title;
-				downloadEl.href = meta.url;
-				downloadEl.style.visibility = 'visible';
+				if (downloadEl) {
+					downloadEl.href = meta.url;
+					downloadEl.style.visibility = 'visible';
+				}
 				statusEl.textContent = (pageIndex + 1) + ' / ' + pageMeta.length;
 			}
 
@@ -843,8 +845,10 @@ function ensureAlbum(token) {
 				var preview = books[safeIndex];
 				if (preview) {
 					titleEl.textContent = preview.label + '　' + preview.title;
-					downloadEl.href = preview.url;
-					downloadEl.style.visibility = 'visible';
+					if (downloadEl) {
+						downloadEl.href = preview.url;
+						downloadEl.style.visibility = 'visible';
+					}
 				}
 
 				ensureAlbum(token).then(function (album) {
