@@ -36,7 +36,7 @@
 	<style>
 		.book-share {
 			padding: 40px 0 70px;
-			background: #faf7f2;
+			background: #ffffff;
 		}
 
 		.book-intro {
@@ -116,12 +116,14 @@
 			display: none;
 			position: fixed;
 			inset: 0;
-			z-index: 2000;
-			background: rgba(28, 20, 12, 0.88);
-			align-items: center;
-			justify-content: center;
+			z-index: 10050;
+			background: rgba(18, 12, 8, 0.94);
+			align-items: stretch;
+			justify-content: flex-start;
 			flex-direction: column;
-			padding: 16px;
+			padding: 10px 12px 12px;
+			box-sizing: border-box;
+			overflow: hidden;
 		}
 
 		.flip-overlay.is-open {
@@ -129,18 +131,19 @@
 		}
 
 		.flip-toolbar {
-			width: min(1100px, 100%);
+			width: 100%;
+			flex: 0 0 auto;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			gap: 12px;
 			color: #f4eadb;
-			margin-bottom: 12px;
+			margin-bottom: 8px;
 		}
 
 		.flip-toolbar h3 {
 			margin: 0;
-			font-size: 20px;
+			font-size: 18px;
 			flex: 1;
 		}
 
@@ -171,16 +174,21 @@
 		}
 
 		.flip-stage {
-			width: min(1100px, 100%);
-			min-height: 360px;
+			width: 100%;
+			flex: 1 1 auto;
+			min-height: 0;
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 			justify-content: center;
 			position: relative;
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+			padding-top: 4px;
 		}
 
 		#flipbook {
 			margin: 0 auto;
+			flex: 0 0 auto;
 		}
 
 		#flipbook .page {
@@ -195,8 +203,9 @@
 		}
 
 		.flip-nav {
-			width: min(1100px, 100%);
-			margin-top: 14px;
+			width: 100%;
+			flex: 0 0 auto;
+			margin-top: 8px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -223,9 +232,14 @@
 		.flip-loading,
 		.flip-error {
 			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			color: #f4eadb;
 			text-align: center;
 			padding: 20px;
+			pointer-events: none;
 		}
 
 		.flip-loading.is-hidden,
@@ -237,9 +251,20 @@
 			overflow: hidden;
 		}
 
+		body.flip-open .header,
+		body.flip-open #toTop {
+			z-index: 1;
+			visibility: hidden;
+			pointer-events: none;
+		}
+
 		@media (max-width: 767px) {
 			.book-cover {
 				height: 240px;
+			}
+
+			.flip-overlay {
+				padding: 8px 8px 10px;
 			}
 
 			.flip-toolbar {
@@ -569,6 +594,16 @@
 				statusEl.textContent = (pageFlip.getCurrentPageIndex() + 1) + ' / ' + pageFlip.getPageCount();
 			}
 
+			function getStageMetrics() {
+				var stage = overlay.querySelector('.flip-stage');
+				var width = (stage && stage.clientWidth) || overlay.clientWidth || window.innerWidth;
+				var height = (stage && stage.clientHeight) || overlay.clientHeight || window.innerHeight;
+				return {
+					width: Math.max(240, width - 8),
+					height: Math.max(280, height - 8)
+				};
+			}
+
 			function openBook(book) {
 				var token = ++openToken;
 				destroyFlip();
@@ -585,11 +620,10 @@
 					if (token !== openToken) return null;
 					return pdf.getPage(1).then(function (firstPage) {
 						var base = firstPage.getViewport({ scale: 1 });
-						var stageWidth = Math.min(1100, overlay.clientWidth - 32);
-						var availableHeight = Math.max(320, overlay.clientHeight - 170);
+						var metrics = getStageMetrics();
 						var usePortrait = window.innerWidth < 900 || base.width >= base.height;
-						var pageWidth = usePortrait ? stageWidth : stageWidth / 2;
-						var scale = Math.min(pageWidth / base.width, availableHeight / base.height, 1.6);
+						var pageWidth = usePortrait ? metrics.width : metrics.width / 2;
+						var scale = Math.min(pageWidth / base.width, metrics.height / base.height, 2);
 						var pageHeight = Math.round(base.height * scale);
 						pageWidth = Math.round(base.width * scale);
 
@@ -619,22 +653,24 @@
 							pageFlip = new St.PageFlip(flipbookEl, {
 								width: pageWidth,
 								height: pageHeight,
-								size: 'stretch',
-								minWidth: 220,
+								size: 'fixed',
+								minWidth: 180,
 								maxWidth: pageWidth,
-								minHeight: 220,
+								minHeight: 180,
 								maxHeight: pageHeight,
 								drawShadow: true,
 								maxShadowOpacity: 0.45,
 								showCover: true,
 								usePortrait: usePortrait,
-								mobileScrollSupport: false,
+								mobileScrollSupport: true,
 								useMouseEvents: true
 							});
 							pageFlip.loadFromHTML(flipbookEl.querySelectorAll('.page'));
 							pageFlip.on('flip', updateStatus);
 							updateStatus();
 							setLoading(false);
+							var stage = overlay.querySelector('.flip-stage');
+							if (stage) stage.scrollTop = 0;
 						});
 					});
 				}).catch(function () {
