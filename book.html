@@ -719,17 +719,11 @@ function closeReader() {
 						}
 
 			function syncMeta(pageIndex) {
-				var meta = pageMeta[pageIndex];
+				var meta = pageMeta[pageIndex] || books[0];
 				if (!meta) return;
-				if (meta.isBlank) {
-					titleEl.textContent = meta.title || '繪本';
-					downloadEl.href = '#';
-					downloadEl.style.visibility = 'hidden';
-				} else {
-					titleEl.textContent = meta.label + '　' + meta.title;
-					downloadEl.href = meta.url;
-					downloadEl.style.visibility = 'visible';
-				}
+				titleEl.textContent = meta.label + '　' + meta.title;
+				downloadEl.href = meta.url;
+				downloadEl.style.visibility = 'visible';
 				statusEl.textContent = (pageIndex + 1) + ' / ' + pageMeta.length;
 			}
 
@@ -765,33 +759,7 @@ function updateStatus() {
 				return pageDiv;
 			}
 
-function createBlankPage(width, height, label) {
-				var pixelRatio = getPixelRatio();
-				var pageDiv = document.createElement('div');
-				pageDiv.className = 'page';
-				pageDiv.setAttribute('data-density', 'hard');
-				var canvas = document.createElement('canvas');
-				canvas.width = Math.max(1, Math.round(width * pixelRatio));
-				canvas.height = Math.max(1, Math.round(height * pixelRatio));
-				canvas.style.width = Math.round(width) + 'px';
-				canvas.style.height = Math.round(height) + 'px';
-				var ctx = canvas.getContext('2d');
-				ctx.fillStyle = '#f7f1e6';
-				ctx.fillRect(0, 0, canvas.width, canvas.height);
-				pageDiv.appendChild(canvas);
-				return {
-					page: pageDiv,
-					meta: {
-						file: '',
-						title: label,
-						label: '',
-						url: '#',
-						isBlank: true
-					}
-				};
-			}
-
-function buildAlbum(token) {
+			function buildAlbum(token) {
 				setLoading(true, '正在準備全年繪本…');
 				pageMeta = [];
 
@@ -812,10 +780,6 @@ function buildAlbum(token) {
 						};
 
 						var pages = [];
-						var frontBlank = createBlankPage(pageWidth, pageHeight, '封面');
-						pages.push(frontBlank.page);
-						pageMeta.push(frontBlank.meta);
-
 						var chain = Promise.resolve();
 
 						books.forEach(function (book, bookIndex) {
@@ -838,9 +802,6 @@ function buildAlbum(token) {
 
 						return chain.then(function () {
 							if (token !== openToken) return null;
-							var backBlank = createBlankPage(pageWidth, pageHeight, '封底');
-							pages.push(backBlank.page);
-							pageMeta.push(backBlank.meta);
 							albumPages = pages;
 							return {
 								pages: pages,
@@ -910,7 +871,7 @@ function ensureAlbum(token) {
 					});
 					pageFlip.loadFromHTML(flipbookEl.querySelectorAll('.page'));
 					pageFlip.on('flip', updateStatus);
-					pageFlip.turnToPage(Math.max(0, Math.min(safeIndex + 1, album.pages.length - 1)));
+					pageFlip.turnToPage(Math.max(0, Math.min(safeIndex, album.pages.length - 1)));
 					updateStatus();
 					setLoading(false);
 					var stage = overlay.querySelector('.flip-stage');
