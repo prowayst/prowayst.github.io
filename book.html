@@ -695,15 +695,22 @@ function closeReader() {
 							destroyFlip();
 						}
 
-						function syncMeta(pageIndex) {
-							var meta = pageMeta[pageIndex] || books[0];
-							if (!meta) return;
-							titleEl.textContent = meta.label + '　' + meta.title;
-							downloadEl.href = meta.url;
-							statusEl.textContent = (pageIndex + 1) + ' / ' + pageMeta.length;
-						}
+			function syncMeta(pageIndex) {
+				var meta = pageMeta[pageIndex];
+				if (!meta) return;
+				if (meta.isBlank) {
+					titleEl.textContent = meta.title || '繪本';
+					downloadEl.href = '#';
+					downloadEl.style.visibility = 'hidden';
+				} else {
+					titleEl.textContent = meta.label + '　' + meta.title;
+					downloadEl.href = meta.url;
+					downloadEl.style.visibility = 'visible';
+				}
+				statusEl.textContent = (pageIndex + 1) + ' / ' + pageMeta.length;
+			}
 
-						function updateStatus() {
+function updateStatus() {
 							if (!pageFlip) return;
 							syncMeta(pageFlip.getCurrentPageIndex());
 						}
@@ -718,72 +725,102 @@ function closeReader() {
 							};
 						}
 
-						function clonePageNode(source) {
-							var pageDiv = document.createElement('div');
-							pageDiv.className = 'page';
-							var canvas = document.createElement('canvas');
-							var sourceCanvas = source.querySelector('canvas');
-							canvas.width = sourceCanvas.width;
-							canvas.height = sourceCanvas.height;
-							canvas.getContext('2d').drawImage(sourceCanvas, 0, 0);
-							pageDiv.appendChild(canvas);
-							return pageDiv;
-						}
+			function clonePageNode(source) {
+				var pageDiv = document.createElement('div');
+				pageDiv.className = 'page';
+				var canvas = document.createElement('canvas');
+				var sourceCanvas = source.querySelector('canvas');
+				canvas.width = sourceCanvas.width;
+				canvas.height = sourceCanvas.height;
+				canvas.getContext('2d').drawImage(sourceCanvas, 0, 0);
+				pageDiv.appendChild(canvas);
+				return pageDiv;
+			}
 
-						function buildAlbum(token) {
-							setLoading(true, '正在準備全年繪本…');
-							pageMeta = [];
+			function createBlankPage(width, height, label) {
+				var pageDiv = document.createElement('div');
+				pageDiv.className = 'page';
+				pageDiv.setAttribute('data-density', 'hard');
+				var canvas = document.createElement('canvas');
+				canvas.width = Math.max(1, Math.round(width));
+				canvas.height = Math.max(1, Math.round(height));
+				var ctx = canvas.getContext('2d');
+				ctx.fillStyle = '#f7f1e6';
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				pageDiv.appendChild(canvas);
+				return {
+					page: pageDiv,
+					meta: {
+						file: '',
+						title: label,
+						label: '',
+						url: '#',
+						isBlank: true
+					}
+				};
+			}
 
-							return loadPdf(books[0].url).then(function (firstPdf) {
-								if (token !== openToken) return null;
-								return firstPdf.getPage(1).then(function (firstPage) {
-									var base = firstPage.getViewport({ scale: 1 });
-									var metrics = getStageMetrics();
-									var usePortrait = true;
-									var pageWidth = Math.min(metrics.width * 0.92, metrics.height * (base.width / base.height));
-									var scale = Math.min(pageWidth / base.width, metrics.height / base.height, 2);
-									var pageHeight = Math.round(base.height * scale);
-									pageWidth = Math.round(base.width * scale);
-									albumSize = {
-										width: pageWidth,
-										height: pageHeight,
-										usePortrait: usePortrait
-									};
+			function buildAlbum(token) {
+				setLoading(true, '正在準備全年繪本…');
+				pageMeta = [];
 
-									var pages = [];
-									var chain = Promise.resolve();
+				return loadPdf(books[0].url).then(function (firstPdf) {
+					if (token !== openToken) return null;
+					return firstPdf.getPage(1).then(function (firstPage) {
+						var base = firstPage.getViewport({ scale: 1 });
+						var metrics = getStageMetrics();
+						var usePortrait = true;
+						var pageWidth = Math.min(metrics.width * 0.92, metrics.height * (base.width / base.height));
+						var scale = Math.min(pageWidth / base.width, metrics.height / base.height, 2);
+						var pageHeight = Math.round(base.height * scale);
+						pageWidth = Math.round(base.width * scale);
+						albumSize = {
+							width: pageWidth,
+							height: pageHeight,
+							usePortrait: usePortrait
+						};
 
-									books.forEach(function (book, bookIndex) {
-										chain = chain.then(function () {
-											if (token !== openToken) return;
-											setLoading(true, '正在載入繪本 ' + (bookIndex + 1) + ' / ' + books.length + '…');
-											return loadPdf(book.url).then(function (pdf) {
-												return pdf.getPage(1).then(function (page) {
-													return renderPage(page, scale).then(function (canvas) {
-														var pageDiv = document.createElement('div');
-														pageDiv.className = 'page';
-														pageDiv.appendChild(canvas);
-														pages.push(pageDiv);
-														pageMeta.push(book);
-													});
-												});
-											});
+						var pages = [];
+						var frontBlank = createBlankPage(pageWidth, pageHeight, '封面');
+						pages.push(frontBlank.page);
+						pageMeta.push(frontBlank.meta);
+
+						var chain = Promise.resolve();
+
+						books.forEach(function (book, bookIndex) {
+							chain = chain.then(function () {
+								if (token !== openToken) return;
+								setLoading(true, '正在載入繪本 ' + (bookIndex + 1) + ' / ' + books.length + '…');
+								return loadPdf(book.url).then(function (pdf) {
+									return pdf.getPage(1).then(function (page) {
+										return renderPage(page, scale).then(function (canvas) {
+											var pageDiv = document.createElement('div');
+											pageDiv.className = 'page';
+											pageDiv.appendChild(canvas);
+											pages.push(pageDiv);
+											pageMeta.push(book);
 										});
-									});
-
-									return chain.then(function () {
-										if (token !== openToken) return null;
-										albumPages = pages;
-										return {
-											pages: pages,
-											size: albumSize
-										};
 									});
 								});
 							});
-						}
+						});
 
-			function ensureAlbum(token) {
+						return chain.then(function () {
+							if (token !== openToken) return null;
+							var backBlank = createBlankPage(pageWidth, pageHeight, '封底');
+							pages.push(backBlank.page);
+							pageMeta.push(backBlank.meta);
+							albumPages = pages;
+							return {
+								pages: pages,
+								size: albumSize
+							};
+						});
+					});
+				});
+			}
+
+function ensureAlbum(token) {
 				if (albumPages && albumSize) {
 					return Promise.resolve({ pages: albumPages, size: albumSize });
 				}
@@ -811,7 +848,12 @@ function closeReader() {
 				errorEl.classList.add('is-hidden');
 				setLoading(true, '正在準備揭頁…');
 				statusEl.textContent = '…';
-				syncMeta(safeIndex);
+				var preview = books[safeIndex];
+				if (preview) {
+					titleEl.textContent = preview.label + '　' + preview.title;
+					downloadEl.href = preview.url;
+					downloadEl.style.visibility = 'visible';
+				}
 
 				ensureAlbum(token).then(function (album) {
 					if (!album || token !== openToken) return;
@@ -837,7 +879,7 @@ function closeReader() {
 					});
 					pageFlip.loadFromHTML(flipbookEl.querySelectorAll('.page'));
 					pageFlip.on('flip', updateStatus);
-					pageFlip.turnToPage(Math.max(0, Math.min(safeIndex, album.pages.length - 1)));
+					pageFlip.turnToPage(Math.max(0, Math.min(safeIndex + 1, album.pages.length - 1)));
 					updateStatus();
 					setLoading(false);
 					var stage = overlay.querySelector('.flip-stage');
