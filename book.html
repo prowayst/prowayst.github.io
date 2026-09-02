@@ -657,15 +657,37 @@
 							loadingEl.classList.toggle('is-hidden', !isLoading);
 						}
 
-						function destroyFlip() {
-							if (pageFlip) {
-								try { pageFlip.destroy(); } catch (e) {}
-								pageFlip = null;
-							}
-							flipbookEl.innerHTML = '';
-						}
+			function ensureFlipbookEl() {
+				var stage = overlay.querySelector('.flip-stage');
+				if (!stage) return null;
+				var existing = document.getElementById('flipbook');
+				if (existing && existing.parentNode === stage) {
+					flipbookEl = existing;
+					return flipbookEl;
+				}
+				var fresh = document.createElement('div');
+				fresh.id = 'flipbook';
+				var errorNode = document.getElementById('flipError');
+				if (errorNode && errorNode.parentNode === stage) {
+					stage.insertBefore(fresh, errorNode.nextSibling);
+				} else {
+					stage.appendChild(fresh);
+				}
+				flipbookEl = fresh;
+				return flipbookEl;
+			}
 
-						function closeReader() {
+			function destroyFlip() {
+				if (pageFlip) {
+					try { pageFlip.destroy(); } catch (e) {}
+					pageFlip = null;
+				}
+				// page-flip destroy() removes the root element; recreate for next open
+				ensureFlipbookEl();
+				if (flipbookEl) flipbookEl.innerHTML = '';
+			}
+
+function closeReader() {
 							openToken += 1;
 							overlay.classList.remove('is-open');
 							overlay.setAttribute('aria-hidden', 'true');
@@ -793,6 +815,7 @@
 
 				ensureAlbum(token).then(function (album) {
 					if (!album || token !== openToken) return;
+					if (!ensureFlipbookEl()) return;
 					album.pages.forEach(function (pageDiv) {
 						flipbookEl.appendChild(clonePageNode(pageDiv));
 					});
