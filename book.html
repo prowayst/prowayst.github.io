@@ -259,7 +259,8 @@
 						width: 100%;
 						height: 100%;
 						display: block;
-					}
+			image-rendering: auto;
+		}
 
 					.flip-nav {
 						width: 100%;
@@ -567,37 +568,56 @@
 							return pdfjsLib.getDocument(Object.assign({ url: url }, pdfOptions)).promise;
 						}
 
-						function renderPage(page, scale) {
-							var viewport = page.getViewport({ scale: scale });
-							var canvas = document.createElement('canvas');
-							var context = canvas.getContext('2d', { alpha: false });
-							canvas.width = viewport.width;
-							canvas.height = viewport.height;
-							return page.render({ canvasContext: context, viewport: viewport }).promise.then(function () {
-								return canvas;
-							});
-						}
+			function getPixelRatio() {
+				return Math.min(window.devicePixelRatio || 1, 3);
+			}
 
-						function fitCoverCanvas(sourceCanvas, coverEl) {
-							var targetW = coverEl.clientWidth || 168;
-							var targetH = coverEl.clientHeight || 252;
-							var fitted = document.createElement('canvas');
-							fitted.width = targetW;
-							fitted.height = targetH;
-							var ctx = fitted.getContext('2d');
-							ctx.fillStyle = '#f4eadb';
-							ctx.fillRect(0, 0, targetW, targetH);
-							var scale = Math.max(targetW / sourceCanvas.width, targetH / sourceCanvas.height);
-							var drawW = sourceCanvas.width * scale;
-							var drawH = sourceCanvas.height * scale;
-							var dx = (targetW - drawW) / 2;
-							var dy = (targetH - drawH) / 2;
-							ctx.drawImage(sourceCanvas, dx, dy, drawW, drawH);
-							coverEl.innerHTML = '';
-							coverEl.appendChild(fitted);
-						}
+			function renderPage(page, cssScale) {
+				var pixelRatio = getPixelRatio();
+				var viewport = page.getViewport({ scale: cssScale * pixelRatio });
+				var canvas = document.createElement('canvas');
+				var context = canvas.getContext('2d', { alpha: false });
+				canvas.width = Math.floor(viewport.width);
+				canvas.height = Math.floor(viewport.height);
+				canvas.style.width = Math.floor(viewport.width / pixelRatio) + 'px';
+				canvas.style.height = Math.floor(viewport.height / pixelRatio) + 'px';
+				return page.render({
+					canvasContext: context,
+					viewport: viewport,
+					intent: 'display'
+				}).promise.then(function () {
+					return canvas;
+				});
+			}
 
-						function createCard(book, index) {
+			function fitCoverCanvas(sourceCanvas, coverEl) {
+				var pixelRatio = getPixelRatio();
+				var targetW = coverEl.clientWidth || 168;
+				var targetH = coverEl.clientHeight || 252;
+				var srcCssW = parseFloat(sourceCanvas.style.width) || (sourceCanvas.width / pixelRatio);
+				var srcCssH = parseFloat(sourceCanvas.style.height) || (sourceCanvas.height / pixelRatio);
+				var fitted = document.createElement('canvas');
+				fitted.width = Math.round(targetW * pixelRatio);
+				fitted.height = Math.round(targetH * pixelRatio);
+				fitted.style.width = targetW + 'px';
+				fitted.style.height = targetH + 'px';
+				var ctx = fitted.getContext('2d');
+				ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+				ctx.imageSmoothingEnabled = true;
+				if ('imageSmoothingQuality' in ctx) ctx.imageSmoothingQuality = 'high';
+				ctx.fillStyle = '#f4eadb';
+				ctx.fillRect(0, 0, targetW, targetH);
+				var scale = Math.max(targetW / srcCssW, targetH / srcCssH);
+				var drawW = srcCssW * scale;
+				var drawH = srcCssH * scale;
+				var dx = (targetW - drawW) / 2;
+				var dy = (targetH - drawH) / 2;
+				ctx.drawImage(sourceCanvas, dx, dy, drawW, drawH);
+				coverEl.innerHTML = '';
+				coverEl.appendChild(fitted);
+			}
+
+function createCard(book, index) {
 							var col = document.createElement('div');
 							col.className = 'col-md-3 col-sm-6';
 							col.innerHTML =
@@ -617,19 +637,22 @@
 							grid.appendChild(createCard(book, index));
 						});
 
-						function loadCover(book, coverEl) {
-							return loadPdf(book.url).then(function (pdf) {
-								return pdf.getPage(1).then(function (page) {
-									return renderPage(page, 0.85).then(function (canvas) {
-										fitCoverCanvas(canvas, coverEl);
-									});
-								});
-							}).catch(function () {
-								coverEl.innerHTML = '<i class="fa fa-book book-cover-placeholder"></i>';
-							});
-						}
+			function loadCover(book, coverEl) {
+				return loadPdf(book.url).then(function (pdf) {
+					return pdf.getPage(1).then(function (page) {
+						var targetW = coverEl.clientWidth || 168;
+						var base = page.getViewport({ scale: 1 });
+						var cssScale = (targetW * 1.6) / base.width;
+						return renderPage(page, cssScale).then(function (canvas) {
+							fitCoverCanvas(canvas, coverEl);
+						});
+					});
+				}).catch(function () {
+					coverEl.innerHTML = '<i class="fa fa-book book-cover-placeholder"></i>';
+				});
+			}
 
-						var coverEls = grid.querySelectorAll('.book-cover');
+var coverEls = grid.querySelectorAll('.book-cover');
 						var coverIndex = 0;
 						function loadNextCover() {
 							if (coverIndex >= books.length) return;
@@ -728,22 +751,30 @@ function updateStatus() {
 			function clonePageNode(source) {
 				var pageDiv = document.createElement('div');
 				pageDiv.className = 'page';
+				if (source.getAttribute('data-density')) {
+					pageDiv.setAttribute('data-density', source.getAttribute('data-density'));
+				}
 				var canvas = document.createElement('canvas');
 				var sourceCanvas = source.querySelector('canvas');
 				canvas.width = sourceCanvas.width;
 				canvas.height = sourceCanvas.height;
+				canvas.style.width = sourceCanvas.style.width || '';
+				canvas.style.height = sourceCanvas.style.height || '';
 				canvas.getContext('2d').drawImage(sourceCanvas, 0, 0);
 				pageDiv.appendChild(canvas);
 				return pageDiv;
 			}
 
-			function createBlankPage(width, height, label) {
+function createBlankPage(width, height, label) {
+				var pixelRatio = getPixelRatio();
 				var pageDiv = document.createElement('div');
 				pageDiv.className = 'page';
 				pageDiv.setAttribute('data-density', 'hard');
 				var canvas = document.createElement('canvas');
-				canvas.width = Math.max(1, Math.round(width));
-				canvas.height = Math.max(1, Math.round(height));
+				canvas.width = Math.max(1, Math.round(width * pixelRatio));
+				canvas.height = Math.max(1, Math.round(height * pixelRatio));
+				canvas.style.width = Math.round(width) + 'px';
+				canvas.style.height = Math.round(height) + 'px';
 				var ctx = canvas.getContext('2d');
 				ctx.fillStyle = '#f7f1e6';
 				ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -760,7 +791,7 @@ function updateStatus() {
 				};
 			}
 
-			function buildAlbum(token) {
+function buildAlbum(token) {
 				setLoading(true, '正在準備全年繪本…');
 				pageMeta = [];
 
@@ -771,7 +802,7 @@ function updateStatus() {
 						var metrics = getStageMetrics();
 						var usePortrait = true;
 						var pageWidth = Math.min(metrics.width * 0.92, metrics.height * (base.width / base.height));
-						var scale = Math.min(pageWidth / base.width, metrics.height / base.height, 2);
+						var scale = Math.min(pageWidth / base.width, metrics.height / base.height, 2.5);
 						var pageHeight = Math.round(base.height * scale);
 						pageWidth = Math.round(base.width * scale);
 						albumSize = {
