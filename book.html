@@ -39,6 +39,38 @@
 						background: #ffffff;
 					}
 
+					.book-year-nav {
+						display: flex;
+						justify-content: center;
+						flex-wrap: wrap;
+						gap: 10px;
+						margin: 0 0 28px;
+					}
+
+					.book-year-btn {
+						background: #fff;
+						border: 1px solid #d9c4a6;
+						color: #7a6248;
+						border-radius: 22px;
+						padding: 7px 18px;
+						font-size: 15px;
+						cursor: pointer;
+					}
+
+					.book-year-btn.is-active,
+					.book-year-btn:hover {
+						background: #82b62d;
+						border-color: #82b62d;
+						color: #fff;
+					}
+
+					.book-year-heading {
+						text-align: center;
+						color: #8a7358;
+						font-size: 20px;
+						margin: 0 0 18px;
+					}
+
 					.book-intro {
 						text-align: center;
 						margin: 0 auto 36px;
@@ -450,7 +482,10 @@
 
 				<div class="book-share">
 					<div class="container">
-						<p class="book-intro">電腦可用滑鼠拖曳或左右鍵翻頁，手機可以左右滑動。</p>
+						<p class="book-intro"><b>諾道繪本推介:</b> <br>
+							情緒教育是孩子健康成長不可或缺的部分，我們會定期推薦世界各地有趣的情緒教育繪本，讓你在忙碌的日子也能輕鬆體驗閱讀的樂趣，一邊幫助孩子面對各式各樣的情緒，一邊享受優質親子時間。</p>
+						<!--<h3 class="book-year-heading" id="bookYearHeading"></h3>-->
+						<div class="book-year-nav" id="bookYearNav"></div>
 						<div class="row" id="bookGrid"></div>
 					</div>
 				</div>
@@ -523,7 +558,7 @@
 							'2024.09_豬奶奶說再見.pdf',
 							'2024.10_我不敢哭，我怕丟臉.pdf',
 							'2024.11_為甚麼不能想怎樣就怎樣.pdf',
-							'2024.12_我害怕出錯.pdf'
+							'2024.12_我害怕出錯.pdf',
 						];
 
 						pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -555,19 +590,41 @@
 							var monthRaw = idx >= 0 ? base.slice(0, idx) : '';
 							var title = idx >= 0 ? base.slice(idx + 1) : base;
 							var match = monthRaw.match(/(\d{4})\.(\d{1,2})/);
-							var label = match ? (match[1] + '年' + parseInt(match[2], 10) + '月') : monthRaw;
+							var year = match ? match[1] : '';
+							var month = match ? parseInt(match[2], 10) : 0;
+							var label = match ? (year + '年' + month + '月') : monthRaw;
 							var coverBase = base.replace(/(\d{4}\.\d{1,2})月_/, '$1_');
-							var coverExt = coverBase.indexOf('2024.07_') === 0 ? '.png' : '.jpg';
+							var coverExt = /\.png$/i.test(coverBase) ? '.png' : (coverBase.indexOf('2024.07_') === 0 ? '.png' : '.jpg');
 							return {
 								file: filename,
 								title: title,
 								label: label,
+								year: year,
+								month: month,
 								url: 'article/book/' + encodeURIComponent(filename),
 								coverUrl: 'article/book/' + encodeURIComponent(coverBase + coverExt)
 							};
 						}
 
 						var books = BOOK_FILES.map(parseBook);
+						var years = [];
+						books.forEach(function (book) {
+							if (book.year && years.indexOf(book.year) === -1) years.push(book.year);
+						});
+						years.sort(function (a, b) { return Number(b) - Number(a); });
+						var yearNav = document.getElementById('bookYearNav');
+						var yearHeading = document.getElementById('bookYearHeading');
+						var currentYear = years[0] || '';
+						var albumCache = {};
+						var currentAlbumBooks = [];
+
+						function booksForYear(year) {
+							return books.filter(function (book) {
+								return book.year === year;
+							}).sort(function (a, b) {
+								return a.month - b.month;
+							});
+						}
 
 			function loadPdf(url) {
 				return pdfjsLib.getDocument(Object.assign({ url: url }, pdfOptions)).promise.catch(function () {
@@ -631,7 +688,7 @@ function createCard(book, index) {
 							var col = document.createElement('div');
 							col.className = 'col-md-3 col-sm-6';
 							col.innerHTML =
-								'<div class="book-card" role="button" tabindex="0" data-index="' + index + '">' +
+								'<div class="book-card" role="button" tabindex="0" data-year="' + book.year + '" data-index="' + index + '">' +
 									'<div class="book-cover-shelf">' +
 										'<div class="book-cover"><i class="fa fa-book book-cover-placeholder"></i><img alt="" src="' + book.coverUrl + '"></div>' +
 									'</div>' +
@@ -643,14 +700,46 @@ function createCard(book, index) {
 							return col;
 						}
 
-						books.forEach(function (book, index) {
-							grid.appendChild(createCard(book, index));
-						});
+						function renderYearNav() {
+							if (!yearNav) return;
+							yearNav.innerHTML = '';
+							years.forEach(function (year) {
+								var btn = document.createElement('button');
+								btn.type = 'button';
+								btn.className = 'book-year-btn' + (year === currentYear ? ' is-active' : '');
+								btn.textContent = year + '年';
+								btn.setAttribute('data-year', year);
+								yearNav.appendChild(btn);
+							});
+						}
+
+						function renderGrid() {
+							var yearBooks = booksForYear(currentYear);
+							if (yearHeading) yearHeading.textContent = currentYear ? (currentYear + '年繪本') : '繪本分享';
+							grid.innerHTML = '';
+							yearBooks.forEach(function (book, index) {
+								grid.appendChild(createCard(book, index));
+							});
+							renderYearNav();
+						}
+
+						renderGrid();
+
+						if (yearNav) {
+							yearNav.addEventListener('click', function (event) {
+								var btn = event.target.closest('.book-year-btn');
+								if (!btn) return;
+								var year = btn.getAttribute('data-year');
+								if (!year || year === currentYear) return;
+								currentYear = year;
+								renderGrid();
+							});
+						}
 
 grid.addEventListener('click', function (event) {
 							var card = event.target.closest('.book-card');
 							if (!card) return;
-							openBook(Number(card.getAttribute('data-index')));
+							openBook(card.getAttribute('data-year'), Number(card.getAttribute('data-index')));
 						});
 
 						grid.addEventListener('keydown', function (event) {
@@ -658,7 +747,7 @@ grid.addEventListener('click', function (event) {
 							var card = event.target.closest('.book-card');
 							if (!card) return;
 							event.preventDefault();
-							openBook(Number(card.getAttribute('data-index')));
+							openBook(card.getAttribute('data-year'), Number(card.getAttribute('data-index')));
 						});
 
 						function setLoading(isLoading, text) {
@@ -705,7 +794,7 @@ function closeReader() {
 						}
 
 			function syncMeta(pageIndex) {
-				var meta = pageMeta[pageIndex] || books[0];
+				var meta = pageMeta[pageIndex] || currentAlbumBooks[0] || books[0];
 				if (!meta) return;
 				titleEl.textContent = meta.label + '　' + meta.title;
 				if (downloadEl) {
@@ -817,11 +906,12 @@ function appendPdfPage(book, scale, pages) {
 				});
 			}
 
-			function buildAlbum(token) {
+			function buildAlbum(token, yearBooks) {
 				setLoading(true, '正在準備全年繪本…');
 				pageMeta = [];
 
-				return loadPdf(books[0].url).then(function (firstPdf) {
+				var sourceBooks = yearBooks && yearBooks.length ? yearBooks : books;
+				return loadPdf(sourceBooks[0].url).then(function (firstPdf) {
 					if (token !== openToken) return null;
 					return firstPdf.getPage(1).then(function (firstPage) {
 						var base = firstPage.getViewport({ scale: 1 });
@@ -847,11 +937,11 @@ function appendPdfPage(book, scale, pages) {
 						var pages = [];
 						var chain = Promise.resolve();
 
-						books.forEach(function (book, bookIndex) {
+						sourceBooks.forEach(function (book, bookIndex) {
 							chain = chain.then(function () {
 								if (token !== openToken) return;
 								book.startPageIndex = pages.length;
-								setLoading(true, '正在載入繪本 ' + (bookIndex + 1) + ' / ' + books.length + '…');
+								setLoading(true, '正在載入繪本 ' + (bookIndex + 1) + ' / ' + sourceBooks.length + '…');
 								return loadImage(book.coverUrl).catch(function () {
 									return null;
 								}).then(function (img) {
@@ -878,27 +968,28 @@ function appendPdfPage(book, scale, pages) {
 				});
 			}
 
-function ensureAlbum(token) {
-				if (albumPages && albumSize) {
-					return Promise.resolve({ pages: albumPages, size: albumSize });
+function ensureAlbum(token, year, yearBooks) {
+				if (albumCache[year]) {
+					return Promise.resolve(albumCache[year]);
 				}
-				if (albumReady) return albumReady;
-				albumReady = buildAlbum(token).then(function (album) {
-					if (!album) {
-						albumReady = null;
-						return null;
-					}
+				if (albumReady && albumReady.year === year) return albumReady.promise;
+				var promise = buildAlbum(token, yearBooks).then(function (album) {
+					if (!album) return null;
+					albumCache[year] = album;
 					return album;
 				}).catch(function (err) {
-					albumReady = null;
+					if (albumReady && albumReady.year === year) albumReady = null;
 					throw err;
 				});
-				return albumReady;
+				albumReady = { year: year, promise: promise };
+				return promise;
 			}
 
-			function openBook(startIndex) {
+			function openBook(year, startIndex) {
 				var token = ++openToken;
-				var safeIndex = Math.max(0, Math.min(startIndex, books.length - 1));
+				var yearBooks = booksForYear(year || currentYear);
+				currentAlbumBooks = yearBooks;
+				var safeIndex = Math.max(0, Math.min(startIndex, yearBooks.length - 1));
 				destroyFlip();
 				overlay.classList.add('is-open');
 				overlay.setAttribute('aria-hidden', 'false');
@@ -906,7 +997,7 @@ function ensureAlbum(token) {
 				errorEl.classList.add('is-hidden');
 				setLoading(true, '正在準備揭頁…');
 				statusEl.textContent = '…';
-				var preview = books[safeIndex];
+				var preview = yearBooks[safeIndex];
 				if (preview) {
 					titleEl.textContent = preview.label + '　' + preview.title;
 					if (downloadEl) {
@@ -915,7 +1006,7 @@ function ensureAlbum(token) {
 					}
 				}
 
-				ensureAlbum(token).then(function (album) {
+				ensureAlbum(token, year || currentYear, yearBooks).then(function (album) {
 					if (!album || token !== openToken) return;
 					if (!ensureFlipbookEl()) return;
 					var usablePages = (album.pages || []).filter(function (pageDiv) {
@@ -944,8 +1035,8 @@ function ensureAlbum(token) {
 					});
 					pageFlip.loadFromHTML(flipbookEl.querySelectorAll('.page'));
 					pageFlip.on('flip', updateStatus);
-					var startPage = (books[safeIndex] && typeof books[safeIndex].startPageIndex === 'number')
-						? books[safeIndex].startPageIndex
+					var startPage = (yearBooks[safeIndex] && typeof yearBooks[safeIndex].startPageIndex === 'number')
+						? yearBooks[safeIndex].startPageIndex
 						: Math.min(safeIndex * 2, usablePages.length - 1);
 					pageFlip.turnToPage(Math.max(0, Math.min(startPage, usablePages.length - 1)));
 					updateStatus();
