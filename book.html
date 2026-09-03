@@ -775,8 +775,6 @@ function updateStatus() {
 				var pixelRatio = getPixelRatio();
 				var w = Math.max(1, Math.round(pageWidth));
 				var h = Math.max(1, Math.round(pageHeight));
-				var imgW = img.naturalWidth || img.width || w;
-				var imgH = img.naturalHeight || img.height || h;
 				var canvas = document.createElement('canvas');
 				canvas.width = Math.max(1, Math.round(w * pixelRatio));
 				canvas.height = Math.max(1, Math.round(h * pixelRatio));
@@ -784,16 +782,21 @@ function updateStatus() {
 				canvas.style.height = h + 'px';
 				var ctx = canvas.getContext('2d');
 				ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-				ctx.fillStyle = '#f7f1e6';
+				ctx.fillStyle = '#ffffff';
 				ctx.fillRect(0, 0, w, h);
-				ctx.imageSmoothingEnabled = true;
-				if ('imageSmoothingQuality' in ctx) ctx.imageSmoothingQuality = 'high';
-				var scale = Math.max(w / imgW, h / imgH);
-				var drawW = imgW * scale;
-				var drawH = imgH * scale;
-				var dx = (w - drawW) / 2;
-				var dy = (h - drawH) / 2;
-				ctx.drawImage(img, dx, dy, drawW, drawH);
+				if (img) {
+					var imgW = img.naturalWidth || img.width || w;
+					var imgH = img.naturalHeight || img.height || h;
+					ctx.imageSmoothingEnabled = true;
+					if ('imageSmoothingQuality' in ctx) ctx.imageSmoothingQuality = 'high';
+					// Fill the page width, keep original ratio so square covers are not stretched
+					var scale = w / imgW;
+					var drawW = w;
+					var drawH = imgH * scale;
+					var dx = 0;
+					var dy = (h - drawH) / 2;
+					ctx.drawImage(img, dx, dy, drawW, drawH);
+				}
 				var pageDiv = document.createElement('div');
 				pageDiv.className = 'page';
 				pageDiv.appendChild(canvas);
@@ -823,8 +826,9 @@ function appendPdfPage(book, scale, pages) {
 					return firstPdf.getPage(1).then(function (firstPage) {
 						var base = firstPage.getViewport({ scale: 1 });
 						var metrics = getStageMetrics();
-						var usePortrait = true;
-						var pageWidth = Math.min(520, metrics.width * 0.92, metrics.height * (base.width / base.height));
+						var usePortrait = window.innerWidth < 900;
+						var availableWidth = usePortrait ? metrics.width : (metrics.width / 2);
+						var pageWidth = Math.min(520, availableWidth * 0.98, metrics.height * (base.width / base.height));
 						var scale = Math.min(pageWidth / base.width, metrics.height / base.height, 1.6);
 						var pageHeight = Math.round(base.height * scale);
 						pageWidth = Math.round(base.width * scale);
@@ -848,13 +852,12 @@ function appendPdfPage(book, scale, pages) {
 								if (token !== openToken) return;
 								book.startPageIndex = pages.length;
 								setLoading(true, '正在載入繪本 ' + (bookIndex + 1) + ' / ' + books.length + '…');
-								return loadImage(book.coverUrl).then(function (img) {
+								return loadImage(book.coverUrl).catch(function () {
+									return null;
+								}).then(function (img) {
+									if (token !== openToken) return;
 									pages.push(renderImageToPage(img, pageWidth, pageHeight));
 									pageMeta.push(book);
-								}).catch(function () {
-									return null;
-								}).then(function () {
-									if (token !== openToken) return;
 									return appendPdfPage(book, scale, pages).catch(function (err) {
 										console.error('PDF load failed', book.file, err);
 									});
@@ -934,8 +937,8 @@ function ensureAlbum(token) {
 						maxHeight: pageHeight,
 						drawShadow: true,
 						maxShadowOpacity: 0.45,
-						showCover: true,
-						usePortrait: true,
+						showCover: false,
+						usePortrait: !!(album.size && album.size.usePortrait),
 						mobileScrollSupport: true,
 						useMouseEvents: true
 					});
