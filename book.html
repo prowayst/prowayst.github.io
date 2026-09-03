@@ -1,0 +1,946 @@
+			<!DOCTYPE html>
+			<html lang="zh-Hant">
+
+			<head>
+				<title>PROWAY SPEECH THERAPY - 繪本分享</title>
+				<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<meta charset="utf-8">
+				<meta name="keywords" content="" />
+				<script
+					type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+				<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+				<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+				<link href="css/font-awesome.css" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Raleway:400,900,800,700,600,500,300,200,100" rel="stylesheet"
+					type="text/css">
+				<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+				<link
+					href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+					rel="stylesheet">
+				<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300'
+					rel='stylesheet' type='text/css'>
+				<script src="js/jquery-1.11.1.min.js"></script>
+				<script src="js/bootstrap.js"></script>
+				<script type="text/javascript">
+					jQuery(document).ready(function ($) {
+						$(".scroll").click(function (event) {
+							event.preventDefault();
+							$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+						});
+					});
+				</script>
+				<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<![endif]-->
+				<style>
+					.book-share {
+						padding: 40px 0 70px;
+						background: #ffffff;
+					}
+
+					.book-intro {
+						text-align: center;
+						margin: 0 auto 36px;
+						max-width: 720px;
+						color: #555;
+						line-height: 1.8;
+					}
+
+					.book-card {
+						background: transparent;
+						border: 0;
+						border-radius: 0;
+						overflow: visible;
+						margin-bottom: 36px;
+						cursor: pointer;
+						box-shadow: none;
+						transition: transform 0.2s ease;
+						text-align: center;
+					}
+
+					.book-card:hover,
+					.book-card:focus {
+						transform: translateY(-6px);
+						outline: none;
+					}
+
+					.book-cover-shelf {
+						perspective: 900px;
+						padding: 18px 10px 8px;
+						display: flex;
+						justify-content: center;
+					}
+
+					.book-cover {
+						position: relative;
+						width: 168px;
+						height: 252px;
+						background: linear-gradient(160deg, #efe4d4, #d9c4a6);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						overflow: hidden;
+						border-radius: 3px 8px 8px 3px;
+						box-shadow:
+							2px 3px 0 rgba(90, 60, 30, 0.18),
+							8px 14px 24px rgba(70, 45, 20, 0.28),
+							0 1px 0 rgba(255, 255, 255, 0.35) inset;
+						transform: rotateY(-8deg) rotateX(2deg);
+						transform-origin: left center;
+						transition: transform 0.25s ease, box-shadow 0.25s ease;
+					}
+
+					.book-card:hover .book-cover,
+					.book-card:focus .book-cover {
+						transform: rotateY(-2deg) rotateX(0deg) translateY(-4px);
+						box-shadow:
+							1px 2px 0 rgba(90, 60, 30, 0.16),
+							12px 20px 28px rgba(70, 45, 20, 0.32),
+							0 1px 0 rgba(255, 255, 255, 0.4) inset;
+					}
+
+					.book-cover::before {
+						content: '';
+						position: absolute;
+						left: 0;
+						top: 0;
+						bottom: 0;
+						width: 12px;
+						background: linear-gradient(90deg,
+							rgba(60, 40, 20, 0.35) 0%,
+							rgba(255, 255, 255, 0.18) 35%,
+							rgba(60, 40, 20, 0.22) 55%,
+							rgba(255, 255, 255, 0.08) 100%);
+						z-index: 2;
+						pointer-events: none;
+					}
+
+					.book-cover::after {
+						content: '';
+						position: absolute;
+						right: -7px;
+						top: 4px;
+						bottom: 4px;
+						width: 7px;
+						border-radius: 0 3px 3px 0;
+						background: linear-gradient(180deg, #f7f1e6, #e4d5bf 45%, #cbb89a);
+						box-shadow: 1px 0 2px rgba(0, 0, 0, 0.12);
+						z-index: 0;
+						pointer-events: none;
+					}
+
+										.book-cover canvas,
+					.book-cover img {
+						width: 100%;
+						height: 100%;
+						display: block;
+						position: absolute;
+						inset: 0;
+						object-fit: cover;
+						z-index: 1;
+					}
+
+					.book-cover-placeholder {
+						color: #8a7358;
+						font-size: 42px;
+						position: relative;
+						z-index: 1;
+					}
+
+					.book-card-body {
+						padding: 14px 8px 4px;
+					}
+
+					.book-month {
+						color: #b08968;
+						font-size: 13px;
+						letter-spacing: 0.04em;
+						margin-bottom: 6px;
+					}
+
+					.book-card-title {
+						font-size: 16px;
+						line-height: 1.45;
+						margin: 0;
+						color: #333;
+						min-height: 48px;
+					}
+
+					.book-open-hint {
+						margin-top: 8px;
+						color: #888;
+						font-size: 13px;
+					}
+
+					.flip-overlay {
+						display: none;
+						position: fixed;
+						inset: 0;
+						z-index: 10050;
+						background: rgba(18, 12, 8, 0.94);
+						align-items: stretch;
+						justify-content: flex-start;
+						flex-direction: column;
+						padding: 10px 12px 12px;
+						box-sizing: border-box;
+						overflow: hidden;
+					}
+
+					.flip-overlay.is-open {
+						display: flex;
+					}
+
+					.flip-toolbar {
+						width: 100%;
+						flex: 0 0 auto;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						gap: 12px;
+						color: #f4eadb;
+						margin-bottom: 8px;
+					}
+
+					.flip-toolbar h3 {
+						margin: 0;
+						font-size: 18px;
+						flex: 1;
+					}
+
+					.flip-actions {
+						display: flex;
+						gap: 8px;
+						flex-wrap: wrap;
+						justify-content: flex-end;
+					}
+
+					.flip-actions a,
+					.flip-actions button {
+						background: #82b62d;
+						border: 0;
+						color: #fff;
+						border-radius: 20px;
+						padding: 7px 14px;
+						font-size: 14px;
+						text-decoration: none;
+						cursor: pointer;
+					}
+
+					.flip-actions a:hover,
+					.flip-actions button:hover,
+					.flip-nav button:hover {
+						background: #82b62d;
+						color: #fff;
+					}
+
+					.flip-stage {
+						width: 100%;
+						flex: 1 1 auto;
+						min-height: 0;
+						display: flex;
+						align-items: flex-start;
+						justify-content: center;
+						position: relative;
+						overflow: auto;
+						-webkit-overflow-scrolling: touch;
+						padding-top: 4px;
+					}
+
+					#flipbook {
+						margin: 0 auto;
+						flex: 0 0 auto;
+					}
+
+					#flipbook .page {
+						background: #fff;
+						overflow: hidden;
+					}
+
+					#flipbook .page canvas {
+						width: 100%;
+						height: 100%;
+						display: block;
+			image-rendering: auto;
+		}
+
+					.flip-nav {
+						width: 100%;
+						flex: 0 0 auto;
+						margin-top: 8px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: 16px;
+						color: #f4eadb;
+					}
+
+					.flip-nav button {
+						background: rgba(255, 255, 255, 0.12);
+						border: 1px solid rgba(255, 255, 255, 0.25);
+						color: #fff;
+						border-radius: 50%;
+						width: 44px;
+						height: 44px;
+						font-size: 20px;
+						cursor: pointer;
+					}
+
+					.flip-status {
+						min-width: 90px;
+						text-align: center;
+					}
+
+					.flip-loading,
+					.flip-error {
+						position: absolute;
+						inset: 0;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						color: #f4eadb;
+						text-align: center;
+						padding: 20px;
+						pointer-events: none;
+					}
+
+					.flip-loading.is-hidden,
+					.flip-error.is-hidden {
+						display: none;
+					}
+
+					body.flip-open {
+						overflow: hidden;
+					}
+
+					body.flip-open .header,
+					body.flip-open #toTop {
+						z-index: 1;
+						visibility: hidden;
+						pointer-events: none;
+					}
+
+					@media (max-width: 767px) {
+						.book-cover {
+							width: 148px;
+							height: 222px;
+						}
+
+						.flip-overlay {
+							padding: 8px 8px 10px;
+						}
+
+						.flip-toolbar {
+							flex-direction: column;
+							align-items: flex-start;
+						}
+
+						.flip-toolbar h3 {
+							font-size: 16px;
+						}
+					}
+				</style>
+			</head>
+
+			<body>
+				<div class="banner about-banner">
+					<div class="header">
+						<div class="container">
+							<div class="header-left">
+								<div class="w3layouts-logo">
+									<h2>
+										<a href="index.html" class="speech-therapy">
+											<img src="images/icon.png">
+											<div class="speech-therapy-text">
+												<div>諾道言語治療</div>
+												<div>PROWAY SPEECH THERAPY</div>
+											</div>
+										</a>
+									</h2>
+								</div>
+							</div>
+							<div class="header-right">
+								<div class="w3-header-bottom">
+									<div class="top-nav">
+										<nav class="navbar navbar-default">
+											<div class="navbar-header">
+												<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+													data-target="#bs-example-navbar-collapse-1">
+													<span class="sr-only">Toggle navigation</span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+												</button>
+											</div>
+											<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+												<ul class="nav navbar-nav">
+													<li><a href="index.html">主頁</a></li>
+													<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
+															data-toggle="dropdown" role="button" aria-haspopup="true"
+															aria-expanded="false">諾道服務<span class="caret"></span></a>
+														<ul class="dropdown-menu">
+															<li><a class="hvr-bounce-to-bottom"
+																	href="our-services/prevention.html">預防</a></li>
+															<li><a class="hvr-bounce-to-bottom"
+																	href="our-services/intervention.html">治療</a></li>
+															<li><a class="hvr-bounce-to-bottom"
+																	href="our-services/enhancement.html">提升</a></li>
+														</ul>
+													</li>
+													<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
+															data-toggle="dropdown" role="button" aria-haspopup="true"
+															aria-expanded="false">諾道團隊<span class="caret"></span></a>
+														<ul class="dropdown-menu">
+															<li><a class="hvr-bounce-to-bottom"
+																	href="about.html#therapist">言語治療師</a></li>
+															<li><a class="hvr-bounce-to-bottom" href="about.html#worker">註冊社工</a>
+															</li>
+															<li><a class="hvr-bounce-to-bottom"
+																	href="about.html#psychologist">教育心理學家</a></li>
+														</ul>
+													</li>
+													<li class=""><a href="share.html"
+														class="active dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown"
+														role="button" aria-haspopup="true" aria-expanded="false">諾道分享<span
+															class="caret"></span></a>
+													<ul class="dropdown-menu">
+														<li><a class="hvr-bounce-to-bottom"
+																href="share.html">文章分享</a></li>
+														<li><a class="active hvr-bounce-to-bottom"
+																href="book.html">繪本分享</a></li>
+													</ul>
+												</li>
+													<li><a href="good.html">諾道好評</a></li>
+													<li><a href="cooperate.html">合作機構/學校</a></li>
+													<li><a href="contact.html">聯絡諾道</a></li>
+												</ul>
+												<div class="clearfix"> </div>
+											</div>
+										</nav>
+									</div>
+									<div class="agileinfo-social-grids">
+										<ul>
+											<li><a href="https://wa.me/85265328821"><img src="images/whatsapp2.png"></a></li>
+											&nbsp&nbsp
+											<li><a href="mailto:info@prowayst.com"><img src="images/mail.png"></i></a></li>
+											&nbsp&nbsp
+											<li><a href="https://www.facebook.com/prowayspeechtherapy/"><img
+														src="images/facebook.png"></a></li>&nbsp&nbsp
+											<li><a href="https://www.instagram.com/prowayspeechtherapy/"><img
+														src="images/instagram.png"></a></li>
+											&nbsp&nbsp
+											<li><a class="qr-link" href="images/wechat_QR.jpg"
+													title="微信 WeChat ID: prowayst"><img src="images/wechat_QR.jpg"
+														alt="WeChat QR"></a></li>&nbsp&nbsp
+											<li><a class="qr-link" href="images/redbook_QR.jpg"
+													title="小紅書號：95848162943"><img src="images/redbook_QR.jpg" alt="小紅書 QR"></a>
+											</li>
+										</ul>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="w3ls-heading">
+						<h2>繪本分享</h2>
+					</div>
+				</div>
+
+				<div class="book-share">
+					<div class="container">
+						<p class="book-intro">電腦可用滑鼠拖曳或左右鍵翻頁，手機可以左右滑動。</p>
+						<div class="row" id="bookGrid"></div>
+					</div>
+				</div>
+
+				<div class="flip-overlay" id="flipOverlay" aria-hidden="true">
+					<div class="flip-toolbar">
+						<h3 id="flipTitle">繪本</h3>
+						<div class="flip-actions">
+							<!-- temporarily hidden: <a id="flipDownload" href="#" target="_blank" rel="noopener">開啟 PDF</a> -->
+							<button type="button" id="flipClose">關閉</button>
+						</div>
+					</div>
+					<div class="flip-stage">
+						<div class="flip-loading" id="flipLoading">正在準備揭頁…</div>
+						<div class="flip-error is-hidden" id="flipError">未能載入繪本，請稍後再試。</div>
+						<div id="flipbook"></div>
+					</div>
+					<div class="flip-nav">
+						<button type="button" id="flipPrev" aria-label="上一頁">‹</button>
+						<div class="flip-status" id="flipStatus">1 / 1</div>
+						<button type="button" id="flipNext" aria-label="下一頁">›</button>
+					</div>
+				</div>
+
+				<div class="footer">
+					<div class="container">
+						<div class="agile-footer-grids">
+							<div class="col-md-4 agile-footer-grid">
+								<h4>諾道言語治療</h4>
+								<span>地址：沙田石門安耀街5號W LUXE 21樓N3及23樓S15</span><br>
+								<span>電話：6532 8821</span><br>
+								<span>電郵：info@prowayst.com</span>
+							</div>
+							<div class="col-md-4 agile-footer-grid">
+								<span><b>星期二至日</b> 09:00 - 18:00</span><br>
+								<span><b>星期一</b> 休息</span><br>
+								<span><b>敬請預約</b></span>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="agileits-w3layouts-copyright">
+					<div class="container">
+						<p>Copyright &copy; 2026.PROWAY SPEECH THERAPY All rights reserved.</p>
+					</div>
+				</div>
+
+				<script src="js/SmoothScroll.min.js"></script>
+				<script src="js/qr-modal.js"></script>
+				<script type="text/javascript" src="js/move-top.js"></script>
+				<script type="text/javascript" src="js/easing.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function () {
+						$().UItoTop({ easingType: 'easeOutQuart' });
+					});
+
+					(function () {
+						var BOOK_FILES = [
+							'2024.01_別鬧了，壞心情怪獸.pdf',
+							'2024.02_毛毛不怕孤獨.pdf',
+							'2024.03_HOW DO YOU FEEL.pdf',
+							'2024.04_做我自己.pdf',
+							'2024.05_阿摩的聰明藥.pdf',
+							'2024.06_生氣王子.pdf',
+							'2024.07_手不是用來打人的.pdf',
+							'2024.08_大吼大叫的企鵝媽媽.pdf',
+							'2024.09_豬奶奶說再見.pdf',
+							'2024.10_我不敢哭，我怕丟臉.pdf',
+							'2024.11_為甚麼不能想怎樣就怎樣.pdf',
+							'2024.12_我害怕出錯.pdf'
+						];
+
+						pdfjsLib.GlobalWorkerOptions.workerSrc =
+							'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+						var pdfOptions = {
+							cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+							cMapPacked: true
+						};
+
+						var grid = document.getElementById('bookGrid');
+						var overlay = document.getElementById('flipOverlay');
+						var flipbookEl = document.getElementById('flipbook');
+						var loadingEl = document.getElementById('flipLoading');
+						var errorEl = document.getElementById('flipError');
+						var titleEl = document.getElementById('flipTitle');
+						var statusEl = document.getElementById('flipStatus');
+						var downloadEl = document.getElementById('flipDownload');
+						var pageFlip = null;
+						var openToken = 0;
+						var pageMeta = [];
+						var albumReady = null;
+						var albumPages = null;
+						var albumSize = null;
+
+						function parseBook(filename) {
+							var base = filename.replace(/\.pdf$/i, '');
+							var idx = base.indexOf('_');
+							var monthRaw = idx >= 0 ? base.slice(0, idx) : '';
+							var title = idx >= 0 ? base.slice(idx + 1) : base;
+							var match = monthRaw.match(/(\d{4})\.(\d{1,2})/);
+							var label = match ? (match[1] + '年' + parseInt(match[2], 10) + '月') : monthRaw;
+							var coverBase = base.replace(/(\d{4}\.\d{1,2})月_/, '$1_');
+							var coverExt = coverBase.indexOf('2024.07_') === 0 ? '.png' : '.jpg';
+							return {
+								file: filename,
+								title: title,
+								label: label,
+								url: 'article/book/' + encodeURIComponent(filename),
+								coverUrl: 'article/book/' + encodeURIComponent(coverBase + coverExt)
+							};
+						}
+
+						var books = BOOK_FILES.map(parseBook);
+
+						function loadPdf(url) {
+							return pdfjsLib.getDocument(Object.assign({ url: url }, pdfOptions)).promise;
+						}
+
+			function getPixelRatio() {
+				return Math.min(window.devicePixelRatio || 1, 3);
+			}
+
+			function renderPage(page, cssScale) {
+				var pixelRatio = getPixelRatio();
+				var viewport = page.getViewport({ scale: cssScale * pixelRatio });
+				var canvas = document.createElement('canvas');
+				var context = canvas.getContext('2d', { alpha: false });
+				canvas.width = Math.floor(viewport.width);
+				canvas.height = Math.floor(viewport.height);
+				canvas.style.width = Math.floor(viewport.width / pixelRatio) + 'px';
+				canvas.style.height = Math.floor(viewport.height / pixelRatio) + 'px';
+				return page.render({
+					canvasContext: context,
+					viewport: viewport,
+					intent: 'display'
+				}).promise.then(function () {
+					return canvas;
+				});
+			}
+
+			function fitCoverCanvas(sourceCanvas, coverEl) {
+				var pixelRatio = getPixelRatio();
+				var targetW = coverEl.clientWidth || 168;
+				var targetH = coverEl.clientHeight || 252;
+				var srcCssW = parseFloat(sourceCanvas.style.width) || (sourceCanvas.width / pixelRatio);
+				var srcCssH = parseFloat(sourceCanvas.style.height) || (sourceCanvas.height / pixelRatio);
+				var fitted = document.createElement('canvas');
+				fitted.width = Math.round(targetW * pixelRatio);
+				fitted.height = Math.round(targetH * pixelRatio);
+				fitted.style.width = targetW + 'px';
+				fitted.style.height = targetH + 'px';
+				var ctx = fitted.getContext('2d');
+				ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+				ctx.imageSmoothingEnabled = true;
+				if ('imageSmoothingQuality' in ctx) ctx.imageSmoothingQuality = 'high';
+				ctx.fillStyle = '#f4eadb';
+				ctx.fillRect(0, 0, targetW, targetH);
+				var scale = Math.max(targetW / srcCssW, targetH / srcCssH);
+				var drawW = srcCssW * scale;
+				var drawH = srcCssH * scale;
+				var dx = (targetW - drawW) / 2;
+				var dy = (targetH - drawH) / 2;
+				ctx.drawImage(sourceCanvas, dx, dy, drawW, drawH);
+				coverEl.innerHTML = '';
+				coverEl.appendChild(fitted);
+			}
+
+function createCard(book, index) {
+							var col = document.createElement('div');
+							col.className = 'col-md-3 col-sm-6';
+							col.innerHTML =
+								'<div class="book-card" role="button" tabindex="0" data-index="' + index + '">' +
+									'<div class="book-cover-shelf">' +
+										'<div class="book-cover"><i class="fa fa-book book-cover-placeholder"></i><img alt="" src="' + book.coverUrl + '"></div>' +
+									'</div>' +
+									'<div class="book-card-body">' +
+										'<div class="book-month">' + book.label + '</div>' +
+										'<h3 class="book-card-title">' + book.title + '</h3>' +
+									'</div>' +
+								'</div>';
+							return col;
+						}
+
+						books.forEach(function (book, index) {
+							grid.appendChild(createCard(book, index));
+						});
+
+grid.addEventListener('click', function (event) {
+							var card = event.target.closest('.book-card');
+							if (!card) return;
+							openBook(Number(card.getAttribute('data-index')));
+						});
+
+						grid.addEventListener('keydown', function (event) {
+							if (event.key !== 'Enter' && event.key !== ' ') return;
+							var card = event.target.closest('.book-card');
+							if (!card) return;
+							event.preventDefault();
+							openBook(Number(card.getAttribute('data-index')));
+						});
+
+						function setLoading(isLoading, text) {
+							if (text) loadingEl.textContent = text;
+							loadingEl.classList.toggle('is-hidden', !isLoading);
+						}
+
+			function ensureFlipbookEl() {
+				var stage = overlay.querySelector('.flip-stage');
+				if (!stage) return null;
+				var existing = document.getElementById('flipbook');
+				if (existing && existing.parentNode === stage) {
+					flipbookEl = existing;
+					return flipbookEl;
+				}
+				var fresh = document.createElement('div');
+				fresh.id = 'flipbook';
+				var errorNode = document.getElementById('flipError');
+				if (errorNode && errorNode.parentNode === stage) {
+					stage.insertBefore(fresh, errorNode.nextSibling);
+				} else {
+					stage.appendChild(fresh);
+				}
+				flipbookEl = fresh;
+				return flipbookEl;
+			}
+
+			function destroyFlip() {
+				if (pageFlip) {
+					try { pageFlip.destroy(); } catch (e) {}
+					pageFlip = null;
+				}
+				// page-flip destroy() removes the root element; recreate for next open
+				ensureFlipbookEl();
+				if (flipbookEl) flipbookEl.innerHTML = '';
+			}
+
+function closeReader() {
+							openToken += 1;
+							overlay.classList.remove('is-open');
+							overlay.setAttribute('aria-hidden', 'true');
+							document.body.classList.remove('flip-open');
+							destroyFlip();
+						}
+
+			function syncMeta(pageIndex) {
+				var meta = pageMeta[pageIndex] || books[0];
+				if (!meta) return;
+				titleEl.textContent = meta.label + '　' + meta.title;
+				if (downloadEl) {
+					downloadEl.href = meta.url;
+					downloadEl.style.visibility = 'visible';
+				}
+				statusEl.textContent = (pageIndex + 1) + ' / ' + pageMeta.length;
+			}
+
+function updateStatus() {
+							if (!pageFlip) return;
+							syncMeta(pageFlip.getCurrentPageIndex());
+						}
+
+						function getStageMetrics() {
+							var stage = overlay.querySelector('.flip-stage');
+							var width = (stage && stage.clientWidth) || overlay.clientWidth || window.innerWidth;
+							var height = (stage && stage.clientHeight) || overlay.clientHeight || window.innerHeight;
+							return {
+								width: Math.max(240, width - 8),
+								height: Math.max(280, height - 8)
+							};
+						}
+
+			function clonePageNode(source) {
+				var pageDiv = document.createElement('div');
+				pageDiv.className = 'page';
+				if (source.getAttribute('data-density')) {
+					pageDiv.setAttribute('data-density', source.getAttribute('data-density'));
+				}
+				var canvas = document.createElement('canvas');
+				var sourceCanvas = source.querySelector('canvas');
+				canvas.width = sourceCanvas.width;
+				canvas.height = sourceCanvas.height;
+				canvas.style.width = sourceCanvas.style.width || '';
+				canvas.style.height = sourceCanvas.style.height || '';
+				canvas.getContext('2d').drawImage(sourceCanvas, 0, 0);
+				pageDiv.appendChild(canvas);
+				return pageDiv;
+			}
+
+			
+			function loadImage(url) {
+				return new Promise(function (resolve, reject) {
+					if (!url) {
+						reject(new Error('no cover'));
+						return;
+					}
+					var img = new Image();
+					img.onload = function () { resolve(img); };
+					img.onerror = function () { reject(new Error('cover failed')); };
+					img.src = url;
+				});
+			}
+
+			function renderImageToPage(img, pageWidth, pageHeight) {
+				var pixelRatio = getPixelRatio();
+				var canvas = document.createElement('canvas');
+				canvas.width = Math.max(1, Math.round(pageWidth * pixelRatio));
+				canvas.height = Math.max(1, Math.round(pageHeight * pixelRatio));
+				canvas.style.width = Math.round(pageWidth) + 'px';
+				canvas.style.height = Math.round(pageHeight) + 'px';
+				var ctx = canvas.getContext('2d');
+				ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+				ctx.fillStyle = '#f7f1e6';
+				ctx.fillRect(0, 0, pageWidth, pageHeight);
+				ctx.imageSmoothingEnabled = true;
+				if ('imageSmoothingQuality' in ctx) ctx.imageSmoothingQuality = 'high';
+				var scale = Math.min(pageWidth / img.naturalWidth, pageHeight / img.naturalHeight);
+				var drawW = img.naturalWidth * scale;
+				var drawH = img.naturalHeight * scale;
+				var dx = (pageWidth - drawW) / 2;
+				var dy = (pageHeight - drawH) / 2;
+				ctx.drawImage(img, dx, dy, drawW, drawH);
+				var pageDiv = document.createElement('div');
+				pageDiv.className = 'page';
+				pageDiv.appendChild(canvas);
+				return pageDiv;
+			}
+
+			function appendPdfPage(book, scale, pages) {
+				return loadPdf(book.url).then(function (pdf) {
+					return pdf.getPage(1).then(function (page) {
+						return renderPage(page, scale).then(function (canvas) {
+							var pageDiv = document.createElement('div');
+							pageDiv.className = 'page';
+							pageDiv.appendChild(canvas);
+							pages.push(pageDiv);
+							pageMeta.push(book);
+						});
+					});
+				});
+			}
+
+			function buildAlbum(token) {
+				setLoading(true, '正在準備全年繪本…');
+				pageMeta = [];
+
+				return loadPdf(books[0].url).then(function (firstPdf) {
+					if (token !== openToken) return null;
+					return firstPdf.getPage(1).then(function (firstPage) {
+						var base = firstPage.getViewport({ scale: 1 });
+						var metrics = getStageMetrics();
+						var usePortrait = true;
+						var pageWidth = Math.min(metrics.width * 0.92, metrics.height * (base.width / base.height));
+						var scale = Math.min(pageWidth / base.width, metrics.height / base.height, 2.5);
+						var pageHeight = Math.round(base.height * scale);
+						pageWidth = Math.round(base.width * scale);
+						albumSize = {
+							width: pageWidth,
+							height: pageHeight,
+							usePortrait: usePortrait
+						};
+
+						var pages = [];
+						var chain = Promise.resolve();
+
+						books.forEach(function (book, bookIndex) {
+							chain = chain.then(function () {
+								if (token !== openToken) return;
+								book.startPageIndex = pages.length;
+								setLoading(true, '正在載入繪本 ' + (bookIndex + 1) + ' / ' + books.length + '…');
+								return loadImage(book.coverUrl).then(function (img) {
+									pages.push(renderImageToPage(img, pageWidth, pageHeight));
+									pageMeta.push(book);
+								}).catch(function () {
+									return null;
+								}).then(function () {
+									if (token !== openToken) return;
+									return appendPdfPage(book, scale, pages);
+								});
+							});
+						});
+
+						return chain.then(function () {
+							if (token !== openToken) return null;
+							albumPages = pages;
+							return {
+								pages: pages,
+								size: albumSize
+							};
+						});
+					});
+				});
+			}
+
+function ensureAlbum(token) {
+				if (albumPages && albumSize) {
+					return Promise.resolve({ pages: albumPages, size: albumSize });
+				}
+				if (albumReady) return albumReady;
+				albumReady = buildAlbum(token).then(function (album) {
+					if (!album) {
+						albumReady = null;
+						return null;
+					}
+					return album;
+				}).catch(function (err) {
+					albumReady = null;
+					throw err;
+				});
+				return albumReady;
+			}
+
+			function openBook(startIndex) {
+				var token = ++openToken;
+				var safeIndex = Math.max(0, Math.min(startIndex, books.length - 1));
+				destroyFlip();
+				overlay.classList.add('is-open');
+				overlay.setAttribute('aria-hidden', 'false');
+				document.body.classList.add('flip-open');
+				errorEl.classList.add('is-hidden');
+				setLoading(true, '正在準備揭頁…');
+				statusEl.textContent = '…';
+				var preview = books[safeIndex];
+				if (preview) {
+					titleEl.textContent = preview.label + '　' + preview.title;
+					if (downloadEl) {
+						downloadEl.href = preview.url;
+						downloadEl.style.visibility = 'visible';
+					}
+				}
+
+				ensureAlbum(token).then(function (album) {
+					if (!album || token !== openToken) return;
+					if (!ensureFlipbookEl()) return;
+					album.pages.forEach(function (pageDiv) {
+						flipbookEl.appendChild(clonePageNode(pageDiv));
+					});
+
+					pageFlip = new St.PageFlip(flipbookEl, {
+						width: album.size.width,
+						height: album.size.height,
+						size: 'fixed',
+						minWidth: 160,
+						maxWidth: album.size.width,
+						minHeight: 220,
+						maxHeight: album.size.height,
+						drawShadow: true,
+						maxShadowOpacity: 0.45,
+						showCover: true,
+						usePortrait: album.size.usePortrait,
+						mobileScrollSupport: true,
+						useMouseEvents: true
+					});
+					pageFlip.loadFromHTML(flipbookEl.querySelectorAll('.page'));
+					pageFlip.on('flip', updateStatus);
+					var startPage = (books[safeIndex] && typeof books[safeIndex].startPageIndex === 'number')
+						? books[safeIndex].startPageIndex
+						: Math.min(safeIndex * 2, album.pages.length - 1);
+					pageFlip.turnToPage(Math.max(0, Math.min(startPage, album.pages.length - 1)));
+					updateStatus();
+					setLoading(false);
+					var stage = overlay.querySelector('.flip-stage');
+					if (stage) stage.scrollTop = 0;
+				}).catch(function () {
+					if (token !== openToken) return;
+					setLoading(false);
+					errorEl.classList.remove('is-hidden');
+				});
+			}
+
+			document.getElementById('flipClose').addEventListener('click', closeReader);
+						overlay.addEventListener('click', function (event) {
+							if (event.target === overlay) closeReader();
+						});
+						document.getElementById('flipPrev').addEventListener('click', function () {
+							if (pageFlip) pageFlip.flipPrev();
+						});
+						document.getElementById('flipNext').addEventListener('click', function () {
+							if (pageFlip) pageFlip.flipNext();
+						});
+						document.addEventListener('keydown', function (event) {
+							if (!overlay.classList.contains('is-open')) return;
+							if (event.key === 'Escape') closeReader();
+							if (event.key === 'ArrowLeft' && pageFlip) pageFlip.flipPrev();
+							if (event.key === 'ArrowRight' && pageFlip) pageFlip.flipNext();
+						});
+					})();
+				</script>
+			</body>
+
+			</html>
