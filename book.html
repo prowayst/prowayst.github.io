@@ -40,11 +40,7 @@
 					}
 
 					.book-year-nav {
-						display: flex;
-						justify-content: center;
-						flex-wrap: wrap;
-						gap: 10px;
-						margin: 0 0 28px;
+						display: none;
 					}
 
 					.book-year-btn {
@@ -185,10 +181,7 @@
 					}
 
 					.book-month {
-						color: #b08968;
-						font-size: 13px;
-						letter-spacing: 0.04em;
-						margin-bottom: 6px;
+						display: none;
 					}
 
 					.book-card-title {
@@ -197,6 +190,34 @@
 						margin: 0;
 						color: #333;
 						min-height: 48px;
+					}
+
+					.book-pagination {
+						display: flex;
+						justify-content: center;
+						flex-wrap: wrap;
+						margin-top: 8px;
+					}
+
+					.book-pagination a {
+						color: #333;
+						padding: 8px 16px;
+						text-decoration: none;
+						margin: 0 4px 8px;
+						border: 1px solid #ccc;
+						border-radius: 5px;
+						cursor: pointer;
+					}
+
+					.book-pagination a.active {
+						background-color: #82b62d;
+						color: #fff;
+						border-color: #82b62d;
+					}
+
+					.book-pagination a:hover:not(.active) {
+						background-color: #ddd;
+						border-color: #ddd;
 					}
 
 					.book-open-hint {
@@ -484,9 +505,10 @@
 					<div class="container">
 						<p class="book-intro"><b>諾道繪本推介:</b> <br>
 							情緒教育是孩子健康成長不可或缺的部分，我們會定期推薦世界各地有趣的情緒教育繪本，讓你在忙碌的日子也能輕鬆體驗閱讀的樂趣，一邊幫助孩子面對各式各樣的情緒，一邊享受優質親子時間。</p>
-						<!--<h3 class="book-year-heading" id="bookYearHeading"></h3>-->
-						<div class="book-year-nav" id="bookYearNav"></div>
+						<!-- 暫時不按年份分類：<h3 class="book-year-heading" id="bookYearHeading"></h3>
+						<div class="book-year-nav" id="bookYearNav"></div> -->
 						<div class="row" id="bookGrid"></div>
+						<div class="pagination book-pagination" id="bookPagination"></div>
 					</div>
 				</div>
 
@@ -606,24 +628,21 @@
 							};
 						}
 
-						var books = BOOK_FILES.map(parseBook);
-						var years = [];
-						books.forEach(function (book) {
-							if (book.year && years.indexOf(book.year) === -1) years.push(book.year);
+						var books = BOOK_FILES.map(parseBook).sort(function (a, b) {
+							if (a.year !== b.year) return Number(a.year) - Number(b.year);
+							return a.month - b.month;
 						});
-						years.sort(function (a, b) { return Number(b) - Number(a); });
-						var yearNav = document.getElementById('bookYearNav');
-						var yearHeading = document.getElementById('bookYearHeading');
-						var currentYear = years[0] || '';
 						var albumCache = {};
 						var currentAlbumBooks = [];
+						var bookPage = 1;
+						var PHONE_MAX = 767;
 
-						function booksForYear(year) {
-							return books.filter(function (book) {
-								return book.year === year;
-							}).sort(function (a, b) {
-								return a.month - b.month;
-							});
+						function pageSize() {
+							return window.innerWidth <= PHONE_MAX ? 6 : 12;
+						}
+
+						function allBooks() {
+							return books;
 						}
 
 			function loadPdf(url) {
@@ -688,58 +707,84 @@ function createCard(book, index) {
 							var col = document.createElement('div');
 							col.className = 'col-md-3 col-sm-6';
 							col.innerHTML =
-								'<div class="book-card" role="button" tabindex="0" data-year="' + book.year + '" data-index="' + index + '">' +
+								'<div class="book-card" role="button" tabindex="0" data-index="' + index + '">' +
 									'<div class="book-cover-shelf">' +
 										'<div class="book-cover"><i class="fa fa-book book-cover-placeholder"></i><img alt="" src="' + book.coverUrl + '"></div>' +
 									'</div>' +
 									'<div class="book-card-body">' +
-										'<div class="book-month">' + book.label + '</div>' +
 										'<h3 class="book-card-title">' + book.title + '</h3>' +
 									'</div>' +
 								'</div>';
 							return col;
 						}
 
-						function renderYearNav() {
-							if (!yearNav) return;
-							yearNav.innerHTML = '';
-							years.forEach(function (year) {
-								var btn = document.createElement('button');
-								btn.type = 'button';
-								btn.className = 'book-year-btn' + (year === currentYear ? ' is-active' : '');
-								btn.textContent = year + '年';
-								btn.setAttribute('data-year', year);
-								yearNav.appendChild(btn);
-							});
+						function renderPagination(totalPages) {
+							var nav = document.getElementById('bookPagination');
+							if (!nav) return;
+							nav.innerHTML = '';
+							if (totalPages <= 1) {
+								nav.style.display = 'none';
+								return;
+							}
+							nav.style.display = 'flex';
+							function addLink(label, page, className) {
+								var a = document.createElement('a');
+								a.href = '#';
+								a.textContent = label;
+								a.className = className || '';
+								if (page === bookPage && className === 'page-number') a.className += ' active';
+								a.setAttribute('data-page', String(page));
+								nav.appendChild(a);
+							}
+							addLink('«', Math.max(1, bookPage - 1), 'prev');
+							for (var i = 1; i <= totalPages; i++) {
+								addLink(String(i), i, 'page-number');
+							}
+							addLink('»', Math.min(totalPages, bookPage + 1), 'next');
 						}
 
 						function renderGrid() {
-							var yearBooks = booksForYear(currentYear);
-							if (yearHeading) yearHeading.textContent = currentYear ? (currentYear + '年繪本') : '繪本分享';
+							var size = pageSize();
+							var totalPages = Math.max(1, Math.ceil(books.length / size));
+							if (bookPage > totalPages) bookPage = totalPages;
+							var start = (bookPage - 1) * size;
+							var pageBooks = books.slice(start, start + size);
 							grid.innerHTML = '';
-							yearBooks.forEach(function (book, index) {
-								grid.appendChild(createCard(book, index));
+							pageBooks.forEach(function (book, i) {
+								grid.appendChild(createCard(book, start + i));
 							});
-							renderYearNav();
+							renderPagination(totalPages);
 						}
 
 						renderGrid();
 
-						if (yearNav) {
-							yearNav.addEventListener('click', function (event) {
-								var btn = event.target.closest('.book-year-btn');
-								if (!btn) return;
-								var year = btn.getAttribute('data-year');
-								if (!year || year === currentYear) return;
-								currentYear = year;
+						var paginationEl = document.getElementById('bookPagination');
+						if (paginationEl) {
+							paginationEl.addEventListener('click', function (event) {
+								var link = event.target.closest('a');
+								if (!link) return;
+								event.preventDefault();
+								var nextPage = Number(link.getAttribute('data-page'));
+								var size = pageSize();
+								var totalPages = Math.max(1, Math.ceil(books.length / size));
+								if (!nextPage || nextPage === bookPage || nextPage < 1 || nextPage > totalPages) return;
+								bookPage = nextPage;
 								renderGrid();
 							});
 						}
 
+						var lastPhone = window.innerWidth <= PHONE_MAX;
+						window.addEventListener('resize', function () {
+							var isPhone = window.innerWidth <= PHONE_MAX;
+							if (isPhone === lastPhone) return;
+							lastPhone = isPhone;
+							renderGrid();
+						});
+
 grid.addEventListener('click', function (event) {
 							var card = event.target.closest('.book-card');
 							if (!card) return;
-							openBook(card.getAttribute('data-year'), Number(card.getAttribute('data-index')));
+							openBook(Number(card.getAttribute('data-index')));
 						});
 
 						grid.addEventListener('keydown', function (event) {
@@ -747,7 +792,7 @@ grid.addEventListener('click', function (event) {
 							var card = event.target.closest('.book-card');
 							if (!card) return;
 							event.preventDefault();
-							openBook(card.getAttribute('data-year'), Number(card.getAttribute('data-index')));
+							openBook(Number(card.getAttribute('data-index')));
 						});
 
 						function setLoading(isLoading, text) {
@@ -796,7 +841,7 @@ function closeReader() {
 			function syncMeta(pageIndex) {
 				var meta = pageMeta[pageIndex] || currentAlbumBooks[0] || books[0];
 				if (!meta) return;
-				titleEl.textContent = meta.label + '　' + meta.title;
+				titleEl.textContent = meta.title;
 				if (downloadEl) {
 					downloadEl.href = meta.url;
 					downloadEl.style.visibility = 'visible';
@@ -907,7 +952,7 @@ function appendPdfPage(book, scale, pages) {
 			}
 
 			function buildAlbum(token, yearBooks) {
-				setLoading(true, '正在準備全年繪本…');
+				setLoading(true, '正在準備繪本…');
 				pageMeta = [];
 
 				var sourceBooks = yearBooks && yearBooks.length ? yearBooks : books;
@@ -968,26 +1013,27 @@ function appendPdfPage(book, scale, pages) {
 				});
 			}
 
-function ensureAlbum(token, year, yearBooks) {
-				if (albumCache[year]) {
-					return Promise.resolve(albumCache[year]);
+function ensureAlbum(token, yearBooks) {
+				var cacheKey = 'all';
+				if (albumCache[cacheKey]) {
+					return Promise.resolve(albumCache[cacheKey]);
 				}
-				if (albumReady && albumReady.year === year) return albumReady.promise;
+				if (albumReady && albumReady.year === cacheKey) return albumReady.promise;
 				var promise = buildAlbum(token, yearBooks).then(function (album) {
 					if (!album) return null;
-					albumCache[year] = album;
+					albumCache[cacheKey] = album;
 					return album;
 				}).catch(function (err) {
-					if (albumReady && albumReady.year === year) albumReady = null;
+					if (albumReady && albumReady.year === cacheKey) albumReady = null;
 					throw err;
 				});
-				albumReady = { year: year, promise: promise };
+				albumReady = { year: cacheKey, promise: promise };
 				return promise;
 			}
 
-			function openBook(year, startIndex) {
+			function openBook(startIndex) {
 				var token = ++openToken;
-				var yearBooks = booksForYear(year || currentYear);
+				var yearBooks = allBooks();
 				currentAlbumBooks = yearBooks;
 				var safeIndex = Math.max(0, Math.min(startIndex, yearBooks.length - 1));
 				destroyFlip();
@@ -999,14 +1045,14 @@ function ensureAlbum(token, year, yearBooks) {
 				statusEl.textContent = '…';
 				var preview = yearBooks[safeIndex];
 				if (preview) {
-					titleEl.textContent = preview.label + '　' + preview.title;
+					titleEl.textContent = preview.title;
 					if (downloadEl) {
 						downloadEl.href = preview.url;
 						downloadEl.style.visibility = 'visible';
 					}
 				}
 
-				ensureAlbum(token, year || currentYear, yearBooks).then(function (album) {
+				ensureAlbum(token, yearBooks).then(function (album) {
 					if (!album || token !== openToken) return;
 					if (!ensureFlipbookEl()) return;
 					var usablePages = (album.pages || []).filter(function (pageDiv) {
