@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>PROWAY SPEECH THERAPY - 諾道分享</title>
+	<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="" />
+	<meta property="og:title" content="「認知」到底是什麼？" />
+	<meta property="og:description" content="「認知」是指⼀個⼈學習、思考、應付環境和解決問題的能⼒，亦即是⼀種適應⽣活的能⼒..." />
+	<meta property="og:image" content="../images/Article/article026.png" />
+	<meta property="og:url" content="article/article026.html" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- bootstrap-css -->
+	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<!--// bootstrap-css -->
+	<!-- css -->
+	<link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+	<!--// css -->
+	<!-- font-awesome icons -->
+	<link href="../css/font-awesome.css" rel="stylesheet">
+	<!-- //font-awesome icons -->
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,900,800,700,600,500,300,200,100" rel="stylesheet"
+		type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300'
+		rel='stylesheet' type='text/css'>
+	<!-- //font -->
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			});
+		});
+	</script>
+
+	<script>
+		// Toggle the visibility of the share menu
+		function toggleShareMenu() {
+			const menu = document.getElementById('share-menu');
+			if (menu.style.display === 'block') {
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+
+		// Sharing to WhatsApp
+		function shareToWhatsApp() {
+			const url = encodeURIComponent(window.location.href);
+			const text = encodeURIComponent('看看這篇文章！');
+			window.open(`https://wa.me/?text=${text} ${url}`, '_blank');
+		}
+
+		// Sharing to Facebook
+		function shareToFacebook() {
+			const url = encodeURIComponent(window.location.href); // The current page URL
+			window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+		}
+
+
+		// Close the menu when clicking outside it
+		document.addEventListener('click', (event) => {
+			const menu = document.getElementById('share-menu');
+			const button = document.querySelector('.btn-success');
+			if (!menu.contains(event.target) && event.target !== button) {
+				menu.style.display = 'none';
+			}
+		});
+	</script>
+	<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+	<style>
+		#myTable {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		#myTable th,
+		#myTable td {
+			border: 1px solid #000;
+			padding: 8px;
+			text-align: center;
+		}
+
+		#myTable th {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- banner -->
+	<div class="banner about-banner">
+		<div class="header">
+			<div class="container">
+				<div class="header-left">
+					<div class="w3layouts-logo">
+						<h2>
+							<a href="../index.html" class="speech-therapy">
+								<img src="../images/icon.png">
+								<div class="speech-therapy-text">
+									<div>諾道言語治療</div>
+									<div>PROWAY SPEECH THERAPY</div>
+								</div>
+							</a>
+						</h2>
+					</div>
+				</div>
+				<div class="header-right">
+					<div class="w3-header-bottom">
+						<div class="top-nav">
+							<nav class="navbar navbar-default">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+										data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+								<!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav">
+										<li><a href="../index.html">主頁</a></li>
+										<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
+												data-toggle="dropdown" role="button" aria-haspopup="true"
+												aria-expanded="false">諾道服務<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a class="hvr-bounce-to-bottom"
+														href="../our-services/prevention.html">預防</a></li>
+												<li><a class="hvr-bounce-to-bottom"
+														href="../our-services/intervention.html">治療</a></li>
+												<li><a class="hvr-bounce-to-bottom"
+														href="../our-services/enhancement.html">提升</a></li>
+											</ul>
+										</li>
+										<li class=""><a href="#" class="dropdown-toggle hvr-bounce-to-bottom"
+												data-toggle="dropdown" role="button" aria-haspopup="true"
+												aria-expanded="false">諾道團隊<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a class="hvr-bounce-to-bottom"
+														href="../about.html#therapist">言語治療師</a></li>
+												<li><a class="hvr-bounce-to-bottom" href="../about.html#worker">註冊社工</a>
+												</li>
+												<li><a class="hvr-bounce-to-bottom"
+														href="../about.html#psychologist">教育心理學家</a></li>
+											</ul>
+										</li>
+										<li class=""><a href="../share.html"
+											class="active dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown"
+											role="button" aria-haspopup="true" aria-expanded="false">諾道分享<span
+												class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a class="hvr-bounce-to-bottom"
+													href="../share.html">文章分享</a></li>
+											<li><a class="hvr-bounce-to-bottom"
+													href="../book.html">繪本分享</a></li>
+										</ul>
+									</li>
+										<li><a href="../good.html">諾道好評</a></li>
+										<li><a href="../cooperate.html">合作機構/學校</a></li>
+										<li><a href="../contact.html">聯絡諾道</a></li>
+									</ul>
+									<div class="clearfix"> </div>
+								</div>
+							</nav>
+						</div>
+						<div class="agileinfo-social-grids">
+							<ul>
+								<li><a href="https://wa.me/85265328821"><img src="../images/whatsapp2.png"></a></li>
+								&nbsp&nbsp
+								<li><a href="mailto:info@prowayst.com"><img src="../images/mail.png"></i></a></li>
+								&nbsp&nbsp
+								<li><a href="https://www.facebook.com/prowayspeechtherapy/"><img
+											src="../images/facebook.png"></a></li>&nbsp&nbsp
+								<li><a href="https://www.instagram.com/prowayspeechtherapy/"><img
+											src="../images/instagram.png"></a></li>
+								&nbsp&nbsp
+								<li><a class="qr-link" href="../images/wechat_QR.jpg"
+										title="微信 WeChat ID: prowayst"><img src="../images/wechat.png"
+											alt="WeChat"></a></li>&nbsp&nbsp
+								<li><a class="qr-link" href="../images/redbook_QR.jpg"
+										title="小紅書號：95848162943"><img src="../images/redbook.png" alt="小紅書"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner -->
+	<!-- single -->
+	<div class="single">
+		<div class="container">
+			<!-- article -->
+			<div class="article">
+				<div class="narrow-text">
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<h2>「認知」到底是什麼？</h2>
+						<div style="position: relative; display: inline-block;">
+							<button class="btn btn-success"
+								style="position: relative; display: flex; align-items: center;"
+								onclick="toggleShareMenu()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-share" viewBox="0 0 16 16" style="margin-right: 5px;">
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+								</svg>
+								Share
+							</button>
+							<div id="share-menu"
+								style="display: none; position: absolute; top: 40px; left: 0; background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToWhatsApp()">
+									<img src="../images/whatsapp2.png"
+										style="width: 24px; height: 24px; vertical-align: middle; margin-right: 3px;">
+									WhatsApp
+								</button>
+								<button class="btn btn-primary"
+									style="background-color: transparent; border-color: transparent; color: rgb(5, 77, 49);"
+									onclick="shareToFacebook()">
+									<img src="../images/facebook.png"
+										style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+									Facebook
+								</button>
+							</div>
+						</div>
+					</div>
+					<p>撰文：諾道團隊</p>
+					<p>24-10-2026</p>
+				</div>
+				<div style="text-align: center;">
+					<img src="../images/Article/article026.png" style="max-width: 100%;" />
+				</div>
+				<hr>
+				<div class="panel-body narrow-text">
+
+					「認知」是指⼀個⼈學習、思考、應付環境和解決問題的能⼒，亦即是⼀種適應⽣活的能⼒。認知能⼒的⾼低主要從個⼈的⾔語和⾏為表現推斷出來。當兒童不斷接觸不同的環境與事物，其認知能⼒在質與量⽅⾯均會產⽣變化。<br><br>
+
+					學前兒童認知學習主要分為七個範疇：<br>
+					1. 感覺知覺<br>
+					2. 因果關係<br>
+					3. 空間概念<br>
+					4. 物件概念<br>
+					5. 顏⾊概念<br>
+					6. 形狀概念<br>
+					7. 數學概念
+
+					<br><br>
+					<b>1. 感覺知覺</b><br>
+					兒童藉著探索身體部分，包括視覺、聽覺、觸覺、味覺和嗅覺，以及外物，吸收到豐富的資料，作為發動思維系統的基本素材。
+					<br><br>
+					<b>2. 因果關係</b><br>
+					幫助兒童建⽴因果關係的概念，包括了解各種引起後果的事、物及與其所產⽣後果的關係。學習內容分為兒童察覺由⾃⼰引起的結果、察覺由其他事物引起的後果、⽤⾏動嘗試引發因果關係及只⽤思考推理後果。
+					<br><br>
+					<b>3. 空間概念</b><br>
+					幫助兒童發展物我空間概念、物與物之間的空間概念、物件恒存概念、平⾯空間概念和身體空間概念。
+					<br><br>
+					<b>4. 物件概念</b><br>
+					透過反覆的接觸，兒童對個別物件逐漸增加認識。通過配對、分析、比較及分類等過程，兒童慢慢領略到不同事物的外貌、名稱、特質、⽤途、類別和異同。
+					<br><br>
+					<b>5. 顏⾊概念</b><br>
+					透過顏⾊配對、分類、辨認和顏⾊運⽤，建⽴兒童對顏⾊的認知以應付⽣活需要。
+					<br><br>
+					<b>6. 形狀概念</b><br>
+					通過配對、分類、辨認、仿畫和運⽤等⽅法，幫助兒童建⽴對形狀的認知以應付⽣活需要。
+					<br><br>
+					<b>7. 數學概念</b><br>
+					當兒童對物件的屬性有了基本的概念，並已認識簡單的物件與物件之間的關係，兒童便有條件進⼀步運⽤⼤⼩、長短、多寡等概念。通過排列、比較、數算等形式的訓練，開始進⾏簡單的數學運算和邏輯推理。
+					<br><br>
+
+
+					<h4><b>總結：為什麼我們這麼緊張孩⼦的認知發展︖</b></h4>
+					學前兒童的認知能⼒就像是⼤腦的「中央處理器」，亦是決定孩⼦未來適應能⼒的關鍵地基。許多家長誤以為認知只是提早學識字或數數，但我們更看重它對全⼈發展的深遠影響。
+					<br><br>
+					認知發展⼀旦落後，往往會引發連帶的「骨牌效應」：當孩⼦的感覺知覺、空間或物件概念不穩時，會直接推倒下⼀張骨牌，導致他們在⽇常⾃理上笨⼿笨腳、語⾔表達遲緩，甚至在社交時因無法理解情境⽽產⽣挫敗感與⾏為問題。
+					<br><br>
+					相反，良好的認知能⼒能點亮⼤腦的「執⾏功能」，培養出⾼專注⼒、良好的短期記憶與應變能⼒。我們在學前⿈⾦期把握每分每秒，為的就是幫孩⼦打好底⼦，阻⽌負⾯的骨牌效應發⽣。當認知根基穩固，孩⼦就能學會「舉⼀反三」，未來無論⾯對⼩學課業還是⽇常⽣活的挑戰，都有能⼒做出明智決定，⾃信地適應社會。
+					<br><br>
+					參考資料：協康會：兒童學習綱領
+					<br><br>					
+
+				</div>
+			</div>
+			<!-- //article -->
+		</div>
+		<!-- //single -->
+		<!-- footer -->
+		<div class="footer">
+			<div class="container">
+				<div class="agile-footer-grids">
+					<div class="col-md-4 agile-footer-grid">
+						<h4>諾道言語治療</h4>
+						<span>地址：沙田石門安耀街5號W LUXE 21樓N3及23樓S15</span><br>
+						<span>電話：6532 8821</span><br>
+						<span>電郵：info@prowayst.com</span>
+					</div>
+
+					<div class="col-md-4 agile-footer-grid">
+						<span><b>星期二至日</b> 09:00 - 18:00</span><br>
+						<span><b>星期一及公眾假期</b> 休息</span><br>
+						<span><b>敬請預約</b></span>
+					</div>
+
+
+
+				</div>
+
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //footer -->
+	<!-- copyright -->
+	<div class="agileits-w3layouts-copyright">
+		<div class="container">
+			<p>Copyright &copy; 2026.PROWAY SPEECH THERAPY All rights reserved.</p>
+		</div>
+	</div>
+	<!-- //copyright -->
+	<script src="../js/SmoothScroll.min.js"></script>
+		<script src="../js/qr-modal.js"></script>
+	<script type="text/javascript" src="../js/move-top.js"></script>
+	<script type="text/javascript" src="../js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+		});
+	</script>
+	<!-- //here ends scrolling icon -->
+</body>
+
+</html>
